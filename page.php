@@ -58,4 +58,8 @@
     
 			</div> <!-- end #content -->
 
+			<div id="footer-pad"></div> <!-- to position footer at bottom of page -->
+
+</div> <!-- #page-wrapper end -->			
+
 <?php get_footer(); ?>

@@ -2,37 +2,17 @@
 /*
 Author: Eddie Machado
 URL: htp://themble.com/bones/
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images, 
-sidebars, comments, ect.
-*/
-
-/************* INCLUDE NEEDED FILES ***************/
-
-/*
-1. library/bones.php
-    - head cleanup (remove rsd, uri links, junk css, ect)
-	- enqeueing scripts & styles
-	- theme support functions
-    - custom menu output & fallbacks
-	- related post function
-	- page-navi function
-	- removing <p> from around images
-	- customizing the post excerpt
-	- custom google+ integration
-	- adding custom fields to user profiles
 */
 require_once('library/bones.php'); // if you remove this, bones will break
 /*
-2. library/custom-post-type.php
+library/custom-post-type.php
     - an example custom post type
     - example custom taxonomy (like categories)
     - example custom taxonomy (like tags)
 */
 require_once('library/custom-post-type.php'); // you can disable this if you like
 /*
-3. library/admin.php
+library/admin.php
     - removing some default WordPress dashboard widgets
     - an example custom dashboard widget
     - adding custom login css
@@ -40,7 +20,7 @@ require_once('library/custom-post-type.php'); // you can disable this if you lik
 */
 // require_once('library/admin.php'); // this comes turned off by default
 /*
-4. library/translation/translation.php
+library/translation/translation.php
     - adding support for other languages
 */
 // require_once('library/translation/translation.php'); // this comes turned off by default
@@ -84,30 +64,16 @@ function bones_register_sidebars() {
     	'after_title' => '</h4>',
     ));
     
-    /* 
-    to add more sidebars or widgetized areas, just copy
-    and edit the above sidebar code. In order to call 
-    your new sidebar just use the following code:
-    
-    Just change the name to whatever your new
-    sidebar's id is, for example:
-    
-    register_sidebar(array(
-    	'id' => 'sidebar2',
-    	'name' => 'Sidebar 2',
-    	'description' => 'The second (secondary) sidebar.',
-    	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    	'after_widget' => '</div>',
-    	'before_title' => '<h4 class="widgettitle">',
-    	'after_title' => '</h4>',
-    ));
-    
-    To call the sidebar in your template, you can just copy
-    the sidebar.php file and rename it to your sidebar's name.
-    So using the above example, it would be:
-    sidebar-sidebar2.php
-    
-    */
+	register_sidebar(array(
+		'id' => 'sidebar-blog-block',
+		'name' => 'Blog Block',
+		'description' => 'A content block (sidebar) for blog and twitter feeds.',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
 } // don't remove this bracket!
 
 /************* COMMENT LAYOUT *********************/
@@ -155,5 +121,31 @@ function bones_wpsearch($form) {
     return $form;
 } // don't remove this bracket!
 
+//  ========================
+//  = Additional Functions =
+//  ========================
+
+
+// function set_newuser_cookie() {
+//     if (!isset($_COOKIE['sitename_newvisitor'])) {
+//         setcookie('sitename_newvisitor', 1, time()+1209600, COOKIEPATH, COOKIE_DOMAIN, false);
+//     }
+// }
+// add_action( 'init', 'set_newuser_cookie');
+
+// if (!isset($_COOKIE['sitename_newvisitor'])) {
+// 	echo 'Welcome, new user!';
+// }
+
+function is_mobile_device() {
+	$useragent=$_SERVER['HTTP_USER_AGENT'];
+	// Detect Mobile Device
+	// http://detectmobilebrowsers.com
+	if (preg_match('/android.+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i',$useragent)||preg_match('/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(di|rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i',substr($useragent,0,4))) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 ?>

@@ -51,7 +51,65 @@ style a page via class
 	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
 	.tag-paged-1 {}                 /* replace the number to the corresponding page number */
 .page-template {}                   /* custom page template page */
-	.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
+	.page-template-page-front-php {
+		#taglinebar {
+			background: url('../images/taglinebar_bg_tab_wide.png') repeat-x top;
+			//padding-top: 3.6px;
+			height: 366px;
+			width: 100%;			
+			#inner-taglinebar {
+				background: url('../images/taglinebar_tab_wide.jpg') no-repeat scroll 50% 3px;
+				height: 352px;
+				width: auto;
+			}
+		}
+		#summary {
+			width: inherit;
+			padding-bottom: $twocol;
+			.firstcol {
+				margin-left: $threecol;
+				padding-bottom: 0;
+			}
+			.lastcol {
+				margin-left: $margin + $margin + $margin;
+			}
+		}
+		#sidebar-blog-block {
+			#inner-sidebar-blog-block {	
+				width: 616px;
+				margin-left: -(616px / 2);
+				#wrapper-sidebar-blog-block {
+					#text-2 {
+						text-align: right;
+						#twitter_logo {
+							background-position: right top;
+						}
+						.textwidget {
+						}			
+					}		
+					#recent-posts-plus-2 {
+						display: block;
+						float: left;
+						margin-left: 24px;
+						.recentpostswidget {
+						}
+						#blog_logo {
+							background: url('../images/blog_tab.png') no-repeat left top;
+							height: 65px;
+							padding-bottom: 1.5em;
+						}
+						#blog_text {
+							width: 296px;
+						}	
+						.widgettitle {
+							display: none;
+						}
+					}
+				}
+			}
+		}		
+	}
+	.page-template-page-php {}     /* individual page template (i.e. body.page-template-contact-php */
 	.page-paged-1 {}                /* replace the number to the corresponding page number */
 	.page-parent {}
 	.page-child {}
@@ -65,147 +123,182 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-	max-width: 1140px;
+	max-width: 1096px;
 }
-	/*
-		This is a combination of the 1140 grid and Twitter Boostrap.
-		I liked 1140 but Boostrap's grid was way more detailed so
-		I merged them together, let's see how this works out.
-		If you want to use 1140, the original values are commented
-		out on each line.
-	*/
-	.onecol    { width: 5.801104972%;  }       /* 4.85%;  } /* grid_1  */
-	.twocol    { width: 14.364640883%; }       /* 13.45%; } /* grid_2  */
-	.threecol  { width: 22.928176794%; }       /* 22.05%; } /* grid_3  */
-	.fourcol   { width: 31.491712705%; }       /* 30.75%; } /* grid_4  */
-	.fivecol   { width: 40.055248616%; }       /* 39.45%; } /* grid_5  */
-	.sixcol    { width: 48.618784527%; }       /* 48%;    } /* grid_6  */
-	.sevencol  { width: 57.182320438000005%; } /* 56.75%; } /* grid_7  */
-	.eightcol  { width: 65.74585634900001%; }  /* 65.4%;  } /* grid_8  */
-	.ninecol   { width: 74.30939226%; }        /* 74.05%; } /* grid_9  */
-	.tencol    { width: 82.87292817100001%; }  /* 82.7%;  } /* grid_10 */
-	.elevencol { width: 91.436464082%; }       /* 91.35%; } /* grid_11 */
-	.twelvecol { width: 99.999999993%; }       /* 100%;   } /* grid_12 */
-	
-	/* layout & column defaults */
-	.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol { 
-		position: relative;
-		float: left; 
-		margin-left: 2.762430939%;
-	}
-	
-	.first {
-		margin-left: 0;
-	}
-	
-	.last {
-		float: right;
-	}
+
+.onecol    { width: 5.109489%;  } /* width 56px  / grid_1  */
+.twocol    { width: 12.408759%; } /* width 136px / grid_2  */
+.threecol  { width: 19.708029%; } /* width 216px / grid_3  */
+.fourcol   { width: 27.007299%; } /* width 296px / grid_4  */
+.fivecol   { width: 34.306569%; } /* width 376px / grid_5  */
+.sixcol    { width: 41.605839%; } /* width 456px / grid_6  */
+.sevencol  { width: 48.905109%; } /* width 536px / grid_7  */
+.eightcol  { width: 56.204379%; } /* width 616px / grid_8  */
+.ninecol   { width: 63.503649%; } /* width 696px / grid_9  */
+.tencol    { width: 70.802919%; } /* width 776px / grid_10 */
+.elevencol { width: 78.102189%; } /* width 856px / grid_11 */
+.twelvecol { width: 85.401459%; } /* width 936px / grid_12 */
+.thirtcol  { width: 92.700729%; } /* width 1016px / grid_13 */
+.fourtcol  { width: 100.0%;     } /* width 1096px / grid_14 */
+
+/* layout & column defaults */
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol, .thirtcol, .fourtcol { 
+	position: relative;
+	float: left; 
+	margin-left: 2.189781%;  /* 24px */
+}
+
+.first {
+	margin-left: 0;
+}
+
+.last {
+	float: right;
+}
+
+
+/* ============ */
+/* = Ellipsis = */
+/* ============ */
+.ellipsis {
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*********************
+LINK STYLES
+*********************/
+
+a, a:visited {
+	@include css-transition(all,0.25s,ease);		
+}
+
 
 /*********************
 HEADER SYTLES
 *********************/
 
-.header {}
+#inner-header {
+	ul {
+		font-size: 18px;
+		li {
+			margin: 0 .85em;
+		}
+	}
+}
 
-	#logo {}
+.header {
+	background: url('../images/header_bg_wide_tab.png') repeat-x top;
+	height: 140px;
+}
+
+	#logo {
+		margin-top: 30px;		
+		a {
+			background: url('../images/logo_wide_tab.png') no-repeat top;
+			height: 33px;
+			width: 362px;
+			margin-left: -181px;
+		}
+	}
 	
 /*********************
 NAVIGATION STYLES
 *********************/
 
-.nav {
-	background: #eee; 
-	border: 0;
+// .nav {
+// 	background: #eee; 
+// 	border: 0;
 			
-	li {
-		float: left;
-		position: relative;
+// 	li {
+// 		float: left;
+// 		position: relative;
 				
-		a {
-			border-bottom: 0;
+// 		a {
+// 			border-bottom: 0;
 					
-			/*
-			you can use hover styles here even though this size
-			has the possibility of being a mobile device.
-			*/
-			&:hover, &:focus {
-				background-color: #dedede;
+// 			/*
+// 			you can use hover styles here even though this size
+// 			has the possibility of being a mobile device.
+// 			*/
+// 			&:hover, &:focus {
+// 				background-color: #dedede;
 					
-			}
-		}
+// 			}
+// 		}
 				
-		&:first-child {}
-		&:last-child {}
+// 		&:first-child {}
+// 		&:last-child {}
 				
-		/*
-		plan your menus and drop-downs wisely.
-		*/
-		ul.sub-menu,
-		ul.children {
-			width: 200px;
-			border: 1px solid #ccc;
-			border-top: 0;
-			position: absolute;
-			display: none;
-			z-index: 8999;
+// 		/*
+// 		plan your menus and drop-downs wisely.
+// 		*/
+// 		ul.sub-menu,
+// 		ul.children {
+// 			width: 200px;
+// 			border: 1px solid #ccc;
+// 			border-top: 0;
+// 			position: absolute;
+// 			display: none;
+// 			z-index: 8999;
 						
-			li {
+// 			li {
 		
-				a {
-					padding-left: 10px;
-					border-right: 0;
-					display: block;
-					width: 180px;
-					border-bottom: 1px solid #ccc;
+// 				a {
+// 					padding-left: 10px;
+// 					border-right: 0;
+// 					display: block;
+// 					width: 180px;
+// 					border-bottom: 1px solid #ccc;
 							
-					&:hover,
-					&:focus {}
+// 					&:hover,
+// 					&:focus {}
 		
-					&:link {}
-				}
+// 					&:link {}
+// 				}
 		
-				&:first-child {}
+// 				&:first-child {}
 	
-				&:last-child {
+// 				&:last-child {
 		
-					a {
-						border-bottom: 0;
-					}
-				}
+// 					a {
+// 						border-bottom: 0;
+// 					}
+// 				}
 						
-				/*
-				if you need to go deeper, go nuts
-				just remember deeper menus suck
-				for usability. k, bai.
-				*/
-				ul {}
-			}
+// 				/*
+// 				if you need to go deeper, go nuts
+// 				just remember deeper menus suck
+// 				for usability. k, bai.
+// 				*/
+// 				ul {}
+// 			}
 					
-			/* highlight sub-menu current page */
-			li.current-menu-item, 
-			li.current_page_item,
-			li.current-page-ancestor {
-				a {}
-			}
-		}
+// 			/* highlight sub-menu current page */
+// 			li.current-menu-item, 
+// 			li.current_page_item,
+// 			li.current-page-ancestor {
+// 				a {}
+// 			}
+// 		}
 				
-		/* showing sub-menus */
-		&:hover ul {
-			top: auto;
-			display: block;
-		}
+// 		/* showing sub-menus */
+// 		&:hover ul {
+// 			top: auto;
+// 			display: block;
+// 		}
 				
-	} /* end .menu ul li */
+// 	} /* end .menu ul li */
 			
-	/* highlight current page */
-	li.current-menu-item, 
-	li.current_page_item,
-	li.current-page-ancestor {
-		a {}
-	}  /* end current highlighters */
+// 	/* highlight current page */
+// 	li.current-menu-item, 
+// 	li.current_page_item,
+// 	li.current-page-ancestor {
+// 		a {}
+// 	}  /* end current highlighters */
 	
-} /* end .nav */
+// } /* end .nav */
 	
 /*********************
 SIDEBARS & ASIDES
@@ -216,17 +309,17 @@ SIDEBARS & ASIDES
 }
 
 	.widgettitle {
-		border-bottom: 2px solid #444;
-		margin-bottom: 0.75em;
+		//border-bottom: 2px solid #444;
+		//margin-bottom: 0.75em;
 	}
 
 	.widget {
-		padding: 0 10px;
-		margin: 2.2em 0;
+		//padding: 0 10px;
+		//margin: 2.2em 0;
 		
 		ul {
 			li {
-				margin-bottom: 0.75em;
+				//margin-bottom: 0.75em;
 				
 				&:first-child {}
 				&:last-child {}
@@ -234,13 +327,12 @@ SIDEBARS & ASIDES
 				/* deep nesting */
 				
 				ul {
-					margin-top: 0.75em;
-					padding-left: 1em;
+					//margin-top: 0.75em;
+					//padding-left: 1em;
 				}
 			}
 		}
 	}
-
 
 	/* links widget */
 	.widget_links {}
@@ -328,7 +420,6 @@ SIDEBARS & ASIDES
 	.textwidget {}
 	.widget_text {}
 	.textwidget p {}
-	
 
 /*********************
 FOOTER STYLES
@@ -354,4 +445,49 @@ mobile. Make sure to double check these!
 		}
 	}
 } /* end .footer-links */
-			
+
+#page-footer {
+	#inner-footer {
+		#attribution-links {
+			background: none;
+			height: auto;
+			position: static;
+			margin: 0;
+			padding: 0;		
+			ul {
+				li {
+					&:first-child {
+						&::before {
+							content: "\25AA";
+							margin: 0 4px 0 0;
+						}
+					}	
+				}
+				#fatcatch-credit {
+					&::after {
+						content: none;
+					}				
+				}
+				#html5-logo-wrapper {
+					a {
+						border-bottom: none;
+						text-indent: 105%; // Mac Firefox exposes edge of text when indent = 100%
+						white-space: nowrap;
+						overflow: hidden;
+						position: absolute;
+						margin-top: 25px;
+						margin-left: -87px; /* 1/2 width of element to be centered in px */
+						left: 50%;
+						background: url('../images/html5_logo.png') no-repeat top;
+						width: 173px;
+						height: 39px;
+						&:hover {
+							opacity: 0.75;
+						}
+					}
+				}			
+			}			
+		}
+	}
+}
+

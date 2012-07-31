@@ -8,3 +8,87 @@ This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop. 
 
 ******************************************************************/
+
+/********************
+WORDPRESS BODY CLASSES
+style a page via class
+********************/
+
+.page-template {}                   /* custom page template page */
+	.page-template-page-front-php {
+		#summary {
+			font-size:	inherit;
+			line-height: inherit;
+			.firstcol {
+				margin-left: $twocol + $margin;
+				background: url('../images/design_wide.png') no-repeat top center;
+				padding-top: 200px;				
+			}
+			.lastcol {
+				margin-left: $margin + $twocol + $margin;
+				background: url('../images/development_wide.png') no-repeat top center;
+				padding-top: 175px;
+				margin-top: 25px;				
+			}
+			ul {
+				li {
+					background: url('../images/bullet_square_wide.png') no-repeat 0 0.65em;
+				}
+			}			
+		}
+		#sidebar-blog-block {
+			background: url('../images/blog_block_gradient_wide.png') repeat-x top;
+			height: 221px;	
+			#inner-sidebar-blog-block {
+				width: 940px;
+				margin-left: -(940px / 2);
+				height: 214px;
+				#wrapper-sidebar-blog-block {
+					#text-2, #recent-posts-plus-2 {
+						display: table;
+						height: 214px;
+						position: relative;
+					}
+					#text-2 {
+						.textwidget {
+							display: table-cell;
+							vertical-align: middle;
+						}
+						#twitter_logo {
+							background: url('../images/twitter_wide.png') no-repeat right;
+							height: 138px;
+							width: 138px;
+							margin-top: 39px;
+							padding-bottom: 0;
+							position: absolute;
+							right: 0;
+							top: 0;
+						}
+						#twitter_text {
+							padding-right: 24px + 138px;
+						}			
+					}		
+					#recent-posts-plus-2 {
+						.recentpostswidget {
+							display: table-cell;
+							vertical-align: middle;	
+						}
+						#blog_logo {
+							background: url('../images/blog_wide.png') no-repeat left;
+							height: 138px;
+							width: 138px;
+							margin-top: 39px;
+							padding-bottom: 0;
+							position: absolute;
+							left: 0;
+							top: 0;			
+						}
+						#blog_text {
+							padding-left: 138px + 24px;				
+						}
+					}
+				}
+			}
+		}		
+	}
+

@@ -28,7 +28,7 @@
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
 		<!-- end of wordpress head -->
-			
+		
 		<!-- drop Google Analytics Here -->
 		<!-- end analytics -->
 		
@@ -38,20 +38,21 @@
 	
 		<div id="container">
 			
+			<div id="page-wrapper" class="clearfix">
+			
 			<header class="header" role="banner">
 			
 				<div id="inner-header" class="wrap clearfix">
 					
-					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
-					
-					<!-- if you'd like to use the site description you can un-comment it below -->
-					<?php // bloginfo('description'); ?>
-					
-					
 					<nav role="navigation">
 						<?php bones_main_nav(); // Adjust using Menus in Wordpress Admin ?>
 					</nav>
+					
+					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
+					<h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow" class="image-replacement"><?php bloginfo('name'); ?></a></h1>
+					
+					<!-- if you'd like to use the site description you can un-comment it below -->
+					<?php // bloginfo('description'); ?>
 				
 				</div> <!-- end #inner-header -->
 			

@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Custom Page Example
+Template Name: Page Without Comments
 */
 ?>
 
@@ -20,7 +20,7 @@ Template Name: Custom Page Example
 							
 							    <h1 class="page-title"><?php the_title(); ?></h1>
 							
-							    <p class="meta"><?php __("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php __("by", "bonestheme"); ?> <?php the_author_posts_link(); ?>.</p>
+							    <p class="meta"><?php __("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('c'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php __("by", "bonestheme"); ?> <?php the_author_posts_link(); ?>.</p>
 						
 						    </header> <!-- end article header -->
 					
@@ -33,8 +33,6 @@ Template Name: Custom Page Example
 							    <p class="clearfix"><?php the_tags('<span class="tags">Tags: ', ', ', '</span>'); ?></p>
 							
 						    </footer> <!-- end article footer -->
-						    
-						    <?php comments_template(); ?>
 					
 					    </article> <!-- end article -->
 					
@@ -50,7 +48,7 @@ Template Name: Custom Page Example
         						    <p><?php __("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
         						</section>
         						<footer class="article-footer">
-        						    <p><?php __("This is the error message in the page-custom.php template.", "bonestheme"); ?></p>
+        						    <p><?php __("This is the error message in the page-nocomments.php template.", "bonestheme"); ?></p>
         						</footer>
         					</article>
 					
@@ -60,12 +58,13 @@ Template Name: Custom Page Example
     
 				    <?php get_sidebar(); // sidebar 1 ?>
 				    
-				</div> <!-- end #inner-content -->
+				</div> <!-- end #inner-content -->			
     
 			</div> <!-- end #content -->
 
 			<div id="footer-pad"></div> <!-- to position footer at bottom of page -->
 
-</div> <!-- #page-wrapper end -->			
+
+</div> <!-- #page-wrapper end -->
 
 <?php get_footer(); ?>

@@ -1,1 +1,634 @@
-.clearfix{zoom:1}.clearfix:before,.clearfix:after{content:"";display:table}.clearfix:after{clear:both}.image-replacement{text-indent:100%;white-space:nowrap;overflow:hidden}span.amp{font-family:Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;font-style:italic}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.alert{margin:10px;padding:5px 18px;border:1px solid}.help{border-color:#e8dc59;background:#ebe16f}.info{border-color:#bfe4f4;background:#d5edf8}.error{border-color:#f8cdce;background:#fbe3e4}.success{border-color:#deeaae;background:#e6efc2}.button,.button:visited{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;border:1px solid #be0d37;border-top-color:#db0f3f;border-left-color:#db0f3f;padding:4px 12px;color:#fff;display:inline-block;font-size:11px;font-weight:bold;text-decoration:none;text-shadow:0 1px rgba(0,0,0,0.75);cursor:pointer;margin-bottom:20px;line-height:21px;-webkit-border-radius:4px;-moz-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;border-radius:4px;background-color:#e40f42;background-image:-webkit-gradient(linear, left top, left bottom, from(#f01d4f), to(#e40f42));background-image:-webkit-linear-gradient(top, #f01d4f, #e40f42);background-image:-moz-linear-gradient(top, #f01d4f, #e40f42);background-image:-o-linear-gradient(top, #f01d4f, #e40f42);background-image:-ms-linear-gradient(top, #f01d4f, #e40f42);background-image:linear-gradient(top, #f01d4f, #e40f42)}.button:hover,.button:focus,.button:visited:hover,.button:visited:focus{color:#fff;border:1px solid #be0d37;border-top-color:#9d0a2d;border-left-color:#9d0a2d;background-color:#cc0e3b;background-image:-webkit-gradient(linear, left top, left bottom, from(#e40f42), to(#cc0e3b));background-image:-webkit-linear-gradient(top, #e40f42, #cc0e3b);background-image:-moz-linear-gradient(top, #e40f42, #cc0e3b);background-image:-o-linear-gradient(top, #e40f42, #cc0e3b);background-image:-ms-linear-gradient(top, #e40f42, #cc0e3b);background-image:linear-gradient(top, #e40f42, #cc0e3b)}.button:active,.button:visited:active{background-color:#f01d4f;background-image:-webkit-gradient(linear, left top, left bottom, from(#e40f42), to(#f01d4f));background-image:-webkit-linear-gradient(top, #e40f42, #f01d4f);background-image:-moz-linear-gradient(top, #e40f42, #f01d4f);background-image:-o-linear-gradient(top, #e40f42, #f01d4f);background-image:-ms-linear-gradient(top, #e40f42, #f01d4f);background-image:linear-gradient(top, #e40f42, #f01d4f)}.blue-button,.blue-button:visited{border-color:#1472ad;text-shadow:0 1px 1px #1472ad;background-color:#1681c4;background-image:-webkit-gradient(linear, left top, left bottom, from(#1990db), to(#1681c4));background-image:-webkit-linear-gradient(top, #1990db, #1681c4);background-image:-moz-linear-gradient(top, #1990db, #1681c4);background-image:-o-linear-gradient(top, #1990db, #1681c4);background-image:-ms-linear-gradient(top, #1990db, #1681c4);background-image:linear-gradient(top, #1990db, #1681c4);-webkit-box-shadow:inset 0 0 3px #59b3ec;-moz-box-shadow:inset 0 0 3px #59b3ec;box-shadow:inset 0 0 3px #59b3ec}.blue-button:hover,.blue-button:focus,.blue-button:visited:hover,.blue-button:visited:focus{border-color:#116396;background-color:#1472ad;background-image:-webkit-gradient(linear, left top, left bottom, from(#1784c9), to(#1472ad));background-image:-webkit-linear-gradient(top, #1784c9, #1472ad);background-image:-moz-linear-gradient(top, #1784c9, #1472ad);background-image:-o-linear-gradient(top, #1784c9, #1472ad);background-image:-ms-linear-gradient(top, #1784c9, #1472ad);background-image:linear-gradient(top, #1784c9, #1472ad)}.blue-button:active,.blue-button:visited:active{background-color:#1990db;background-image:-webkit-gradient(linear, left top, left bottom, from(#1681c4), to(#1990db));background-image:-webkit-linear-gradient(top, #1681c4, #1990db);background-image:-moz-linear-gradient(top, #1681c4, #1990db);background-image:-o-linear-gradient(top, #1681c4, #1990db);background-image:-ms-linear-gradient(top, #1681c4, #1990db);background-image:linear-gradient(top, #1681c4, #1990db)}.post-content .alignleft,.post-content img.alignleft{margin-right:1.5em;display:inline;float:left}.post-content .alignright,.post-content img.alignright{margin-left:1.5em;display:inline;float:right}.post-content .aligncenter,.post-content img.aligncenter{margin-right:auto;margin-left:auto;display:block;clear:both}.wrap{max-width:1140px}.onecol{width:5.801104972%}.twocol{width:14.364640883%}.threecol{width:22.928176794%}.fourcol{width:31.491712705%}.fivecol{width:40.055248616%}.sixcol{width:48.618784527%}.sevencol{width:57.182320438000005%}.eightcol{width:65.74585634900001%}.ninecol{width:74.30939226%}.tencol{width:82.87292817100001%}.elevencol{width:91.436464082%}.twelvecol{width:99.999999993%}.onecol,.twocol,.threecol,.fourcol,.fivecol,.sixcol,.sevencol,.eightcol,.ninecol,.tencol,.elevencol,.twelvecol{position:relative;float:left;margin-left:2.762430939%}.first{margin-left:0}.last{float:right}.nav{background:#eee;border:0}.nav li{float:left;position:relative}.nav li a{border-bottom:0}.nav li a:hover,.nav li a:focus{background-color:#dedede}.nav li ul.sub-menu,.nav li ul.children{width:200px;border:1px solid #ccc;border-top:0;position:absolute;display:none;z-index:8999}.nav li ul.sub-menu li a,.nav li ul.children li a{padding-left:10px;border-right:0;display:block;width:180px;border-bottom:1px solid #ccc}.nav li ul.sub-menu li:last-child a,.nav li ul.children li:last-child a{border-bottom:0}.nav li:hover ul{top:auto;display:block}.sidebar{margin-top:2.2em}.widgettitle{border-bottom:2px solid #444;margin-bottom:0.75em}.widget{padding:0 10px;margin:2.2em 0}.widget ul li{margin-bottom:0.75em}.widget ul li ul{margin-top:0.75em;padding-left:1em}
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use SASS to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+/*
+Remember, all the BASE styles are called already since IE can
+read those. Below, we need to import only the stuff IE can't 
+understand (what's inside the media queries). We also need to
+import the mixins file so SASS can understand the variables.
+*/
+/* import mixins */
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features: 
+Mixins & Constants. I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques like box shadow and
+border-radius.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more. 
+
+******************************************************************/
+/*********************
+CLEARFIXIN'
+*********************/
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix {
+  zoom: 1; }
+  .clearfix:before, .clearfix:after {
+    content: "";
+    display: table; }
+  .clearfix:after {
+    clear: both; }
+
+/*********************
+TOOLS
+*********************/
+/* http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
+.image-replacement {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden; }
+
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+/*********************
+TYPOGRAPHY
+*********************/
+@font-face {
+  font-family: 'MetrophobicRegular';
+  src: url("../fonts/Metrophobic-webfont.eot");
+  src: url("../fonts/Metrophobic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Metrophobic-webfont.woff") format("woff"), url("../fonts/Metrophobic-webfont.ttf") format("truetype"), url("../fonts/Metrophobic-webfont.svg#MetrophobicRegular") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+/* 
+use the best ampersand 
+http://simplebits.com/notebook/2008/08/14/ampersands-2/
+*/
+/* text alignment */
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
+/* alerts & notices */
+.alert {
+  margin: 10px;
+  padding: 5px 18px;
+  border: 1px solid; }
+
+.help {
+  border-color: #e8dc59;
+  background: #ebe16f; }
+
+.info {
+  border-color: #bfe4f4;
+  background: #d5edf8; }
+
+.error {
+  border-color: #f8cdce;
+  background: #fbe3e4; }
+
+.success {
+  border-color: #deeaae;
+  background: #e6efc2; }
+
+/******************************************************************
+HYPHENATION // http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/
+******************************************************************/
+.hyphenate {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto; }
+
+/*********************
+BORDER RADIUS
+*********************/
+/* @include rounded(4px); */
+/* @include rounded-top(4px); */
+/* @include rounded-right(4px); */
+/* @include rounded-bottom(4px); */
+/* @include rounded-left(4px); */
+/*********************
+TRANISTION
+*********************/
+/* @include css-transition(all,2s,ease-out); */
+/*********************
+BOX SHADOWS
+*********************/
+/* @include box-shadow(5px, 5px, 10px, #000); */
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can 
+really slow down your CSS. Don't overdue it.
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+/*********************
+BUTTONS
+*********************/
+.button, .button:visited {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 1px solid #ae2b09;
+  border-top-color: #cb330a;
+  border-left-color: #cb330a;
+  padding: 4px 12px;
+  color: white;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  margin-bottom: 20px;
+  line-height: 21px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #d5350b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ed3b0c), to(#d5350b));
+  background-image: -webkit-linear-gradient(top, #ed3b0c, #d5350b);
+  background-image: -moz-linear-gradient(top, #ed3b0c, #d5350b);
+  background-image: -o-linear-gradient(top, #ed3b0c, #d5350b);
+  background-image: -ms-linear-gradient(top, #ed3b0c, #d5350b);
+  background-image: linear-gradient(top, #ed3b0c, #d5350b); }
+  .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
+    color: white;
+    border: 1px solid #ae2b09;
+    border-top-color: #8c2307;
+    border-left-color: #8c2307;
+    background-color: #bc2f0a;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#d5350b), to(#bc2f0a));
+    background-image: -webkit-linear-gradient(top, #d5350b, #bc2f0a);
+    background-image: -moz-linear-gradient(top, #d5350b, #bc2f0a);
+    background-image: -o-linear-gradient(top, #d5350b, #bc2f0a);
+    background-image: -ms-linear-gradient(top, #d5350b, #bc2f0a);
+    background-image: linear-gradient(top, #d5350b, #bc2f0a); }
+  .button:active, .button:visited:active {
+    background-color: #ed3b0c;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#d5350b), to(#ed3b0c));
+    background-image: -webkit-linear-gradient(top, #d5350b, #ed3b0c);
+    background-image: -moz-linear-gradient(top, #d5350b, #ed3b0c);
+    background-image: -o-linear-gradient(top, #d5350b, #ed3b0c);
+    background-image: -ms-linear-gradient(top, #d5350b, #ed3b0c);
+    background-image: linear-gradient(top, #d5350b, #ed3b0c); }
+
+.blue-button, .blue-button:visited {
+  border-color: #136e8a;
+  text-shadow: 0 1px 1px #136e8a;
+  background-color: #1680a1;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1992b7), to(#1680a1));
+  background-image: -webkit-linear-gradient(top, #1992b7, #1680a1);
+  background-image: -moz-linear-gradient(top, #1992b7, #1680a1);
+  background-image: -o-linear-gradient(top, #1992b7, #1680a1);
+  background-image: -ms-linear-gradient(top, #1992b7, #1680a1);
+  background-image: linear-gradient(top, #1992b7, #1680a1);
+  -webkit-box-shadow: inset 0 0 3px #3dbde5;
+  -moz-box-shadow: inset 0 0 3px #3dbde5;
+  box-shadow: inset 0 0 3px #3dbde5; }
+  .blue-button:hover, .blue-button:focus, .blue-button:visited:hover, .blue-button:visited:focus {
+    border-color: #105c74;
+    background-color: #136e8a;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#1784a5), to(#136e8a));
+    background-image: -webkit-linear-gradient(top, #1784a5, #136e8a);
+    background-image: -moz-linear-gradient(top, #1784a5, #136e8a);
+    background-image: -o-linear-gradient(top, #1784a5, #136e8a);
+    background-image: -ms-linear-gradient(top, #1784a5, #136e8a);
+    background-image: linear-gradient(top, #1784a5, #136e8a); }
+  .blue-button:active, .blue-button:visited:active {
+    background-color: #1992b7;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#1680a1), to(#1992b7));
+    background-image: -webkit-linear-gradient(top, #1680a1, #1992b7);
+    background-image: -moz-linear-gradient(top, #1680a1, #1992b7);
+    background-image: -o-linear-gradient(top, #1680a1, #1992b7);
+    background-image: -ms-linear-gradient(top, #1680a1, #1992b7);
+    background-image: linear-gradient(top, #1680a1, #1992b7); }
+
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: 481px and Up Stylesheet
+
+This stylesheet is loaded for larger devices. It's set to 
+481px because at 480px it would load on a landscaped iPhone.
+This isn't ideal because then you would be loading all those
+extra styles on that same mobile connection. 
+
+A word of warning. This size COULD be a larger mobile device,
+so you still want to keep it pretty light and simply expand
+upon your base.scss styles.
+
+******************************************************************/
+/*********************
+NAVIGATION STYLES
+*********************/
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+/* post content */
+.post-content {
+  /* at this larger size, we can start to align images */ }
+  .post-content .alignleft, .post-content img.alignleft {
+    margin-right: 1.5em;
+    display: inline;
+    float: left; }
+  .post-content .alignright, .post-content img.alignright {
+    margin-left: 1.5em;
+    display: inline;
+    float: right; }
+  .post-content .aligncenter, .post-content img.aligncenter {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    clear: both; }
+
+/* end .post-content */
+/*********************
+FOOTER STYLES
+*********************/
+/*
+check your menus here. do they look good?
+do they need tweaking?
+*/
+/* end .footer-links */
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+/*********************
+GENERAL STYLES
+*********************/
+/********************
+WORDPRESS BODY CLASSES
+style a page via class
+********************/
+/* home page */
+/* blog page */
+/* archive page */
+/* date archive page */
+/* replace the number to the corresponding page number */
+/* search page */
+/* search result page */
+/* no results search page */
+/* individual paged search (i.e. body.search-paged-3) */
+/* 404 page */
+/* single post page */
+/* individual post page by id (i.e. body.postid-73) */
+/* individual paged single (i.e. body.single-paged-3) */
+/* attatchment page */
+/* individual attatchment page (i.e. body.attachmentid-763) */
+/* style mime type pages */
+/* author page */
+/* user nicename (i.e. body.author-samueladams) */
+/* paged author archives (i.e. body.author-paged-4) for page 4 */
+/* category page */
+/* individual category page (i.e. body.category-6) */
+/* replace the number to the corresponding page number */
+/* tag page */
+/* individual tag page (i.e. body.tag-news) */
+/* replace the number to the corresponding page number */
+/* custom page template page */
+.page-template-page-front-php #taglinebar {
+  background: url("../images/taglinebar_bg_tab_wide.png") repeat-x top;
+  height: 366px;
+  width: 100%; }
+  .page-template-page-front-php #taglinebar #inner-taglinebar {
+    background: url("../images/taglinebar_tab_wide.jpg") no-repeat scroll 50% 3px;
+    height: 352px;
+    width: auto; }
+.page-template-page-front-php #summary {
+  width: inherit;
+  padding-bottom: 12.409%; }
+  .page-template-page-front-php #summary .firstcol {
+    margin-left: 19.708%;
+    padding-bottom: 0; }
+  .page-template-page-front-php #summary .lastcol {
+    margin-left: 6.569%; }
+.page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block {
+  width: 616px;
+  margin-left: -308px; }
+  .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #text-2 {
+    text-align: right; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #text-2 #twitter_logo {
+      background-position: right top; }
+  .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 {
+    display: block;
+    float: left;
+    margin-left: 24px; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 #blog_logo {
+      background: url("../images/blog_tab.png") no-repeat left top;
+      height: 65px;
+      padding-bottom: 1.5em; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 #blog_text {
+      width: 296px; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 .widgettitle {
+      display: none; }
+
+/* individual page template (i.e. body.page-template-contact-php */
+/* replace the number to the corresponding page number */
+/* replace the number to the corresponding page number */
+/* if user is logged in */
+/* paged items like search results or archives */
+/* individual paged (i.e. body.paged-3) */
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+.wrap {
+  max-width: 1096px; }
+
+.onecol {
+  width: 5.109489%; }
+
+/* width 56px  / grid_1  */
+.twocol {
+  width: 12.408759%; }
+
+/* width 136px / grid_2  */
+.threecol {
+  width: 19.708029%; }
+
+/* width 216px / grid_3  */
+.fourcol {
+  width: 27.007299%; }
+
+/* width 296px / grid_4  */
+.fivecol {
+  width: 34.306569%; }
+
+/* width 376px / grid_5  */
+.sixcol {
+  width: 41.605839%; }
+
+/* width 456px / grid_6  */
+.sevencol {
+  width: 48.905109%; }
+
+/* width 536px / grid_7  */
+.eightcol {
+  width: 56.204379%; }
+
+/* width 616px / grid_8  */
+.ninecol {
+  width: 63.503649%; }
+
+/* width 696px / grid_9  */
+.tencol {
+  width: 70.802919%; }
+
+/* width 776px / grid_10 */
+.elevencol {
+  width: 78.102189%; }
+
+/* width 856px / grid_11 */
+.twelvecol {
+  width: 85.401459%; }
+
+/* width 936px / grid_12 */
+.thirtcol {
+  width: 92.700729%; }
+
+/* width 1016px / grid_13 */
+.fourtcol {
+  width: 100.0%; }
+
+/* width 1096px / grid_14 */
+/* layout & column defaults */
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol, .thirtcol, .fourtcol {
+  position: relative;
+  float: left;
+  margin-left: 2.189781%;
+  /* 24px */ }
+
+.first {
+  margin-left: 0; }
+
+.last {
+  float: right; }
+
+/* ============ */
+/* = Ellipsis = */
+/* ============ */
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+/*********************
+LINK STYLES
+*********************/
+a, a:visited {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease; }
+
+/*********************
+HEADER SYTLES
+*********************/
+#inner-header ul {
+  font-size: 18px; }
+  #inner-header ul li {
+    margin: 0 .85em; }
+
+.header {
+  background: url("../images/header_bg_wide_tab.png") repeat-x top;
+  height: 140px; }
+
+#logo {
+  margin-top: 30px; }
+  #logo a {
+    background: url("../images/logo_wide_tab.png") no-repeat top;
+    height: 33px;
+    width: 362px;
+    margin-left: -181px; }
+
+/*********************
+NAVIGATION STYLES
+*********************/
+/*********************
+SIDEBARS & ASIDES
+*********************/
+.sidebar {
+  margin-top: 2.2em; }
+
+.widget ul li {
+  /* deep nesting */ }
+
+/* links widget */
+/* meta widget */
+/* pages widget */
+/* recent-posts widget */
+/* archives widget */
+/* tag-cloud widget */
+/* calendar widget */
+/* category widget */
+/* recent-comments widget */
+/* search widget */
+/* text widget */
+/*********************
+FOOTER STYLES
+*********************/
+/*
+you'll probably need to do quite a bit
+of overriding here if you styled them for
+mobile. Make sure to double check these!
+*/
+.footer-links ul li {
+  /* 
+  be careful with the depth of your menus.
+  it's very rare to have multi-depth menus in
+  the footer.
+  */ }
+
+/* end .footer-links */
+#page-footer #inner-footer #attribution-links {
+  background: none;
+  height: auto;
+  position: static;
+  margin: 0;
+  padding: 0; }
+  #page-footer #inner-footer #attribution-links ul li:first-child::before {
+    content: "\25AA";
+    margin: 0 4px 0 0; }
+  #page-footer #inner-footer #attribution-links ul #fatcatch-credit::after {
+    content: none; }
+  #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a {
+    border-bottom: none;
+    text-indent: 105%;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    margin-top: 25px;
+    margin-left: -87px;
+    /* 1/2 width of element to be centered in px */
+    left: 50%;
+    background: url("../images/html5_logo.png") no-repeat top;
+    width: 173px;
+    height: 39px; }
+    #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a:hover {
+      opacity: 0.75; }
+
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop. 
+
+******************************************************************/
+/********************
+WORDPRESS BODY CLASSES
+style a page via class
+********************/
+/* custom page template page */
+.page-template-page-front-php #summary {
+  font-size: inherit;
+  line-height: inherit; }
+  .page-template-page-front-php #summary .firstcol {
+    margin-left: 14.599%;
+    background: url("../images/design_wide.png") no-repeat top center;
+    padding-top: 200px; }
+  .page-template-page-front-php #summary .lastcol {
+    margin-left: 16.788%;
+    background: url("../images/development_wide.png") no-repeat top center;
+    padding-top: 175px;
+    margin-top: 25px; }
+  .page-template-page-front-php #summary ul li {
+    background: url("../images/bullet_square_wide.png") no-repeat 0 0.65em; }
+.page-template-page-front-php #sidebar-blog-block {
+  background: url("../images/blog_block_gradient_wide.png") repeat-x top;
+  height: 221px; }
+  .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block {
+    width: 940px;
+    margin-left: -470px;
+    height: 214px; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #text-2, .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 {
+      display: table;
+      height: 214px;
+      position: relative; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #text-2 .textwidget {
+      display: table-cell;
+      vertical-align: middle; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #text-2 #twitter_logo {
+      background: url("../images/twitter_wide.png") no-repeat right;
+      height: 138px;
+      width: 138px;
+      margin-top: 39px;
+      padding-bottom: 0;
+      position: absolute;
+      right: 0;
+      top: 0; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #text-2 #twitter_text {
+      padding-right: 162px; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 .recentpostswidget {
+      display: table-cell;
+      vertical-align: middle; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 #blog_logo {
+      background: url("../images/blog_wide.png") no-repeat left;
+      height: 138px;
+      width: 138px;
+      margin-top: 39px;
+      padding-bottom: 0;
+      position: absolute;
+      left: 0;
+      top: 0; }
+    .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 #blog_text {
+      padding-left: 162px; }
+
+/* 
+you can call the larger styles if you want, but there's really no need 
+*/
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using the classes applied to
+the html element. These can sometimes change, so take a look inside the
+header.php file to see what they are:
+
+
+.lt-ie8 .class { ... }
+
+*/

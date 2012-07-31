@@ -1,40 +1,28 @@
 <?php
 /*
-Template Name: Custom Page Example
+Template Name: Front Page Template
 */
 ?>
 
 <?php get_header(); ?>
 			
 			<div id="content">
+
+				<div id="taglinebar" class="clearfix" role="complementary">
+					<div id="inner-taglinebar" class="clearfix"></div>
+				</div>
+
+				<div id="inner-content" class="wrap clearfix">				
 			
-				<div id="inner-content" class="wrap clearfix">
-			
-				    <div id="main" class="eightcol first clearfix" role="main">
+				    <div id="main" class="clearfix" role="main">
 
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
 					    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-						
-						    <header class="article-header">
-							
-							    <h1 class="page-title"><?php the_title(); ?></h1>
-							
-							    <p class="meta"><?php __("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php __("by", "bonestheme"); ?> <?php the_author_posts_link(); ?>.</p>
-						
-						    </header> <!-- end article header -->
 					
 						    <section class="post-content">
 							    <?php the_content(); ?>
 						    </section> <!-- end article section -->
-						
-						    <footer class="article-footer">
-			
-							    <p class="clearfix"><?php the_tags('<span class="tags">Tags: ', ', ', '</span>'); ?></p>
-							
-						    </footer> <!-- end article footer -->
-						    
-						    <?php comments_template(); ?>
 					
 					    </article> <!-- end article -->
 					
@@ -50,22 +38,22 @@ Template Name: Custom Page Example
         						    <p><?php __("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
         						</section>
         						<footer class="article-footer">
-        						    <p><?php __("This is the error message in the page-custom.php template.", "bonestheme"); ?></p>
+        						    <p><?php __("This is the error message in the page-front.php template.", "bonestheme"); ?></p>
         						</footer>
         					</article>
 					
 					    <?php endif; ?>
 			
 				    </div> <!-- end #main -->
-    
-				    <?php get_sidebar(); // sidebar 1 ?>
 				    
 				</div> <!-- end #inner-content -->
     
 			</div> <!-- end #content -->
+			
+<?php get_sidebar( 'blog-block' ); // blog & twitter block ?>
 
 			<div id="footer-pad"></div> <!-- to position footer at bottom of page -->
 
-</div> <!-- #page-wrapper end -->			
+</div> <!-- #page-wrapper end -->
 
 <?php get_footer(); ?>
