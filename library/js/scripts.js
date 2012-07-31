@@ -9,6 +9,24 @@ slow the page load.
 
 */
 
+// IE8 ployfill for GetComputed Style (for Responsive Script below)
+if (!window.getComputedStyle) {
+    window.getComputedStyle = function(el, pseudo) {
+        this.el = el;
+        this.getPropertyValue = function(prop) {
+            var re = /(\-([a-z]){1})/g;
+            if (prop == 'float') prop = 'styleFloat';
+            if (re.test(prop)) {
+                prop = prop.replace(re, function () {
+                    return arguments[2].toUpperCase();
+                });
+            }
+            return el.currentStyle[prop] ? el.currentStyle[prop] : null;
+        }
+        return this;
+    }
+}
+
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
@@ -32,8 +50,8 @@ jQuery(document).ready(function($) {
         
     } /* end larger than 481px */
     
-    /* if is above 768px */
-    if (responsive_viewport > 768) {
+    /* if is above or equal to 768px */
+    if (responsive_viewport >= 768) {
     
         /* load gravatars */
         $('.comment img[data-gravatar]').each(function(){

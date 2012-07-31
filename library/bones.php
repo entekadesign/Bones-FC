@@ -34,6 +34,8 @@ function bones_ahoy() {
 
     // enqueue base scripts and styles
     add_action('wp_enqueue_scripts', 'bones_scripts_and_styles', 999);
+    // ie conditional wrapper
+    add_filter( 'style_loader_tag', 'bones_ie_conditional', 10, 2 );
     
     // launching this stuff after theme setup
     add_action('after_setup_theme','bones_theme_support');	
@@ -112,10 +114,13 @@ function bones_scripts_and_styles() {
   if (!is_admin()) {
   
     // modernizr (without media query polyfill)
-    wp_register_script( 'bones-modernizr', get_template_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
+    wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
  
-    // register mobile stylesheet
-    wp_register_style( 'bones-stylesheet', get_template_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+    // register main stylesheet
+    wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+
+    // ie-only style sheet
+    wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
     
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -123,11 +128,12 @@ function bones_scripts_and_styles() {
     }
     
     //adding scripts file in the footer
-    wp_register_script( 'bones-js', get_template_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+    wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
     
     // enqueue styles and scripts
     wp_enqueue_script( 'bones-modernizr' ); 
     wp_enqueue_style( 'bones-stylesheet' ); 
+    wp_enqueue_style('bones-ie-only');
     /*
     I reccomend using a plugin to call jQuery
     using the google cdn. That way it stays cached
@@ -137,6 +143,14 @@ function bones_scripts_and_styles() {
     wp_enqueue_script( 'bones-js' ); 
     
   }
+}
+
+// adding the conditional wrapper around ie stylesheet
+// source: http://code.garyjones.co.uk/ie-conditional-style-sheets-wordpress/
+function bones_ie_conditional( $tag, $handle ) {
+	if ( 'bones-ie-only' == $handle )
+		$tag = '<!--[if lte IE 9]>' . "\n" . $tag . '<![endif]-->' . "\n";
+	return $tag;
 }
 
 /*********************
@@ -189,10 +203,10 @@ function bones_theme_support() {
 	// registering wp3+ menus          
 	register_nav_menus(                      
 		array( 
-			'main_nav' => 'The Main Menu',           // main nav in header
-			'footer_links' => 'Footer Links'         // secondary nav in footer
+			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
+			'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
 		)
-	);	
+	);
 } /* end bones theme support */
 
 
@@ -206,9 +220,9 @@ function bones_main_nav() {
     wp_nav_menu(array( 
     	'container' => false,                           // remove nav container
     	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
-    	'menu' => 'main_nav',                           // nav name
+    	'menu' => 'The Main Menu',                           // nav name
     	'menu_class' => 'nav top-nav clearfix',         // adding custom nav class
-    	'theme_location' => 'main_nav',                 // where it's located in the theme
+    	'theme_location' => 'main-nav',                 // where it's located in the theme
     	'before' => '',                                 // before the menu
         'after' => '',                                  // after the menu
         'link_before' => '',                            // before each link
@@ -224,9 +238,9 @@ function bones_footer_links() {
     wp_nav_menu(array( 
     	'container' => '',                              // remove nav container
     	'container_class' => 'footer-links clearfix',   // class of container (should you choose to use it)
-    	'menu' => 'footer_links',                       // nav name
+    	'menu' => 'Footer Links',                       // nav name
     	'menu_class' => 'nav footer-nav clearfix',      // adding custom nav class
-    	'theme_location' => 'footer_links',             // where it's located in the theme
+    	'theme_location' => 'footer-links',             // where it's located in the theme
     	'before' => '',                                 // before the menu
         'after' => '',                                  // after the menu
         'link_before' => '',                            // before each link
@@ -268,7 +282,7 @@ function bones_related_posts() {
 	           	<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
 	        <?php endforeach; } 
 	    else { ?>
-            <li class="no_related_post">No Related Posts Yet!</li>
+            <?php echo '<li class="no_related_post">No Related Posts Yet!</li>'; ?>
 		<?php }
 	}
 	wp_reset_query();

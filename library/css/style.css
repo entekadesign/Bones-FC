@@ -9,16 +9,12 @@ the separate media queries. The base mobile goes outside any query
 and is called at the beginning, after that we call the rest
 of the styles inside media queries.
 ******************************************************************/
-/*********************
-IMPORTING STYLES
-*********************/
-/* import normalize */
-/* normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
-/* =============================================================================
+/* normalize.css 2012-07-07T09:50 UTC - http://github.com/necolas/normalize.css */
+/* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
 /*
- * Corrects block display not defined in IE6/7/8/9 & FF3
+ * Corrects `block` display not defined in IE6/7/8/9 & FF3.
  */
 article,
 aside,
@@ -29,11 +25,12 @@ footer,
 header,
 hgroup,
 nav,
-section {
+section,
+summary {
   display: block; }
 
 /*
- * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ * Corrects `inline-block` display not defined in IE6/7/8/9 & FF3.
  */
 audio,
 canvas,
@@ -43,89 +40,111 @@ video {
   *zoom: 1; }
 
 /*
- * Prevents modern browsers from displaying 'audio' without controls
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS5 devices.
  */
 audio:not([controls]) {
-  display: none; }
+  display: none;
+  height: 0; }
 
 /*
- * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
- * Known issue: no IE6 support
+ * Addresses styling for `hidden` attribute not present in IE7/8/9, FF3, S4.
+ * Known issue: no IE6 support.
  */
 [hidden] {
   display: none; }
 
-/* =============================================================================
+/* ==========================================================================
    Base
    ========================================================================== */
 /*
- * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
- *    http://clagnut.com/blog/348/#c790
- * 2. Keeps page centred in all browsers regardless of content height
- * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
- *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ * 1. Corrects text resizing oddly in IE6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
  */
 html {
   font-size: 100%;
   /* 1 */
-  overflow-y: scroll;
-  /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 3 */
+  /* 2 */
   -ms-text-size-adjust: 100%;
-  /* 3 */ }
+  /* 2 */ }
 
 /*
- * Addresses margins handled incorrectly in IE6/7
+ * Addresses `font-family` inconsistency between `textarea` and other form
+ * elements.
  */
-body {
-  margin: 0; }
-
-/* 
- * Addresses font-family inconsistency between 'textarea' and other form elements.
- */
-body,
+html,
 button,
 input,
 select,
 textarea {
   font-family: sans-serif; }
 
-/* =============================================================================
+/*
+ * Addresses margins handled incorrectly in IE6/7.
+ */
+body {
+  margin: 0; }
+
+/* ==========================================================================
    Links
    ========================================================================== */
 /*
- * Addresses outline displayed oddly in Chrome
+ * Addresses `outline` inconsistency between Chrome and other browsers.
  */
 a:focus {
   outline: thin dotted; }
 
 /*
- * Improves readability when focused and also mouse hovered in all browsers
+ * Improves readability when focused and also mouse hovered in all browsers.
  * people.opera.com/patrickl/experiments/keyboard/test
  */
-a:hover,
-a:active {
+a:active,
+a:hover {
   outline: 0; }
 
-/* =============================================================================
+/* ==========================================================================
    Typography
    ========================================================================== */
 /*
- * Neutralise smaller font-size in 'section' and 'article' in FF4+, Chrome, S5
+ * Addresses font sizes and margins set differently in IE6/7.
+ * Addresses font sizes within `section` and `article` in FF4+, Chrome, S5.
  */
 h1 {
-  font-size: 2em; }
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0; }
+
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0; }
+
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0; }
+
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0; }
+
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0; }
 
 /*
- * Addresses styling not present in IE7/8/9, S5, Chrome
+ * Addresses styling not present in IE7/8/9, S5, Chrome.
  */
 abbr[title] {
   border-bottom: 1px dotted; }
 
 /*
- * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
-*/
+ * Addresses style set to `bolder` in FF3+, S4/5, Chrome.
+ */
 b,
 strong {
   font-weight: bold; }
@@ -134,32 +153,39 @@ blockquote {
   margin: 1em 40px; }
 
 /*
- * Addresses styling not present in S5, Chrome
+ * Addresses styling not present in S5, Chrome.
  */
 dfn {
   font-style: italic; }
 
 /*
- * Addresses styling not present in IE6/7/8/9
+ * Addresses styling not present in IE6/7/8/9.
  */
 mark {
   background: #ff0;
   color: #000; }
 
 /*
- * Corrects font family set oddly in IE6, S4/5, Chrome
+ * Addresses margins set differently in IE6/7.
+ */
+p,
+pre {
+  margin: 1em 0; }
+
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome.
  * en.wikipedia.org/wiki/User:Davidgothberg/Test59
  */
-pre,
 code,
 kbd,
+pre,
 samp {
   font-family: monospace, serif;
   _font-family: 'courier new', monospace;
   font-size: 1em; }
 
 /*
- * Improves readability of pre-formatted text in all browsers
+ * Improves readability of pre-formatted text in all browsers.
  */
 pre {
   white-space: pre;
@@ -167,14 +193,14 @@ pre {
   word-wrap: break-word; }
 
 /*
- * 1. Addresses CSS quotes not supported in IE6/7
- * 2. Addresses quote property not supported in S4
+ * Addresses CSS quotes not supported in IE6/7.
  */
-/* 1 */
 q {
   quotes: none; }
 
-/* 2 */
+/*
+ * Addresses `quotes` property not supported in S4.
+ */
 q:before,
 q:after {
   content: '';
@@ -184,7 +210,7 @@ small {
   font-size: 75%; }
 
 /*
- * Prevents sub and sup affecting line-height in all browsers
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
  * gist.github.com/413930
  */
 sub,
@@ -200,28 +226,43 @@ sup {
 sub {
   bottom: -0.25em; }
 
-/* =============================================================================
+/* ==========================================================================
    Lists
    ========================================================================== */
-ul,
-ol {
-  margin-left: 0;
-  padding: 0 0 0 40px; }
+/*
+ * Addresses margins set differently in IE6/7.
+ */
+dl,
+menu,
+ol,
+ul {
+  margin: 1em 0; }
 
 dd {
   margin: 0 0 0 40px; }
 
+/*
+ * Addresses paddings set differently in IE6/7.
+ */
+menu,
+ol,
+ul {
+  padding: 0 0 0 40px; }
+
+/*
+ * Corrects list images handled incorrectly in IE7.
+ */
 nav ul,
 nav ol {
   list-style: none;
   list-style-image: none; }
 
-/* =============================================================================
+/* ==========================================================================
    Embedded content
    ========================================================================== */
 /*
- * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
- * 2. Improves image quality when scaled in IE7
+ * 1. Removes border when inside `a` element in IE6/7/8/9, FF3.
+ * 2. Improves image quality when scaled in IE7.
  *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
 img {
@@ -231,31 +272,31 @@ img {
   /* 2 */ }
 
 /*
- * Corrects overflow displayed oddly in IE9 
+ * Corrects overflow displayed oddly in IE9.
  */
 svg:not(:root) {
   overflow: hidden; }
 
-/* =============================================================================
+/* ==========================================================================
    Figures
    ========================================================================== */
 /*
- * Addresses margin not present in IE6/7/8/9, S5, O11
+ * Addresses margin not present in IE6/7/8/9, S5, O11.
  */
 figure {
   margin: 0; }
 
-/* =============================================================================
+/* ==========================================================================
    Forms
    ========================================================================== */
 /*
- * Corrects margin displayed oddly in IE6/7
+ * Corrects margin displayed oddly in IE6/7.
  */
 form {
   margin: 0; }
 
 /*
- * Define consistent border, margin, and padding
+ * Define consistent border, margin, and padding.
  */
 fieldset {
   border: 1px solid #c0c0c0;
@@ -263,19 +304,23 @@ fieldset {
   padding: 0.35em 0.625em 0.75em; }
 
 /*
- * 1. Corrects color not being inherited in IE6/7/8/9
- * 2. Corrects alignment displayed oddly in IE6/7
+ * 1. Corrects color not being inherited in IE6/7/8/9.
+ * 2. Corrects text not wrapping in FF3.
+ * 3. Corrects alignment displayed oddly in IE6/7.
  */
 legend {
   border: 0;
   /* 1 */
+  padding: 0;
+  white-space: normal;
+  /* 2 */
   *margin-left: -7px;
-  /* 2 */ }
+  /* 3 */ }
 
 /*
- * 1. Corrects font size not being inherited in all browsers
- * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
- * 3. Improves appearance and consistency in all browsers
+ * 1. Corrects font size not being inherited in all browsers.
+ * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome.
+ * 3. Improves appearance and consistency in all browsers.
  */
 button,
 input,
@@ -291,44 +336,61 @@ textarea {
   /* 3 */ }
 
 /*
- * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
+ * Addresses FF3/4 setting `line-height` on `input` using `!important` in the
+ * UA stylesheet.
  */
 button,
 input {
-  line-height: normal;
-  /* 1 */ }
+  line-height: normal; }
 
 /*
- * 1. Improves usability and consistency of cursor style between image-type 'input' and others
- * 2. Corrects inability to style clickable 'input' types in iOS
- * 3. Removes inner spacing in IE7 without affecting normal text inputs
- *    Known issue: inner spacing remains in IE6
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Removes inner spacing in IE7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE6.
  */
 button,
-input[type="button"],
+html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  cursor: pointer;
-  /* 1 */
   -webkit-appearance: button;
   /* 2 */
+  cursor: pointer;
+  /* 3 */
   *overflow: visible;
-  /* 3 */ }
+  /* 4 */ }
 
 /*
- * 1. Addresses box sizing set to content-box in IE8/9
- * 2. Removes excess padding in IE8/9
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+input[disabled] {
+  cursor: default; }
+
+/*
+ * 1. Addresses box sizing set to content-box in IE8/9.
+ * 2. Removes excess padding in IE8/9.
+ * 3. Removes excess padding in IE7.
+ *    Known issue: excess padding remains in IE6.
  */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
-  /* 2 */ }
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */ }
 
 /*
- * 1. Addresses appearance set to searchfield in S5, Chrome
- * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ * 1. Addresses `appearance` set to `searchfield` in S5, Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in S5, Chrome (include `-moz`
+ *    to future-proof).
  */
 input[type="search"] {
   -webkit-appearance: textfield;
@@ -339,14 +401,14 @@ input[type="search"] {
   box-sizing: content-box; }
 
 /*
- * Removes inner padding that is displayed in S5, Chrome on OS X
+ * Removes inner padding and search cancel button in S5, Chrome on OS X.
  */
+input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 /*
- * Removes inner padding and border in FF3+
- * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ * Removes inner padding and border in FF3+.
  */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
@@ -354,8 +416,8 @@ input::-moz-focus-inner {
   padding: 0; }
 
 /*
- * 1. Removes default vertical scrollbar in IE6/7/8/9
- * 2. Improves readability and alignment in all browsers
+ * 1. Removes default vertical scrollbar in IE6/7/8/9.
+ * 2. Improves readability and alignment in all browsers.
  */
 textarea {
   overflow: auto;
@@ -363,11 +425,11 @@ textarea {
   vertical-align: top;
   /* 2 */ }
 
-/* =============================================================================
+/* ==========================================================================
    Tables
    ========================================================================== */
-/* 
- * Remove most spacing between table cells
+/*
+ * Remove most spacing between table cells.
  */
 table {
   border-collapse: collapse;
@@ -411,7 +473,6 @@ em,
 small, .small {
   font-size: 75%; }
 
-/* import mixins */
 /******************************************************************
 Site Name: 
 Author: 
@@ -515,11 +576,21 @@ HYPHENATION // http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-
 /*********************
 BORDER RADIUS
 *********************/
-/* @include rounded(4px); */
-/* @include rounded-top(4px); */
-/* @include rounded-right(4px); */
-/* @include rounded-bottom(4px); */
-/* @include rounded-left(4px); */
+/* 
+NOTE: For older browser support (and some mobile), 
+don't use the shorthand to define *different* corners. 
+
+USAGE: @include rounded(4px); 
+
+*/
+/* 
+Instead of having a seperate mixin for the different
+borders, we're using the mixin from 320 & Up to make
+things easier to use.
+
+USAGE: @include border-radius(4px,4px,0,0);
+
+*/
 /*********************
 TRANISTION
 *********************/
@@ -538,6 +609,8 @@ really slow down your CSS. Don't overdue it.
 BOX SIZING
 *********************/
 /* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So 
+probably best not to use it. I mean, were you going to anyway? */
 /*********************
 BUTTONS
 *********************/
@@ -558,16 +631,13 @@ BUTTONS
   line-height: 21px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
   background-color: #d5350b;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#ed3b0c), to(#d5350b));
   background-image: -webkit-linear-gradient(top, #ed3b0c, #d5350b);
   background-image: -moz-linear-gradient(top, #ed3b0c, #d5350b);
   background-image: -o-linear-gradient(top, #ed3b0c, #d5350b);
-  background-image: -ms-linear-gradient(top, #ed3b0c, #d5350b);
-  background-image: linear-gradient(top, #ed3b0c, #d5350b); }
+  background-image: linear-gradient(to bottom, #ed3b0c, #d5350b); }
   .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
     color: white;
     border: 1px solid #ae2b09;
@@ -578,16 +648,14 @@ BUTTONS
     background-image: -webkit-linear-gradient(top, #d5350b, #bc2f0a);
     background-image: -moz-linear-gradient(top, #d5350b, #bc2f0a);
     background-image: -o-linear-gradient(top, #d5350b, #bc2f0a);
-    background-image: -ms-linear-gradient(top, #d5350b, #bc2f0a);
-    background-image: linear-gradient(top, #d5350b, #bc2f0a); }
+    background-image: linear-gradient(to bottom, #d5350b, #bc2f0a); }
   .button:active, .button:visited:active {
     background-color: #ed3b0c;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#d5350b), to(#ed3b0c));
     background-image: -webkit-linear-gradient(top, #d5350b, #ed3b0c);
     background-image: -moz-linear-gradient(top, #d5350b, #ed3b0c);
     background-image: -o-linear-gradient(top, #d5350b, #ed3b0c);
-    background-image: -ms-linear-gradient(top, #d5350b, #ed3b0c);
-    background-image: linear-gradient(top, #d5350b, #ed3b0c); }
+    background-image: linear-gradient(to bottom, #d5350b, #ed3b0c); }
 
 .blue-button, .blue-button:visited {
   border-color: #136e8a;
@@ -597,8 +665,7 @@ BUTTONS
   background-image: -webkit-linear-gradient(top, #1992b7, #1680a1);
   background-image: -moz-linear-gradient(top, #1992b7, #1680a1);
   background-image: -o-linear-gradient(top, #1992b7, #1680a1);
-  background-image: -ms-linear-gradient(top, #1992b7, #1680a1);
-  background-image: linear-gradient(top, #1992b7, #1680a1);
+  background-image: linear-gradient(to bottom, #1992b7, #1680a1);
   -webkit-box-shadow: inset 0 0 3px #3dbde5;
   -moz-box-shadow: inset 0 0 3px #3dbde5;
   box-shadow: inset 0 0 3px #3dbde5; }
@@ -609,27 +676,24 @@ BUTTONS
     background-image: -webkit-linear-gradient(top, #1784a5, #136e8a);
     background-image: -moz-linear-gradient(top, #1784a5, #136e8a);
     background-image: -o-linear-gradient(top, #1784a5, #136e8a);
-    background-image: -ms-linear-gradient(top, #1784a5, #136e8a);
-    background-image: linear-gradient(top, #1784a5, #136e8a); }
+    background-image: linear-gradient(to bottom, #1784a5, #136e8a); }
   .blue-button:active, .blue-button:visited:active {
     background-color: #1992b7;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#1680a1), to(#1992b7));
     background-image: -webkit-linear-gradient(top, #1680a1, #1992b7);
     background-image: -moz-linear-gradient(top, #1680a1, #1992b7);
     background-image: -o-linear-gradient(top, #1680a1, #1992b7);
-    background-image: -ms-linear-gradient(top, #1680a1, #1992b7);
-    background-image: linear-gradient(top, #1680a1, #1992b7); }
+    background-image: linear-gradient(to bottom, #1680a1, #1992b7); }
 
-/******************************************************************
+/*
 BASE (MOBILE) SIZE 
 This is the average viewing window. So Desktops, Laptops, and 
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
-******************************************************************/
-/* styles in base.scss */
+*/
 /******************************************************************
-Site Name: 
-Author: 
+Site Name:
+Author:
 
 Stylesheet: Base Mobile Stylesheet
 
@@ -800,8 +864,8 @@ a, a:visited {
     color: #f6724f;
     border-bottom-color: rgba(0, 0, 0, 0); }
   a:link, a:visited:link {
-    /* 
-    this highlights links on iPhones/iPads. 
+    /*
+    this highlights links on iPhones/iPads.
     so it basically works like the :hover selector
     for mobile devices.
     */
@@ -879,7 +943,7 @@ HEADER SYTLES
 /*********************
 NAVIGATION STYLES
 *********************/
-/* 
+/*
 all navs have a .nav class applied via
 the wp_menu function, this is so we can
 easily just write on group of styles for
@@ -903,7 +967,7 @@ and moe scalable.
       /*
       remember this is for mobile ONLY, so there's no need
       to even declare hover styles here, you can do it in
-      the style.scss file where it's relevant. We want to 
+      the style.scss file where it's relevant. We want to
       keep this file as small as possible!
       */ }
 
@@ -929,7 +993,7 @@ POSTS & CONTENT STYLES
 .post-content {
   /*
   image alignment on a screen this size may be
-  a bit difficult. It's set to start aligning 
+  a bit difficult. It's set to start aligning
   and floating images at the next breakpoint,
   but it's up to you. Feel free to change it up.
   */ }
@@ -940,9 +1004,11 @@ POSTS & CONTENT STYLES
     margin-bottom: 1.5em; }
   .post-content img {
     margin: 0 0 1.5em 0;
-    max-width: 100%; }
+    max-width: 100%;
+    height: auto; }
   .post-content video, .post-content object {
-    max-width: 100%; }
+    max-width: 100%;
+    height: auto; }
   .post-content pre, .post-content code {
     background: #eee;
     border: 1px solid #cecece;
@@ -998,9 +1064,12 @@ PAGE NAVI STYLES
     position: relative; }
     .bones_page_navi li.bpn-current a {
       /* hovering on current page link */ }
-  .bones_page_navi li.bpn-prev-link a,
-  .bones_page_navi li.bpn-next-link a {
-    padding: 0; }
+  .bones_page_navi li.bpn-prev-link,
+  .bones_page_navi li.bpn-next-link {
+    font-weight: 700; }
+    .bones_page_navi li.bpn-prev-link a,
+    .bones_page_navi li.bpn-next-link a {
+      padding: 0; }
   .bones_page_navi li.bpn-prev-link a:hover,
   .bones_page_navi li.bpn-next-link a:hover,
   .bones_page_navi li.bpn-first-page-link a:hover,
@@ -1062,6 +1131,7 @@ COMMENT STYLES
   .commentlist .vcard {
     margin-left: 50px; }
     .commentlist .vcard cite.fn {
+      font-weight: 700;
       font-style: normal; }
     .commentlist .vcard time {
       float: right; }
@@ -1090,6 +1160,7 @@ COMMENT STYLES
     color: #fff;
     opacity: 0.65;
     margin-bottom: 10px;
+    font-weight: 700;
     font-size: 0.9em; }
     .commentlist .comment-reply-link:hover, .commentlist .comment-reply-link:focus {
       opacity: 1; }
@@ -1240,14 +1311,13 @@ html, body, #container {
       #page-footer #inner-footer #attribution-links ul li {
         float: left; }
 
-/******************************************************************
+/*
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's 
 larger than an iPhone but smaller than a tablet. Let's call them
 tweeners.
-******************************************************************/
+*/
 @media only screen and (min-width: 481px) {
-  /* styles in 481up.scss */
   /******************************************************************
   Site Name: 
   Author: 
@@ -1296,15 +1366,13 @@ tweeners.
   do they need tweaking?
   */
   /* end .footer-links */ }
-/* end of media query */
-/******************************************************************
+/*
 TABLET & SMALLER LAPTOPS
 This is the average viewing window. So Desktops, Laptops, and 
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
-******************************************************************/
+*/
 @media only screen and (min-width: 768px) {
-  /* styles in 768up.scss */
   /******************************************************************
   Site Name: 
   Author: 
@@ -1571,15 +1639,13 @@ you can add resource intensive styles.
       height: 39px; }
       #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a:hover {
         opacity: 0.75; } }
-/* end of media query */
-/******************************************************************
+/*
 DESKTOP 
 This is the average viewing window. So Desktops, Laptops, and 
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
-******************************************************************/
+*/
 @media only screen and (min-width: 1030px) {
-  /* styles in 1030up.scss */
   /******************************************************************
   Site Name: 
   Author: 
@@ -1648,13 +1714,11 @@ you can add resource intensive styles.
         top: 0; }
       .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 #blog_text {
         padding-left: 162px; } }
-/* end of media query */
-/******************************************************************
+/*
 LARGE VIEWING SIZE 
 This is for the larger monitors and possibly full screen viewers.
-******************************************************************/
+*/
 @media only screen and (min-width: 1240px) {
-  /* styles in 1240up.scss */
   /******************************************************************
   Site Name: 
   Author: 
@@ -1665,15 +1729,13 @@ This is for the larger monitors and possibly full screen viewers.
   on larger screens.
   
   ******************************************************************/ }
-/* end of media query */
-/******************************************************************
+/*
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with 
 other displays with a 2x resolution. You can also create a media
 query for retina AND a certain size if you want. Go Nuts.
-******************************************************************/
+*/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /* styles in 2x.scss */
   /******************************************************************
   Site Name: 
   Author: 
@@ -1714,13 +1776,12 @@ query for retina AND a certain size if you want. Go Nuts.
   the original dimensions and you are good to go. 
   
   */ }
-/* end of media query */
-/******************************************************************
+/*
 PRINT STYLESHEET
 Feel free to customize this. Remember to add things that won't make
 sense to print at the bottom. Things like nav, ads, and forms should
 be set to display none.
-******************************************************************/
+*/
 @media print {
   * {
     background: transparent !important;
@@ -1731,9 +1792,7 @@ be set to display none.
 
   a, a:visited {
     color: #444 !important;
-    text-decoration: underline;
-    /* show links on printed pages */
-    /* show title too */ }
+    text-decoration: underline; }
     a:after, a:visited:after {
       content: " (" attr(href) ")"; }
     a abbr[title]:after, a:visited abbr[title]:after {
@@ -1768,7 +1827,6 @@ be set to display none.
   h3 {
     page-break-after: avoid; }
 
-  /* hide content people who print don't need to see */
   .sidebar,
   .page-navigation,
   .wp-prev-next,

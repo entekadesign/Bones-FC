@@ -120,11 +120,21 @@ HYPHENATION // http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-
 /*********************
 BORDER RADIUS
 *********************/
-/* @include rounded(4px); */
-/* @include rounded-top(4px); */
-/* @include rounded-right(4px); */
-/* @include rounded-bottom(4px); */
-/* @include rounded-left(4px); */
+/* 
+NOTE: For older browser support (and some mobile), 
+don't use the shorthand to define *different* corners. 
+
+USAGE: @include rounded(4px); 
+
+*/
+/* 
+Instead of having a seperate mixin for the different
+borders, we're using the mixin from 320 & Up to make
+things easier to use.
+
+USAGE: @include border-radius(4px,4px,0,0);
+
+*/
 /*********************
 TRANISTION
 *********************/
@@ -143,6 +153,8 @@ really slow down your CSS. Don't overdue it.
 BOX SIZING
 *********************/
 /* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So 
+probably best not to use it. I mean, were you going to anyway? */
 /*********************
 BUTTONS
 *********************/
@@ -163,16 +175,13 @@ BUTTONS
   line-height: 21px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
   border-radius: 4px;
   background-color: #d5350b;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#ed3b0c), to(#d5350b));
   background-image: -webkit-linear-gradient(top, #ed3b0c, #d5350b);
   background-image: -moz-linear-gradient(top, #ed3b0c, #d5350b);
   background-image: -o-linear-gradient(top, #ed3b0c, #d5350b);
-  background-image: -ms-linear-gradient(top, #ed3b0c, #d5350b);
-  background-image: linear-gradient(top, #ed3b0c, #d5350b); }
+  background-image: linear-gradient(to bottom, #ed3b0c, #d5350b); }
   .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
     color: white;
     border: 1px solid #ae2b09;
@@ -183,16 +192,14 @@ BUTTONS
     background-image: -webkit-linear-gradient(top, #d5350b, #bc2f0a);
     background-image: -moz-linear-gradient(top, #d5350b, #bc2f0a);
     background-image: -o-linear-gradient(top, #d5350b, #bc2f0a);
-    background-image: -ms-linear-gradient(top, #d5350b, #bc2f0a);
-    background-image: linear-gradient(top, #d5350b, #bc2f0a); }
+    background-image: linear-gradient(to bottom, #d5350b, #bc2f0a); }
   .button:active, .button:visited:active {
     background-color: #ed3b0c;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#d5350b), to(#ed3b0c));
     background-image: -webkit-linear-gradient(top, #d5350b, #ed3b0c);
     background-image: -moz-linear-gradient(top, #d5350b, #ed3b0c);
     background-image: -o-linear-gradient(top, #d5350b, #ed3b0c);
-    background-image: -ms-linear-gradient(top, #d5350b, #ed3b0c);
-    background-image: linear-gradient(top, #d5350b, #ed3b0c); }
+    background-image: linear-gradient(to bottom, #d5350b, #ed3b0c); }
 
 .blue-button, .blue-button:visited {
   border-color: #136e8a;
@@ -202,8 +209,7 @@ BUTTONS
   background-image: -webkit-linear-gradient(top, #1992b7, #1680a1);
   background-image: -moz-linear-gradient(top, #1992b7, #1680a1);
   background-image: -o-linear-gradient(top, #1992b7, #1680a1);
-  background-image: -ms-linear-gradient(top, #1992b7, #1680a1);
-  background-image: linear-gradient(top, #1992b7, #1680a1);
+  background-image: linear-gradient(to bottom, #1992b7, #1680a1);
   -webkit-box-shadow: inset 0 0 3px #3dbde5;
   -moz-box-shadow: inset 0 0 3px #3dbde5;
   box-shadow: inset 0 0 3px #3dbde5; }
@@ -214,16 +220,14 @@ BUTTONS
     background-image: -webkit-linear-gradient(top, #1784a5, #136e8a);
     background-image: -moz-linear-gradient(top, #1784a5, #136e8a);
     background-image: -o-linear-gradient(top, #1784a5, #136e8a);
-    background-image: -ms-linear-gradient(top, #1784a5, #136e8a);
-    background-image: linear-gradient(top, #1784a5, #136e8a); }
+    background-image: linear-gradient(to bottom, #1784a5, #136e8a); }
   .blue-button:active, .blue-button:visited:active {
     background-color: #1992b7;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#1680a1), to(#1992b7));
     background-image: -webkit-linear-gradient(top, #1680a1, #1992b7);
     background-image: -moz-linear-gradient(top, #1680a1, #1992b7);
     background-image: -o-linear-gradient(top, #1680a1, #1992b7);
-    background-image: -ms-linear-gradient(top, #1680a1, #1992b7);
-    background-image: linear-gradient(top, #1680a1, #1992b7); }
+    background-image: linear-gradient(to bottom, #1680a1, #1992b7); }
 
 /******************************************************************
 Site Name: 

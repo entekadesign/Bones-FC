@@ -4,7 +4,7 @@
 
 				<div id="inner-content" class="wrap clearfix">
 			
-					<div id="main" class="ninecol first clearfix" role="main">
+					<div id="main" class="eightcol first clearfix" role="main">
 				
 						<h1 class="archive-title"><span>Search Results for:</span> <?php echo esc_attr(get_search_query()); ?></h1>
 
@@ -16,7 +16,7 @@
 							
 									<h3 class="search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 							
-									<p class="meta"><?php __("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php __("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php __("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>
+									<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>
 						
 								</header> <!-- end article header -->
 					
@@ -50,13 +50,13 @@
 					
     					    <article id="post-not-found" class="hentry clearfix">
     					    	<header class="article-header">
-    					    		<h1><?php __("Sorry, No Results.", "bonestheme"); ?></h1>
+    					    		<h1><?php _e("Sorry, No Results.", "bonestheme"); ?></h1>
     					    	</header>
     					    	<section class="post-content">
-    					    		<p><?php __("UTry your search again.", "bonestheme"); ?></p>
+    					    		<p><?php _e("Try your search again.", "bonestheme"); ?></p>
     					    	</section>
     					    	<footer class="article-footer">
-    					    	    <p><?php __("This is the error message in the search.php template.", "bonestheme"); ?></p>
+    					    	    <p><?php _e("This is the error message in the search.php template.", "bonestheme"); ?></p>
     					    	</footer>
     					    </article>
 					
