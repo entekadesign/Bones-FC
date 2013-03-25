@@ -3,7 +3,11 @@
 			<div id="content">
 			
 				<div id="inner-content" class="wrap clearfix">
-			
+
+					<h1 class="blog-title">BLOG</h1>
+
+					<p class="blog-feed"><span data-icon="&#xe005;"></span><a href="<?php bloginfo('rss_url'); ?>" title="RSS 0.92">RSS Feed</a></p>
+
 				    <div id="main" class="eightcol first clearfix" role="main">
 
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>

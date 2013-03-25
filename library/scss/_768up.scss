@@ -17,7 +17,8 @@ come into play. Have fun!
 GENERAL STYLES
 *********************/
 
-body {}
+body {
+}
 
 /********************
 WORDPRESS BODY CLASSES
@@ -26,7 +27,16 @@ style a page via class
 
 .rtl {}
 .home {}                            /* home page */
-.blog {}                            /* blog page */
+.blog
+{
+	.blog-feed
+	{
+		span
+		{
+			//margin-bottom: -2px;
+		}
+	}
+}                            /* blog page */
 .archive {}                         /* archive page */
 .date {}                            /* date archive page */
 	.date-paged-1 {}                /* replace the number to the corresponding page number */
@@ -63,15 +73,19 @@ style a page via class
 				width: auto;
 			}
 		}
-		#summary {
+		#main-text {
 			width: inherit;
-			padding-bottom: $twocol;
-			.firstcol {
-				margin-left: $threecol;
+			.acolumn {
+				width: $fourcol;		
+				position: relative;
+				float: left;			
+			}
+			#firstcol {
+				margin-left: ($twocol + $margin);
 				padding-bottom: 0;
 			}
-			.lastcol {
-				margin-left: $margin + $margin + $margin;
+			#lastcol {
+				margin-left: ($margin + $twocol + $margin);
 			}
 		}
 		#sidebar-blog-block {
@@ -91,6 +105,7 @@ style a page via class
 						display: block;
 						float: left;
 						margin-left: 24px;
+						text-align: left;
 						.recentpostswidget {
 						}
 						#blog_logo {
@@ -108,6 +123,241 @@ style a page via class
 				}
 			}
 		}		
+	}
+	.page-template-page-about-php {
+		#main {
+			#main-text {
+				//width: $sevencol;
+				width: $sixcol;
+				min-width: 320px;
+				#img-portrait {
+					height: 213px;
+					background: url('../images/portrait_tab_wide.jpg') no-repeat center top;
+				}
+			}
+		}
+	}
+	.page-template-page-contact-php {
+		#main {
+			#main-text {
+				width: 65px + 48px + 308px; // image + gutter + textareas 
+				// div.wpcf7 {
+				// 	width: 296px;
+				// 	float: right;
+				// }
+				#vert-divider {
+					float: left;
+					width: 65px;
+					padding-right: 24px;
+					border-right: 2px solid;
+					border-right-color: lighten($text-gray, 20%);
+				}						
+				.wpcf7-submit {
+					@extend .button;
+				}
+				.group-wrapper {
+					width: 100%;
+					//margin-bottom: 3em;
+					//position: relative;					
+					display: table;
+					//display: inline-block;
+					table-layout: fixed;
+					#img-atsign {
+						height: 65px;
+						//width: 65px;
+						background: url('../images/atsign_mob_tab.png') no-repeat right 1em;
+						//margin: 0 1.5em 0 0;
+						//float: right;											
+					}
+					#img-twitter, #img-dribbble, #img-envelope {
+						background-position: center right;
+					}
+					.contact-icons {
+						width: 65px;
+						//margin: 0 1.5em 0 0;
+						//float: right;
+						vertical-align:	middle;
+						display: table-cell;
+						table-layout: fixed;
+					}
+					.text-wrapper, div.wpcf7 {
+						text-align: left;
+						//position: relative;
+						//right: 0;
+						vertical-align:	middle;
+						//margin: 0 0 0 1.5em;
+						//padding: 0;
+						display: table-cell;
+						//table-layout: fixed;
+						//padding-left: 24px;
+						width: 296px;
+						//padding-left: 1.5em;
+						padding-left: 48px // gutter
+						//float: right;
+					}
+					.text-wrapper {
+						//padding: 0;
+						height: 8em;
+						h1 {
+							text-align: left;
+							margin: 0;
+							//padding-left: 12px;
+							//margin-top: 2em;
+						}
+						p {
+							//padding-left: 12px;
+						}
+					}
+				}
+				.wpcf7-text, .wpcf7-textarea {
+					margin-left: -12px;
+					width: 303px;
+					border: none;
+					@include box-shadow(0 1px 2px 1px $soft-gray inset);
+
+				}
+				.wpcf7-submit {
+					margin-left: -12px;
+				}
+				label.fieldlabel {
+					padding-left: 0;
+				}
+				span.wpcf7-not-valid-tip {
+					left: -12px;
+					top: -22p x;
+				}
+				span.wpcf7-not-valid-tip-no-ajax {
+					padding: 0;
+				}
+			}
+		}
+	}
+	.post-type-archive-portfolio_item {
+		#sidebar-clients
+		{
+			float: none;
+			width: 416px; //392px; //416px;
+			.divider
+			{
+				width: 344px;
+			}
+			.button, .button:visited
+			{
+				float: left;
+				width: 178px; //166px;
+				display: block;
+				margin: 0 12px 5px 12px;
+				padding: 0;
+				//line-height: 17px;
+			}
+		}
+		#main
+		{
+			min-width: 505px; //481px;
+			margin: 0 auto 0;
+			float: none;
+			.type-portfolio_item
+			{
+				background: url('../images/clients_window_bg_tab.jpg') repeat-x top;
+				width: 504px; //498px; //499px;
+				height: 311px; //308px; //290px;
+				border-radius: 5px 24px 24px 5px / 5px 155px 155px 5px;
+				-moz-border-radius: 5px 24px 24px 5px / 5px 155px 155px 5px;				
+				.article-container
+				{
+					//display: table;
+					//table-layout: fixed;
+					width: 504px; //475px;
+					.article-header
+					{
+						h2
+						{
+							max-height: 1.55em;
+						}
+					}
+					.views_window
+					{
+						margin: 1.5em 0; //margin: 23px 0;
+						height: 135px;// + 66px;
+						//margin-top: -56px;
+						.post-content
+						{
+							width: 504px;//480px; //472px;
+							ul
+							{
+								li
+								{
+									margin-left: 12px;
+									height: 143px;
+									//padding-top: 66px;
+									.acolumn
+									{
+										margin: 0 12px;
+										&:first-of-type
+										{
+											margin-bottom: 0px;
+										}
+									}
+								}
+							}
+						}
+					}
+					.nav_dots_wrapper
+					{
+						height: 100%;
+						position: absolute;
+						top: 0;
+						right: 0; //-18px;
+						display: table;
+						.nav_dots
+						{
+							//display: none;
+							//float: right;
+							//height: 100%;
+							//height: 308px;
+
+							display: table-cell;
+							vertical-align: middle;
+							width: 1em;
+							//padding-left: 8px;
+							//margin: auto;
+							//position: absolute;
+							//top: 0;
+							//bottom: 0;
+							//right: 0;
+							.nav_dot
+							{
+								display: block;
+								padding: .2em 0;
+							}
+						}
+					}					
+					.article-footer
+					{
+						//position: absolute;
+						//bottom: 1.5em; //3em;
+						//left: 0;
+						.divider, ul
+						{
+							width: 456px; //451px;
+						}
+						ul
+						{
+							span
+							{
+								max-height: 3em; //1.5em;
+							}
+						}
+					}
+					p.link
+					{
+						position: absolute;
+						left: 0;
+						//bottom: 0;
+					}
+				}
+			}		
+		}
 	}
 	.page-template-page-php {}     /* individual page template (i.e. body.page-template-contact-php */
 	.page-paged-1 {}                /* replace the number to the corresponding page number */
@@ -171,7 +421,74 @@ LINK STYLES
 *********************/
 
 a, a:visited {
-	@include css-transition(all,0.25s,ease);		
+	@include css-transition(all, 0.25s, ease);		
+}
+a.img_link, a.img_link:visited {
+	img
+	{
+	@include css-transition(all, 0.25s, ease);
+	}	
+}
+
+/*********************
+BUTTONS
+*********************/
+
+.button, .button:visited {
+	//font-family: $sans-serif;
+	font-family: TeXGyreHerosBold;
+	//border: 1px solid darken($link-red, 13%);
+	border: 3px solid white;
+	//border-top-color: darken($link-red, 7%);
+	//border-left-color: darken($link-red, 7%);
+	padding: 0 .6em; //6px;
+	color: $link-red;
+	//display: inline-block;
+	font-size: .8em; //11px;
+	//font-weight: bold;
+	text-decoration: none;
+	//text-shadow: 0 1px rgba(0,0,0, .75);
+	cursor: pointer;
+	//margin-bottom: 20px;
+	line-height: 1.5em; //21px;
+	@include rounded(5px);
+	@include css-gradient(white, lighten($soft-gray, 35%));
+	@include box-shadow(0 1px 2px 1px $soft-gray);
+
+
+	&:hover, &:focus {
+		//color: $white;
+	  	//border: 1px solid darken($link-red, 13%);
+	  	//border: 3px solid $link-red;
+	  	//border-top-color: darken($link-red, 20%);
+	 	//border-left-color: darken($link-red, 20%);
+		@include css-gradient(lighten($soft-gray, 35%), white);
+	}
+	
+	&:active {
+		//@include css-gradient(darken($link-red, 5%), $link-red);
+		color: darken($link-red, 7%);
+		border-top-color: darken(white, 10%);
+		border-left-color: darken(white, 6%);
+		border-right-color: darken(white, 6%);
+		@include box-shadow(0 0 2px 0 $soft-gray);
+	}	
+}
+
+.blue-button, .blue-button:visited {
+	border-color: darken($logo-blue, 10%);
+	text-shadow: 0 1px 1px darken($logo-blue, 10%);
+	@include css-gradient( $logo-blue, darken($logo-blue, 5%) );
+	-webkit-box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
+       -moz-box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
+   	        box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
+	&:hover, &:focus {
+		border-color: darken($logo-blue, 15%);
+		@include css-gradient( darken($logo-blue, 4%), darken($logo-blue, 10%) );
+	}
+	&:active {
+		@include css-gradient( darken($logo-blue, 5%), $logo-blue );
+	}
 }
 
 
@@ -182,9 +499,20 @@ HEADER SYTLES
 #inner-header {
 	ul {
 		font-size: 18px;
+		.menu-item
+		{
+			@include css-transition(background-size, .25s);
+			a
+			{
+				//@include css-transition(none);
+			}
+		}
 		li {
 			margin: 0 .85em;
 		}
+	}
+	nav
+	{
 	}
 }
 
@@ -299,7 +627,32 @@ NAVIGATION STYLES
 // 	}  /* end current highlighters */
 	
 // } /* end .nav */
-	
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#content {
+	#page-header {
+		display: table;
+		margin: 0 auto 4em auto;
+		.page-header-image {
+			background-position: top right;
+			width: 115px;
+			display: table-cell;
+		}
+		.page-header-text {
+			text-align: left;
+			position: relative;
+			margin-left: 24px;
+			margin-bottom: 0;
+			h1 {
+				margin: 16px 0 0 0;
+			}
+		}
+	}
+}
+
 /*********************
 SIDEBARS & ASIDES
 *********************/
@@ -421,6 +774,13 @@ SIDEBARS & ASIDES
 	.widget_text {}
 	.textwidget p {}
 
+
+//  =====================
+//  = My sidebar styles =
+//  =====================
+
+
+
 /*********************
 FOOTER STYLES
 *********************/
@@ -469,20 +829,48 @@ mobile. Make sure to double check these!
 					}				
 				}
 				#html5-logo-wrapper {
+					position: absolute;
+					margin-top: 25px;
+					margin-left: -( 172px / 2 ); /* 1/2 width of element to be centered in px */
+					left: 50%;
+					background: url('../images/footer_splash.png') no-repeat top;
+					height: 37px;
+					width: 172px;
 					a {
+						//text-indent: 105%; // Mac Firefox exposes edge of text when indent = 100%
+						//white-space: nowrap;
+						//overflow: hidden;
+						// position: absolute;
+						// margin-top: 25px;
+						//margin-left: -87px; /* 1/2 width of element to be centered in px */
+						// margin-left: -( 30px / 2 ); /* 1/2 width of element to be centered in px */
+						// left: 50%;
+						//background: url('../images/html5_logo.png') no-repeat top;
+						//width: 173px;
+						//height: 39px;
+						
+						font-size: 30px;
 						border-bottom: none;
-						text-indent: 105%; // Mac Firefox exposes edge of text when indent = 100%
-						white-space: nowrap;
-						overflow: hidden;
-						position: absolute;
-						margin-top: 25px;
-						margin-left: -87px; /* 1/2 width of element to be centered in px */
-						left: 50%;
-						background: url('../images/html5_logo.png') no-repeat top;
-						width: 173px;
-						height: 39px;
+
+						span
+						{
+							// .visuallyhidden
+							border: 0;
+							clip: rect(0 0 0 0);
+							height: 1px;
+							margin: -1px;
+							overflow: hidden;
+							padding: 0;
+							position: absolute;
+							width: 1px;
+						}
+
 						&:hover {
 							opacity: 0.75;
+						}
+						&::before
+						{
+							display: inline;
 						}
 					}
 				}			

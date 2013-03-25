@@ -39,9 +39,20 @@ TOOLS
 
 /* http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
 .image-replacement {
-	text-indent: 100%;
+	text-indent: 120%;
 	white-space: nowrap;
 	overflow: hidden;
+}
+.visuallyhidden
+{
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
 /*********************
@@ -83,6 +94,36 @@ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
          url('../fonts/Metrophobic-webfont.svg#MetrophobicRegular') format('svg');
     font-weight: bold;
     font-style: normal;
+}
+@font-face {
+    font-family: 'TeXGyreHerosBold';
+    src: url('../fonts/texgyreheros-bold-webfont.eot');
+    src: url('../fonts/texgyreheros-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/texgyreheros-bold-webfont.woff') format('woff'),
+         url('../fonts/texgyreheros-bold-webfont.ttf') format('truetype'),
+         url('../fonts/texgyreheros-bold-webfont.svg#TeXGyreHerosBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'fc';
+	src:url('../fonts/fc.eot');
+	src:url('../fonts/fc.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/fc.woff') format('woff'),
+		url('../fonts/fc.ttf') format('truetype'),
+		url('../fonts/fc.svg#fc') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[data-icon]:before {
+	font-family: 'fc';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
 }
 
 /* 
@@ -133,15 +174,21 @@ HYPHENATION // http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-
 
 .hyphenate {
 	-ms-word-break: break-all;
-	 word-break: break-all;
 
 	 // Non standard for webkit
 	 word-break: break-word;
 
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-	    hyphens: auto;
+	hyphens: auto;
 }
+.smallcaps {
+	&::first-line {
+		font-variant:small-caps;
+		font-size: 1.1em;
+	}
+}
+
 
 /*********************
 BORDER RADIUS
@@ -204,32 +251,16 @@ TRANISTION
 BOX SHADOWS
 *********************/
 
-/* @include box-shadow(5px, 5px, 10px, #000); */
- // compact function requires compass
-
-// @mixin box-shadow($shadow-1,
-//   $shadow-2: false, $shadow-3: false,
-//   $shadow-4: false, $shadow-5: false,
-//   $shadow-6: false, $shadow-7: false,
-//   $shadow-8: false, $shadow-9: false) {
-//   $full: compact($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9);
-
-//   -webkit-box-shadow: $full;
-//      -moz-box-shadow: $full;
-//       -ms-box-shadow: $full;
-//        -o-box-shadow: $full;
-//           box-shadow: $full;
-// }
-
+/* @include box-shadow(5px 5px 10px #000 inset); // separator: space, not comma */
 @mixin box-shadow($shadow-1,
   $shadow-2: false, $shadow-3: false,
-  $shadow-4: false, $shadow-5: false) {
-  $full: $shadow-1 $shadow-2 $shadow-3 $shadow-4 $shadow-5;
+  $shadow-4: false, $shadow-5: false,
+  $shadow-6: false, $shadow-7: false,
+  $shadow-8: false, $shadow-9: false) {
+  $full: fc-compact($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9);
 
   -webkit-box-shadow: $full;
      -moz-box-shadow: $full;
-      -ms-box-shadow: $full;
-       -o-box-shadow: $full;
           box-shadow: $full;
 }
 
@@ -263,83 +294,46 @@ probably best not to use it. I mean, were you going to anyway? */
 	box-sizing:         $type;
 }
 
- 
-/*********************
-BUTTONS
-*********************/
-
-.button, .button:visited {
-	font-family: $sans-serif;
-	border: 1px solid darken($link-red, 13%);
-	border-top-color: darken($link-red, 7%);
-	border-left-color: darken($link-red, 7%);
-	padding: 4px 12px;
-	color: $white;
-	display: inline-block;
-	font-size: 11px;
-	font-weight: bold;
-	text-decoration: none;
-	text-shadow: 0 1px rgba(0,0,0, .75);
-	cursor: pointer;
-	margin-bottom: 20px;
-	line-height: 21px;
-	@include rounded(4px);
-	@include css-gradient($link-red, darken($link-red, 5%));
-
-
-	&:hover, &:focus {
-		color: $white;
-	  	border: 1px solid darken($link-red, 13%);
-	  	border-top-color: darken($link-red, 20%);
-	 	border-left-color: darken($link-red, 20%);
-		@include css-gradient(darken($link-red, 5%), darken($link-red, 10%));
-	}
-	
-	&:active {
-		@include css-gradient(darken($link-red, 5%), $link-red);
-	}	
-}
-
-.blue-button, .blue-button:visited {
-	border-color: darken($logo-blue, 10%);
-	text-shadow: 0 1px 1px darken($logo-blue, 10%);
-	@include css-gradient( $logo-blue, darken($logo-blue, 5%) );
-	-webkit-box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
-       -moz-box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
-   	        box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
-	&:hover, &:focus {
-		border-color: darken($logo-blue, 15%);
-		@include css-gradient( darken($logo-blue, 4%), darken($logo-blue, 10%) );
-	}
-	&:active {
-		@include css-gradient( darken($logo-blue, 5%), $logo-blue );
-	}
-}
-
-	                                         
-	// ######  ####   ####  ##### ###### #####  
-	// #      #    # #    #   #   #      #    # 
-	// #####  #    # #    #   #   #####  #    # 
-	// #      #    # #    #   #   #      #####  
-	// #      #    # #    #   #   #      #   #  
-	// #       ####   ####    #   ###### #    # 
-	//                                          
+//  ==========
+//  = Footer =
+//  ==========
 
 $footer-height:			80px;
 
 
-	                                                 
-	//  ####  #####    ##    ####  ###### #####   ####  
-	// #      #    #  #  #  #    # #      #    # #      
-	//  ####  #    # #    # #      #####  #    #  ####  
-	//      # #####  ###### #      #      #####       # 
-	// #    # #      #    # #    # #      #   #  #    # 
-	//  ####  #      #    #  ####  ###### #    #  ####  
-	//                                                  
-
+//  ===========
+//  = Spacers =
+//  ===========
 
 $onecol:				5.109489%;
 $twocol:				12.408759%;
 $threecol:				19.708029%;
 $fourcol:				27.007299%;
+$fivecol:				34.306569%;
+$sixcol:				41.605839%;
+$sevencol:				48.905109%;
+$eightcol:				56.204379%;
+$tencol:				70.802919%;
 $margin:				2.189781%;
+ 
+
+//  =============
+//  = Functions =
+//  =============
+
+@function fc-compact($var-1, $var-2: false,
+                  $var-3: false, $var-4: false,
+                  $var-5: false, $var-6: false,
+                  $var-7: false, $var-8: false,
+                  $var-9: false, $var-10: false) {
+  $full: $var-1;
+  $vars: $var-2, $var-3, $var-4, $var-5,
+         $var-6, $var-7, $var-8, $var-9, $var-10;
+
+  @each $var in $vars {
+    @if $var {
+      $full: $full, $var;
+    }
+  }
+  @return $full;
+}

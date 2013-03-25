@@ -108,16 +108,22 @@ be set to display none.
 		color: black !important; 
 		text-shadow: none !important; 
 		filter:none !important; 
-		-ms-filter: none !important; 
+		-ms-filter: none !important;
+        &::before
+        {
+            color: black !important;
+        }
 	} 
 	
 	a, a:visited { 
 		color: #444 !important; 
-		text-decoration: underline; 
+		text-decoration: underline;
+        border: none !important;
 		
 		// show links on printed pages
 		&:after { 
-			content: " (" attr(href) ")"; 
+			content: " (" attr(href) ")";
+			font-size: .65em;
 		}
 		
 		// show title too
@@ -148,6 +154,12 @@ be set to display none.
 	img { 
 		max-width: 100% !important; 
 	}
+
+    .image-replacement
+    {
+        text-indent: 0;
+        overflow: visible;
+    }
     
     @page { 
     	margin: 0.5cm;
@@ -168,7 +180,91 @@ be set to display none.
     .page-navigation, 
     .wp-prev-next,
     .respond-form,
-    nav {
-    	display: none;
+    nav
+    {
+    	display: none !important;
+    }
+    #attribution-links
+    {
+    	width: 90% !important;
+    }
+    footer
+    {
+    	span
+    	{
+    		max-height: 100% !important;
+    	}
+    	a, a:visited
+    	{
+    		&:after
+    		{
+    			display: none !important;
+    		}
+    	}
+    }
+
+    // page-specific
+    .page-template-page-front-php
+    {
+        #main-text
+        {
+            width: 90% !important;
+        }
+        #sidebar-blog-block,
+        #taglinebar
+        {
+            display: none !important;
+        }
+        .acolumn
+        {
+            padding-top: 0 !important;
+        }
+    }
+    .page-template-page-about-php
+    {
+        #img-portrait
+        {
+            display: none !important;
+        }
+    }
+    .post-type-archive-portfolio_item
+    {
+    	article,
+    	footer ul,
+    	section,
+    	.divider
+    	{
+    		width: 90% !important;
+    	}
+    	.nav_dots_wrapper
+    	{
+    		display: none !important;
+    	}
+        article, .views_window
+        {
+            height: auto !important;
+
+        }
+        article:not(:first-child)
+        {
+            page-break-before: always;
+        }
+        article .views li
+        {
+            height: 133px !important;
+            margin: 1em auto !important;
+            width: 472px !important;
+        }
+        .article-footer
+        {
+            margin-bottom: 4em;
+        }
+    }
+    .page-template-page-contact-php
+    {
+        .contact-icons, .page-header-image, form
+        {
+            display: none !important;
+        }
     }
 }

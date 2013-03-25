@@ -47,7 +47,7 @@
 					</nav>
 					
 					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow" class="image-replacement"><?php bloginfo('name'); ?></a></h1>
+					<h1 id="logo"><a title="FatCatch Design home page" href="<?php echo home_url(); ?>" rel="nofollow" class="image-replacement"><?php bloginfo('name'); ?></a></h1>
 					
 					<!-- if you'd like to use the site description you can un-comment it below -->
 					<?php // bloginfo('description'); ?>
