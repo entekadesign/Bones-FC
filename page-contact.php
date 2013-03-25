@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Page Without Comments
+Template Name: Contact Page Template
 */
 ?>
 <?php get_header(); ?>
@@ -8,32 +8,16 @@ Template Name: Page Without Comments
 			<div id="content">
 			
 				<div id="inner-content" class="wrap clearfix">
-
-					<h1 class="blog-title">BLOG</h1>
 			
-				    <div id="main" class="eightcol first clearfix" role="main">
+				    <div id="main" class="clearfix" role="main">
 
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
 					    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-						
-						    <header class="article-header">
-							
-							    <h1 class="page-title"><?php the_title(); ?></h1>
-							
-							    <p class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?>.</p>
-						
-						    </header> <!-- end article header -->
 					
 						    <section class="post-content">
 							    <?php the_content(); ?>
 						    </section> <!-- end article section -->
-						
-						    <footer class="article-footer">
-			
-							    <p class="clearfix"><?php the_tags('<span class="tags">Tags: ', ', ', '</span>'); ?></p>
-							
-						    </footer> <!-- end article footer -->
 					
 					    </article> <!-- end article -->
 					
@@ -56,8 +40,6 @@ Template Name: Page Without Comments
 					    <?php endif; ?>
 			
 				    </div> <!-- end #main -->
-    
-				    <?php get_sidebar(); // sidebar 1 ?>
 				    
 				</div> <!-- end #inner-content -->
     

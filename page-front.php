@@ -3,7 +3,6 @@
 Template Name: Front Page Template
 */
 ?>
-
 <?php get_header(); ?>
 			
 			<div id="content">
@@ -32,13 +31,13 @@ Template Name: Front Page Template
 					
         					<article id="post-not-found" class="hentry clearfix">
         					    <header class="article-header">
-        						    <h1><?php __("Oops, Post Not Found!", "bonestheme"); ?></h1>
+        						    <h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
         						</header>
         					    <section class="post-content">
-        						    <p><?php __("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
+        						    <p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
         						</section>
         						<footer class="article-footer">
-        						    <p><?php __("This is the error message in the page-front.php template.", "bonestheme"); ?></p>
+        						    <p><?php _e("This is the error message in the page-custom.php template.", "bonestheme"); ?></p>
         						</footer>
         					</article>
 					

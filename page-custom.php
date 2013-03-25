@@ -3,7 +3,6 @@
 Template Name: Custom Page Example
 */
 ?>
-
 <?php get_header(); ?>
 			
 			<div id="content">

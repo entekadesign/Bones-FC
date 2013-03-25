@@ -22,9 +22,9 @@ if (!window.getComputedStyle) {
                 });
             }
             return el.currentStyle[prop] ? el.currentStyle[prop] : null;
-        }
+        };
         return this;
-    }
+    };
 }
 
 // as the page loads, call these scripts
@@ -67,10 +67,60 @@ jQuery(document).ready(function($) {
     
 	
 	// add all your scripts here
-	
- 
-}); /* end of as page load scripts */
 
+
+    // Clients page slideshow fx
+
+    function clck(e)
+    {
+        e.preventDefault();
+        var activeid = $(e.delegateTarget).attr('href');
+        var activeulid = '#views-' + activeid.split('-')[1];
+        var buttn = $('.nav_dots a[href|="' + activeid + '"]');
+        $(activeulid + ' ul').animate({'top' : '-' + $('li' + activeid).position().top}, 300);
+        //history.pushState({}, "", this.href);
+        buttn.siblings().removeClass('selected');
+        buttn.addClass('selected');
+    }
+
+    if ($('body.single-portfolio_item').length > 0 || $('body.post-type-archive-portfolio_item').length > 0 || $('body.tax-topics').length > 0)
+    {
+        $('div.acolumn').removeClass('cssfade');
+        $('.views ul').css('top', '0');
+        if (window.location.hash) { window.location.hash = ''; } // in case activating javascript after clicking on view
+        // if ("pushState" in history)
+        // {
+        //     history.pushState({}, document.title, window.location.pathname + window.location.search);
+        // } else
+        // {
+        //     window.location.hash = "";
+        // }
+
+        var allbuttons = $('a.nav_dot');
+        allbuttons.filter(':first-child').addClass('selected');
+
+        //var viewid = '#views-' + window.location.hash.split('-')[1];
+
+        // correct layout when window resized
+        $(window).resize(function()
+        {
+            $('.views ul').css('top', '0');
+            allbuttons.removeClass('selected');
+            allbuttons.filter(':first-child').addClass('selected');
+        });
+
+        $('.img_link').on("click", function(e)
+        {
+            clck(e);
+        });
+
+        allbuttons.on("click", function(e)
+        {
+            clck(e);
+        });
+    }
+
+}); /* end of as page load scripts */
 
 /*! A fix for the iOS orientationchange zoom bug.
  Script by @scottjehl, rebound by @wilto.
