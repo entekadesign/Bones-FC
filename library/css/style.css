@@ -753,9 +753,9 @@ style a page via class
   text-align: center;
   margin-top: 0; }
   .blog .blog-feed span {
-    display: inline-block;
-    height: 1em;
-    color: #959595; }
+    color: #959595;
+    position: relative;
+    top: .1em; }
   .blog .blog-feed a {
     margin-left: 5px; }
 

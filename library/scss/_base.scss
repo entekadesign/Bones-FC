@@ -100,9 +100,9 @@ style a page via class
 		margin-top: 0;
 		span
 		{
-			display: inline-block;
-			height: 1em;
 			color: $soft-gray;
+			position: relative;
+			top: .1em;
 		}
 		a
 		{
