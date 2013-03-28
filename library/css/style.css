@@ -1055,7 +1055,8 @@ style a page via class
         padding: 0; }
       .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .hidelink, .single-portfolio_item #main .type-portfolio_item .article-container .hidelink, .tax-topics #main .type-portfolio_item .article-container .hidelink {
         height: 23px;
-        margin: 0; }
+        margin: 0;
+        font-size: .7em; }
   @media screen and (max-device-width: 640px) and (orientation: landscape) {
     .post-type-archive-portfolio_item #main, .single-portfolio_item #main, .tax-topics #main {
       min-width: 481px; }
