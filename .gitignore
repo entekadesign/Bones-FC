@@ -2,4 +2,5 @@ Bones.esproj/user.Eddie.espressostorage
 Bones.esproj/Project.espressostorage
 library/images/
 library/fonts/
-
+.htaccess
+*.log
