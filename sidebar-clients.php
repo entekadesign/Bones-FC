@@ -1,6 +1,6 @@
 				<div id="sidebar-clients" class="sidebar last clearfix" role="complementary">
 
-					<div class="divider"></div>
+					<!-- <div class="divider"></div> -->
 
 					<?php if ( is_active_sidebar( 'sidebar-clients' ) ) : ?>
 

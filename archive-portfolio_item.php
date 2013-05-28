@@ -9,9 +9,9 @@ Template Name: Clients Archive Template
 
 	<div id="inner-content" class="wrap clearfix">
 
-		<h1 class="archive-title">CLIENTS</h1>
+		<h1 class="archive-title"><span><?php _e("CLIENTS", "bonestheme"); ?></span></h1>
 
-		<div id="main" class="eightcol first clearfix" role="main">
+		<div id="main" class="first clearfix" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -54,16 +54,16 @@ Template Name: Clients Archive Template
 							echo '<div class="acolumn cssfade">'; if ($ll > 1) echo '<a href="#' . $view_id . $lnki . '" class="img_link" rel="nofollow">'; echo '<img src="';
 							if (is_mobile())
 							{
-								$thumb_attrs = wp_get_attachment_image_src( $image_id, 'fc-clients-thumb-mob-tab');
+								$thumb_attrs = wp_get_attachment_image_src( $image_id, 'fc-small');
 							} else
 							{
-								$thumb_attrs = wp_get_attachment_image_src( $image_id, 'fc-clients-thumb-wid');
+								$thumb_attrs = wp_get_attachment_image_src( $image_id, 'fc-medium');
 							}
-							echo $thumb_attrs[0] . '" class="img_thumb" title="' . $title . '" alt="' . $alt . '" /></a></div>';
+							echo $thumb_attrs[0] . '" class="" title="' . $title . '" alt="' . $alt . '" /></a></div>';
 														//echo 'CAPTION: '.$caption;
 							?>
 
-							<div class="acolumn cssfade"><?php $custom_metabox->the_value('description'); ?></div>
+							<div class="acolumn textcol cssfade"><?php $custom_metabox->the_value('description'); ?></div>
 
 						</li>
 
@@ -97,7 +97,7 @@ Template Name: Clients Archive Template
 			<div class="divider"></div>
 
 			<ul>
-				<span><?php get_topics($post->ID); ?></span>
+				<span class="taxonomy_terms"><?php get_tax($post->ID, 'topics'); ?></span>
 			</ul>
 
 </footer> <!-- end article footer -->

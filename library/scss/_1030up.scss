@@ -13,9 +13,11 @@ be seen on the Desktop.
 GENERAL STYLES
 *********************/
 
-body {
+body
+{
 	font-size: 19px;
-	line-height: 26px;
+	line-height: 31px; //26px;
+	font-family: TitilliumLtBold;
 }
 
 /********************
@@ -23,47 +25,205 @@ WORDPRESS BODY CLASSES
 style a page via class
 ********************/
 
-.page-template {}                   /* custom page template page */
-	.page-template-page-front-php {
-		#main-text {
-			//font-size:	inherit;
-			//line-height: inherit;
-			#firstcol {
-				//margin-left: $twocol + $margin;
-				background: url('../images/design_wide.png') no-repeat top center;
-				padding-top: 200px;				
-			}
-			#lastcol {
-				//margin-left: $margin + $twocol + $margin;
-				background: url('../images/development_wide.png') no-repeat top center;
-				padding-top: 175px;
-				margin-top: 25px;				
-			}
-			ul {
-				li {
-					//background: url('../images/bullet_square_wide.png') no-repeat 0 0.65em;
+.blog
+{
+	#content
+	{
+		#inner-content
+		{
+			#main
+			{
+				width: $tencol;
+				.post
+				{
+					.article-header
+					{
+						h2
+						{
+							font-size: 2.4em;
+						}
+					}
+					.post-content
+					{
+						div
+						{
+							&:first-child
+							{
+								padding-bottom: 0;
+								.img_header
+								{
+									margin-top: 0;
+									margin-right: 2 * $margin;
+									margin-bottom: 1.5em;
+									margin-left: -(2 * $margin);
+									display: inline; 
+									float: left;
+								}
+							}
+						}
+					}
 				}
-			}			
+			}
 		}
-		#sidebar-blog-block {
+	}
+}
+.error503
+{
+	#content
+	{
+		#inner-content
+		{
+			#main
+			{
+				width: $tencol;
+				#page-header
+				{
+					.page-header-image
+					{
+						//width: 179px;
+					}
+					#img-maintenance
+					{
+						height: 175px;
+						background: url('../images/maintenance_wide.png') no-repeat center top;
+					}
+				}
+			}
+		}
+	}
+}
+.error404
+{
+	#content
+	{
+		#inner-content
+		{
+			#main
+			{
+				width: $tencol;
+				#page-header
+				{
+					.page-header-image
+					{
+						width: 179px;
+					}
+					#img-error
+					{
+						height: 185px;
+						//margin-top: -10px;
+						margin-right: -4px;
+						background: url('../images/error_wide.png') no-repeat center top;
+					}
+				}
+			}
+		}
+	}
+}
+.search
+{
+	#content
+	{
+		#inner-content
+		{
+			@extend .blog;
+			#main
+			{
+				width: $tencol;
+				#page-header
+				{
+					.page-header-image
+					{
+						width: 186px;
+					}
+					#img-search
+					{
+						height: 199px;
+						margin-top: -24px;
+						margin-right: -14px;
+						background: url('../images/search_wide.png') no-repeat center top;
+					}
+				}
+				.post
+				{
+					.post-content
+					{
+						div
+						{
+							&:first-child
+							{
+								.img_header
+								{
+									width: 216px;
+									height: 133px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+} 
+.page-template {}                   /* custom page template page */
+	.page-template-page-front-php
+	{
+		#content
+		{
+			#inner-content
+			{
+				#main-text
+				{
+					//font-size:	inherit;
+					//line-height: inherit;
+					#firstcol
+					{
+						//margin-left: $twocol + $margin;
+						background: url('../images/design_wide.png') no-repeat top center;
+						padding-top: 200px;				
+					}
+					#lastcol
+					{
+						//margin-left: $margin + $twocol + $margin;
+						background: url('../images/development_wide.png') no-repeat top center;
+						padding-top: 175px;
+						margin-top: 25px;				
+					}
+					ul
+					{
+						li
+						{
+							//background: url('../images/bullet_square_wide.png') no-repeat 0 0.65em;
+						}
+					}			
+				}
+			}
+		}
+		#sidebar-blog-block
+		{
 			background: url('../images/blog_block_gradient_wide.png') repeat-x top;
 			height: 221px;	
-			#inner-sidebar-blog-block {
+			#inner-sidebar-blog-block
+			{
 				width: 940px;
 				margin-left: -(940px / 2);
 				height: 214px;
-				#wrapper-sidebar-blog-block {
-					#text-2, #recent-posts-plus-2 {
+				#wrapper-sidebar-blog-block
+				{
+					#text-2, #recent-posts-plus-2
+					{
 						display: table;
 						height: 214px;
 						position: relative;
 					}
-					#text-2 {
-						.textwidget {
+					#text-2
+					{
+						.textwidget
+						{
 							display: table-cell;
 							vertical-align: middle;
 						}
-						#twitter_logo {
+						#twitter_logo
+						{
 							background: url('../images/twitter_wide.png') no-repeat right;
 							height: 138px;
 							width: 138px;
@@ -73,16 +233,20 @@ style a page via class
 							right: 0;
 							top: 0;
 						}
-						#twitter_text {
+						#twitter_text
+						{
 							padding-right: 24px + 138px;
 						}			
 					}		
-					#recent-posts-plus-2 {
-						.recentpostswidget {
+					#recent-posts-plus-2
+					{
+						.recentpostswidget
+						{
 							display: table-cell;
 							vertical-align: middle;	
 						}
-						#blog_logo {
+						#blog_logo
+						{
 							background: url('../images/blog_wide.png') no-repeat left;
 							height: 138px;
 							width: 138px;
@@ -92,7 +256,8 @@ style a page via class
 							left: 0;
 							top: 0;			
 						}
-						#blog_text {
+						#blog_text
+						{
 							padding-left: 138px + 24px;				
 						}
 					}
@@ -100,15 +265,20 @@ style a page via class
 			}
 		}
 	}
-	.page-template-page-about-php {
-		#main {
-			#main-text {
+	.page-template-page-about-php
+	{
+		#main
+		{
+			#main-text
+			{
 				width: $tencol;
-				h1 {
+				h1
+				{
 					margin-top: 0;
 					text-align: left;
 				}
-				#img-portrait {
+				#img-portrait
+				{
 					width: 320px;
 					margin-top: 0;
 					margin-right: 2 * $margin;
@@ -120,171 +290,265 @@ style a page via class
 			}
 		}
 	}
-	.page-template-page-contact-php {
-		#main {
-			#main-text {
+	.page-template-page-contact-php
+	{
+		#main
+		{
+			#main-text
+			{
 				width: 598px; // 138px + 72px + 388px
-				#vert-divider {
+				#vert-divider
+				{
 					width: 138px;
 					padding-right: 38px;
 				}
-				span.wpcf7-not-valid-tip {
+				span.wpcf7-not-valid-tip
+				{
 					top: -26px;
 					padding-top: 24px;
 				}
-				#page-header {
-					#img-contact {
+				#page-header
+				{
+					#img-contact
+					{
 						height: 199px;
 						margin-top: -24px;
 						background: url('../images/contact_wide.png') no-repeat center top;
 					}
 				}
-				.group-wrapper {
-					.text-wrapper, div.wpcf7 {
+				.group-wrapper
+				{
+					.text-wrapper, div.wpcf7
+					{
 						width: 388px;
 						padding-left: 72px; //gutter
 					}
-					.wpcf7-text, .wpcf7-textarea {
+					.wpcf7-text, .wpcf7-textarea
+					{
 						width: 383px;
 					}
-					#img-atsign {
+					#img-atsign
+					{
 						height: 138px;
 						background: url('../images/atsign_wide.png') no-repeat right 1em;
 					}
-					#img-twitter {
+					#img-twitter
+					{
 						height: 138px;
 						background: url('../images/twitter2_wide.png') no-repeat center right;
 					}
-					#img-dribbble {
+					#img-dribbble
+					{
 						height: 138px;
 						background: url('../images/dribbble_wide.png') no-repeat center right;
 					}
-					#img-envelope {
+					#img-envelope
+					{
 						height: 138px;
 						background: url('../images/envelope_wide.png') no-repeat center right;
 					}
-					.contact-icons {
+					.contact-icons
+					{
 						width: 138px;
 					}
 				}
 			}
 		}
 	}
-	.post-type-archive-portfolio_item {
-		#inner-content
+	.post-type-archive-portfolio_item
+	{
+		#content
 		{
-			width: 1096px - 4px;// to create 56px margin between sidebar and views
-			#sidebar-clients
+			#inner-content
 			{
-				//margin-top: 0em;
-				margin-left: 56px;
-				float: left;
-				width: 208px; //196px;
-			//width: 588px;
-			.divider
-			{
-				display: none;
-			}
-		}
-		#main
-		{
-			min-width: 725px; //737px;
-			margin-right: 56px;//16px;
-			float: right;
-			.type-portfolio_item
-			{
-				background: url('../images/clients_window_bg_wid.jpg') repeat-x top;
-				width: 724px; //736px; //664px;
-				height: 447px; //455px; //410px;
-				border-radius: 5px 24px 24px 5px / 5px 224px 224px 5px;
-				-moz-border-radius: 5px 24px 24px 5px / 5px 224px 224px 5px;				
-				.article-container
+				//width: 1096px - 4px;// to create 56px margin between sidebar and views
+				#sidebar-clients
 				{
-					width: 724px; //736px;
-					.article-header
+					width: (214px + 24px) * 2;
+					//margin-left: 56px;
+					//float: left;
+					//width: 208px; //196px;
+					.divider
 					{
-						padding: 1.75em 1.75em 0 1.75em;
-						h2
+						//width: 456px;
+						//display: none;
+					}
+					.Custom_Cat_Widget
+					{
+						margin-top: 2em;
+						.button
 						{
-							//max-height: 1.5em;
+							width: 208px; //178px; //166px;
+							//padding: 0;
 						}
 					}
-					.views_window
+
+				}
+				#main
+				{
+					min-width: 725px; //737px;
+					//margin-right: 56px;//16px;
+					//float: right;
+					.type-portfolio_item
 					{
-						margin: 1.75em 0;
-						height: 185px;
-						.post-content
+						background: url('../images/clients_window_bg_wid.jpg') repeat-x top;
+						width: 724px; //736px; //664px;
+						height: 447px; //455px; //410px;
+						border-radius: 5px 24px 24px 5px / 5px 224px 224px 5px;
+						-moz-border-radius: 5px 24px 24px 5px / 5px 224px 224px 5px;				
+						.article-container
 						{
-							line-height: inherit;
-							width: 736px;
-							ul
+							width: 724px; //736px;
+							.article-header
 							{
-								li
+								padding: 1.75em 1.75em 0 1.75em;
+								h2
 								{
-									margin-left: 36px;//24px;
-									height: 193px;
-									.acolumn
+									//max-height: 1.5em;
+								}
+							}
+							.views_window
+							{
+								margin: 1.75em 0;
+								height: 185px;
+								.post-content
+								{
+									//line-height: inherit;
+									width: 736px;
+									ul
 									{
-										margin: 0 12px; //0 24px;
-										width: 296px;
-										&:first-of-type
+										li
 										{
-											//margin-bottom: 0px;
-										}
-										.img_link
-										{
-											height: 183px;
+											margin-left: 36px;//24px;
+											height: 193px;
+											.acolumn
+											{
+												margin: 0 12px; //0 24px;
+												width: 296px;
+												height: 183px;
+												&:first-of-type
+												{
+													//margin-bottom: 0px;
+												}
+												&.textcol
+												{
+													//height: 183px;
+												}
+												.img_link
+												{
+													height: 183px;
+												}
+												img
+												{
+													width: 296px;
+													height: 183px;
+												}
+											}
 										}
 									}
-									img
+								}
+							}
+							.nav_dots_wrapper
+							{
+							}
+							.article-footer
+							{
+								.divider, ul
+								{
+									width: 628px; //640px; //451px;
+								}
+								ul
+								{
+									span
 									{
-										width: 296px;
-										height: 183px;
 									}
+								}
+							}
+							.link
+							{
+								bottom: 1.5em;
+								//position: absolute;
+								//left: 0;
+								.button
+								{
+									width: 208px;
+								}
+							}
+							p
+							{
+								&.hidelink
+								{
+									bottom: 3em;
+									font-family: TitilliumLtBold;
 								}
 							}
 						}
 					}
-					.nav_dots_wrapper
+					&>.divider
 					{
-					}
-					.article-footer
-					{
-						.divider, ul
-						{
-							width: 628px; //640px; //451px;
-						}
-						ul
-						{
-							span
-							{
-							}
-						}
-					}
-					p.link
-					{
-						bottom: 2em;
-						//position: absolute;
-						//left: 0;
-					}
+						width: 456px;
+					}	
 				}
-			}		
+			}
 		}
 	}
-}
-
 
 /*********************
 POSTS & CONTENT STYLES
 *********************/
 
-#content {
-	#page-header {
-		.page-header-image {
+#content
+{
+	#page-header
+	{
+		.page-header-image
+		{
 			width: 175px;		
 		}
-		.page-header-text {
+		.page-header-text
+		{
 			margin-left: 48px;
+		}
+	}
+}
+
+//  ===========
+//  = Divider =
+//  ===========
+
+.divider
+{
+	border-bottom: 2px solid;
+	border-bottom-color: lighten($soft-gray, 15%);
+}
+
+
+// Search
+#sidebar1
+{
+	width: (214px + 24px) * 2;
+	.divider
+	{
+		//width: 456px;
+	}
+	.widget_categories
+	{
+		margin-top: 2em;
+		.button
+		{
+			width: 208px;
+		}
+	}
+	.widget_search
+	{
+		span
+		{
+			margin-right: -25px;
+		}
+		.search_window
+		{
+			width: 208px - 21px;
+			padding-left: 28px;
 		}
 	}
 }

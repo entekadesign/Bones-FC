@@ -96,12 +96,42 @@ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
     font-style: normal;
 }
 @font-face {
-    font-family: 'TeXGyreHerosBold';
-    src: url('../fonts/texgyreheros-bold-webfont.eot');
-    src: url('../fonts/texgyreheros-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/texgyreheros-bold-webfont.woff') format('woff'),
-         url('../fonts/texgyreheros-bold-webfont.ttf') format('truetype'),
-         url('../fonts/texgyreheros-bold-webfont.svg#TeXGyreHerosBold') format('svg');
+    font-family: 'TitilliumLtRegular';
+    src: url('../fonts/titillium-thin-webfont.eot');
+    src: url('../fonts/titillium-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/titillium-thin-webfont.woff') format('woff'),
+         url('../fonts/titillium-thin-webfont.ttf') format('truetype'),
+         url('../fonts/titillium-thin-webfont.svg#TitilliumLtRegular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TitilliumLtBold';
+    src: url('../fonts/titillium-light-webfont.eot');
+    src: url('../fonts/titillium-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/titillium-light-webfont.woff') format('woff'),
+         url('../fonts/titillium-light-webfont.ttf') format('truetype'),
+         url('../fonts/titillium-light-webfont.svg#TitilliumLtBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TitilliumLtItalic';
+    src: url('../fonts/titillium-thinitalic-webfont.eot');
+    src: url('../fonts/titillium-thinitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/titillium-thinitalic-webfont.woff') format('woff'),
+         url('../fonts/titillium-thinitalic-webfont.ttf') format('truetype'),
+         url('../fonts/titillium-thinitalic-webfont.svg#TitilliumLtItalic') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TitilliumBold';
+    src: url('../fonts/titillium-semibold-webfont.eot');
+    src: url('../fonts/titillium-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/titillium-semibold-webfont.woff') format('woff'),
+         url('../fonts/titillium-semibold-webfont.ttf') format('truetype'),
+         url('../fonts/titillium-semibold-webfont.svg#TitilliumBold') format('svg');
     font-weight: bold;
     font-style: normal;
 }
@@ -122,7 +152,7 @@ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
-	line-height: 1;
+	line-height: 1em;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -185,7 +215,7 @@ HYPHENATION // http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-
 .smallcaps {
 	&::first-line {
 		font-variant:small-caps;
-		font-size: 1.1em;
+		font-size: 1.3em; //1.1em;
 	}
 }
 

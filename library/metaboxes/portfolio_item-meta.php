@@ -1,8 +1,7 @@
 <?php global $wpalchemy_media_access; ?>
 
-<div class="my_meta_control">
+<div class="my_meta_control wpa_portfolio">
 
-    
     <div class="wpa_group">
         <div class="my_meta_field_container postbox">
             <?php $mb->the_field('link'); ?>
@@ -24,51 +23,45 @@
 
         <a href="#" class="dodelete button">Remove View</a>
         <div class="my_meta_field_container postbox">
-            <?php $mb->the_field('image_id'); ?>
-            <?php $image_id = $mb->get_the_value(); ?>
+            <?php
+            $mb->the_field('image_id');
+            if (!$mb->is_last())
+            {
+                $image_id = ($mb->get_the_value() ? $mb->get_the_value() : $wpalchemy_media_access->generic_imgid);
+            } else
+            {
+                $image_id = null;
+            }
+            $image_attrs = wp_get_attachment_image_src( $image_id, 'full');
+            $image_url = $image_attrs[0];
+            $thumb_attrs = wp_get_attachment_image_src( $image_id, 'fc-small');
+            $thumb_url = $thumb_attrs[0];
+            ?>
+
             <input type="hidden" id="image_id-n<?php $mb->the_index(); ?>" name="<?php $mb->the_name(); ?>" class="image_id" value="<?php echo $image_id; ?>"/>
 
-            <?php $mb->the_field('imgurl'); ?>
             <?php $wpalchemy_media_access->setGroupName('img-n'. $mb->get_the_index())->setInsertButtonLabel('Insert Image')->setTab('type'); ?>
 
             <p class="label">Image</p>
             <div class="img_container clearfix">
-                <img src="<?php $mb->the_value(); ?>" id="img_thumbnail_id-n<?php $mb->the_index(); ?>" class="img_thumbnail" alt="" />
+                <img src="<?php echo $image_url; ?>" id="image_entire_id-n<?php $mb->the_index(); ?>" class="image_entire" alt="" />
                 <p class="img_caption">Entire image</p>
             </div>
             <div class="img_container clearfix">
-                <?php
-                $view_indx = $mb->get_the_index();            
-                $image_url = $mb->get_the_value();
-                //$thumb_url = pathinfo($image_url, PATHINFO_DIRNAME) . '/' . pathinfo($image_url, PATHINFO_FILENAME) . '-216x133.' . pathinfo($image_url, PATHINFO_EXTENSION);
-                //wp_enqueue_script('my_thumb_url_script');
-                //$my_data = array('thumb_url' => __($thumb_url));
-                //wp_localize_script('my_thumb_url_script', 'fc_thumb_url', $my_data);
-                //$thumb_pth = str_replace(site_url(), $_SERVER['DOCUMENT_ROOT'], $thumb_url);
-                //$thumb_pth = str_replace(site_url(), '..', $thumb_url);
-                //echo wp_get_attachment_url($image->ID);
-                //echo '<img src="'; if (realpath($thumb_url)) $thumb_url; echo '" id="img_mob_thumb_id-n' . $view_indx . '" class="img_mob_thumb" alt="" />';
-                //$thumb_id = 'img_mob_thumb_id-n' . $view_indx;
-                //$attrs = array( 'id' => $thumb_id, 'class' => 'img_mob_thumb', );
-                //echo wp_get_attachment_image( $image_id, 'fc-clients-thumb-mob-tab', false, $attrs );
-                $thumb_attrs = wp_get_attachment_image_src( $image_id, 'fc-clients-thumb-mob-tab');
-                echo '<img src="' . $thumb_attrs[0] . '" id="img_mob_thumb_id-n' . $view_indx . '" class="img_mob_thumb" alt="" />';
-                ?>
+                <?php echo '<img src="' . $thumb_url . '" id="image_mob_id-n' . $mb->get_the_index() . '" class="image_mob" alt="" />'; ?>
                 <p class="img_caption">Mobile (216x133)</p>
             </div>
             <p>
-                <?php echo $wpalchemy_media_access->getField(array('name' => $mb->get_the_name(), 'value' => $image_url)); ?>
+                <p id="image_url_wpa-n<?php $mb->the_index(); ?>" class="image_url_wpa"><?php echo $image_url; ?></p>
                 <?php echo $wpalchemy_media_access->getButton(array('label' => 'Add Image')); ?>
-            </p>
-            <?php $mb->the_field('thumb_url'); ?>
-            <input type="hidden" id="thumb_url-n<?php $mb->the_index(); ?>" name="<?php $mb->the_name(); ?>" class="thumb_url" value="<?php echo $thumb_attrs[0]; ?>"/>            
+            </p>         
         </div>
         <div class="my_meta_field_container postbox">
             <?php $mb->the_field('description'); ?>
             <label for="<?php $mb->the_name(); ?>" class="label">Description</label>
                 <?php
                     $args = array( 'media_buttons' => false, 'textarea_name' => $mb->get_the_name(), 'textarea_rows' => '5', 'teeny' => false,);
-                    $description_id = 'description_id-n' . $view_indx;
+                    $description_id = 'description_id-n' . $mb->get_the_index();
                     $contnt = html_entity_decode($mb->get_the_value());
                     wp_editor( $contnt, $description_id, $args);
                 ?>

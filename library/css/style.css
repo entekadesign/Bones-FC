@@ -537,9 +537,30 @@ TYPOGRAPHY
   font-style: normal; }
 
 @font-face {
-  font-family: 'TeXGyreHerosBold';
-  src: url("../fonts/texgyreheros-bold-webfont.eot");
-  src: url("../fonts/texgyreheros-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/texgyreheros-bold-webfont.woff") format("woff"), url("../fonts/texgyreheros-bold-webfont.ttf") format("truetype"), url("../fonts/texgyreheros-bold-webfont.svg#TeXGyreHerosBold") format("svg");
+  font-family: 'TitilliumLtRegular';
+  src: url("../fonts/titillium-thin-webfont.eot");
+  src: url("../fonts/titillium-thin-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/titillium-thin-webfont.woff") format("woff"), url("../fonts/titillium-thin-webfont.ttf") format("truetype"), url("../fonts/titillium-thin-webfont.svg#TitilliumLtRegular") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'TitilliumLtBold';
+  src: url("../fonts/titillium-light-webfont.eot");
+  src: url("../fonts/titillium-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/titillium-light-webfont.woff") format("woff"), url("../fonts/titillium-light-webfont.ttf") format("truetype"), url("../fonts/titillium-light-webfont.svg#TitilliumLtBold") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'TitilliumLtItalic';
+  src: url("../fonts/titillium-thinitalic-webfont.eot");
+  src: url("../fonts/titillium-thinitalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/titillium-thinitalic-webfont.woff") format("woff"), url("../fonts/titillium-thinitalic-webfont.ttf") format("truetype"), url("../fonts/titillium-thinitalic-webfont.svg#TitilliumLtItalic") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'TitilliumBold';
+  src: url("../fonts/titillium-semibold-webfont.eot");
+  src: url("../fonts/titillium-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/titillium-semibold-webfont.woff") format("woff"), url("../fonts/titillium-semibold-webfont.ttf") format("truetype"), url("../fonts/titillium-semibold-webfont.svg#TitilliumBold") format("svg");
   font-weight: bold;
   font-style: normal; }
 
@@ -557,7 +578,7 @@ TYPOGRAPHY
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
+  line-height: 1em;
   -webkit-font-smoothing: antialiased; }
 
 /* 
@@ -608,7 +629,7 @@ HYPHENATION // http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-
 
 .smallcaps::first-line {
   font-variant: small-caps;
-  font-size: 1.1em; }
+  font-size: 1.3em; }
 
 /*********************
 BORDER RADIUS
@@ -671,16 +692,16 @@ GENERAL STYLES
 *********************/
 body {
   background: url("../images/paper_texture.jpg");
-  font: 14px/23px MetrophobicRegular, "Lucida Sans", sans-serif;
+  font: 14px/23px "TitilliumLtRegular", "Lucida Sans", sans-serif;
   /*  color: rgba(77,86,93,1); where did this color come from?*/
   color: #444444;
   text-shadow: 0 1px 0 white; }
 
-strong {
-  vertical-align: -7%;
-  line-height: 80%;
-  letter-spacing: .05em;
-  font-size: 120%; }
+strong, em, b, .boldface, .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .more_link {
+  font-family: 'TitilliumBold'; }
+
+i, cite, dfn, var, .italicize {
+  font-family: 'TitilliumLtItalic'; }
 
 abbr {
   border-bottom: none !important; }
@@ -747,30 +768,159 @@ style a page via class
 ********************/
 /* for sites that are read right to left (i.e. hebrew) */
 /* home page */
-.blog .blog-title {
-  margin-bottom: 0; }
-.blog .blog-feed {
-  text-align: center;
+.blog #content #inner-content, .single #content #inner-content {
   margin-top: 0; }
-  .blog .blog-feed span {
-    color: #959595;
-    position: relative;
-    top: .1em; }
-  .blog .blog-feed a {
-    margin-left: 5px; }
+  .blog #content #inner-content #main, .single #content #inner-content #main {
+    width: 296px;
+    margin: 0 auto; }
+    .blog #content #inner-content #main #page-header, .single #content #inner-content #main #page-header {
+      margin-top: 0; }
+      .blog #content #inner-content #main #page-header .blog-feed, .single #content #inner-content #main #page-header .blog-feed {
+        margin: 0.2em 0 0; }
+        .blog #content #inner-content #main #page-header .blog-feed span, .single #content #inner-content #main #page-header .blog-feed span {
+          color: #959595;
+          position: relative;
+          top: .1em; }
+        .blog #content #inner-content #main #page-header .blog-feed a, .single #content #inner-content #main #page-header .blog-feed a {
+          margin-left: 5px; }
+    .blog #content #inner-content #main .post, .single #content #inner-content #main .post {
+      margin-top: 3em;
+      margin-bottom: .25em; }
+      .blog #content #inner-content #main .post h2, .single #content #inner-content #main .post h2 {
+        margin: 0 0 0.2em 0; }
+        .blog #content #inner-content #main .post h2 a, .single #content #inner-content #main .post h2 a {
+          border-bottom: none; }
+      .blog #content #inner-content #main .post .meta, .single #content #inner-content #main .post .meta {
+        margin-top: 0; }
+      .blog #content #inner-content #main .post .post-content .img_header, .single #content #inner-content #main .post .post-content .img_header {
+        width: 296px;
+        height: 183px;
+        margin-bottom: .5em; }
+      .blog #content #inner-content #main .post .post-content .txt_wrap:first-line, .single #content #inner-content #main .post .post-content .txt_wrap:first-line {
+        font-variant: small-caps;
+        font-size: 1.5em;
+        line-height: 1.4em; }
+      .blog #content #inner-content #main .post .post-content .txt_wrap p:first-child, .single #content #inner-content #main .post .post-content .txt_wrap p:first-child {
+        margin-top: 0em; }
+      .blog #content #inner-content #main .post .article-footer ul, .single #content #inner-content #main .post .article-footer ul {
+        margin: 0; }
+    .blog #content #inner-content #main > .divider, .single #content #inner-content #main > .divider {
+      display: none; }
+.blog .page-navigation, .single .page-navigation {
+  margin: 2em 0 0 0;
+  text-align: center; }
+.blog .widget_search, .single .widget_search {
+  margin-top: 3em; }
+.blog .widget_categories, .single .widget_categories {
+  margin-top: 3em; }
 
 /* blog template page */
-/* archive page */
-/* date archive page */
-/* replace the number to the corresponding page number */
-/* search page */
-/* search result page */
-/* no results search page */
-/* individual paged search (i.e. body.search-paged-3) */
-/* 404 page */
 /* single post page */
 /* individual post page by id (i.e. body.postid-73) */
 /* individual paged single (i.e. body.single-paged-3) */
+.archive #content #inner-content {
+  margin-top: 0; }
+  .archive #content #inner-content #main #page-header h2 {
+    margin: 0; }
+
+/* archive page */
+/* date archive page */
+/* replace the number to the corresponding page number */
+.search #content #inner-content #main, .archive #content #inner-content #main {
+  width: 296px;
+  margin: 0 auto; }
+  .search #content #inner-content #main #page-header #img-search, .archive #content #inner-content #main #page-header #img-search {
+    height: 131px;
+    margin-top: -16px;
+    margin-right: -8px;
+    background: url("../images/search_mob_tab.png") no-repeat center top; }
+  .search #content #inner-content #main #page-header .page-header-text h1, .archive #content #inner-content #main #page-header .page-header-text h1 {
+    margin-bottom: 0; }
+  .search #content #inner-content #main #page-header .page-header-text p, .archive #content #inner-content #main #page-header .page-header-text p {
+    margin: 0; }
+  .search #content #inner-content #main .post, .archive #content #inner-content #main .post {
+    margin-top: 3em;
+    margin-bottom: .25em; }
+    .search #content #inner-content #main .post h2, .archive #content #inner-content #main .post h2 {
+      margin: 0 0 0.2em 0; }
+      .search #content #inner-content #main .post h2 a, .archive #content #inner-content #main .post h2 a {
+        border-bottom: none; }
+    .search #content #inner-content #main .post .meta, .archive #content #inner-content #main .post .meta {
+      margin-top: 0; }
+    .search #content #inner-content #main .post .post-content, .archive #content #inner-content #main .post .post-content {
+      position: relative; }
+      .search #content #inner-content #main .post .post-content .img_header, .archive #content #inner-content #main .post .post-content .img_header {
+        width: 136px;
+        height: 84px;
+        margin-right: 24px;
+        margin-bottom: 1em;
+        display: inline;
+        float: left; }
+      .search #content #inner-content #main .post .post-content .txt_wrap:first-line, .archive #content #inner-content #main .post .post-content .txt_wrap:first-line {
+        font-variant: small-caps;
+        font-size: 1.5em;
+        line-height: 1.4em; }
+      .search #content #inner-content #main .post .post-content .txt_wrap p.nosmallcaps:first-line, .archive #content #inner-content #main .post .post-content .txt_wrap p.nosmallcaps:first-line {
+        font-variant: inherit;
+        font-size: inherit;
+        line-height: inherit; }
+      .search #content #inner-content #main .post .post-content .txt_wrap p:first-child, .archive #content #inner-content #main .post .post-content .txt_wrap p:first-child {
+        margin-top: 0em; }
+  .search #content #inner-content #main > .divider, .archive #content #inner-content #main > .divider {
+    display: none; }
+.search .page-navigation, .archive .page-navigation {
+  margin: 2em 0 0 0;
+  text-align: center; }
+.search .widget_search, .archive .widget_search {
+  margin-top: 3em; }
+.search .widget_categories, .archive .widget_categories {
+  margin-top: 3em; }
+
+/* search page */
+/* search result page */
+.search-no-results #post-not-found {
+  text-align: center; }
+  .search-no-results #post-not-found h1 {
+    margin-bottom: 0; }
+  .search-no-results #post-not-found p {
+    margin-top: .5em; }
+
+/* no results search page */
+/* individual paged search (i.e. body.search-paged-3) */
+.error503 #inner-header h1 {
+  margin-top: 50px; }
+.error503 #content #inner-content #main {
+  width: 296px;
+  margin: 0 auto; }
+  .error503 #content #inner-content #main #page-header {
+    margin-bottom: 0; }
+    .error503 #content #inner-content #main #page-header #img-maintenance {
+      height: 115px;
+      background: url("../images/maintenance_mob_tab.png") no-repeat center top; }
+    .error503 #content #inner-content #main #page-header .page-header-text {
+      margin-bottom: 0; }
+      .error503 #content #inner-content #main #page-header .page-header-text h1 {
+        margin-bottom: .5em; }
+      .error503 #content #inner-content #main #page-header .page-header-text section p {
+        margin-bottom: 1.5em; }
+
+.error404 #content #inner-content #main {
+  width: 296px;
+  margin: 0 auto; }
+  .error404 #content #inner-content #main #page-header {
+    margin-bottom: 0; }
+    .error404 #content #inner-content #main #page-header #img-error {
+      height: 122px;
+      margin-right: -3px;
+      background: url("../images/error_mob_tab.png") no-repeat center top; }
+    .error404 #content #inner-content #main #page-header .page-header-text {
+      margin-bottom: 0; }
+      .error404 #content #inner-content #main #page-header .page-header-text h1 {
+        margin-bottom: .5em; }
+      .error404 #content #inner-content #main #page-header .page-header-text section p {
+        margin-bottom: 1.5em; }
+
+/* 404 page */
 /* attatchment page */
 /* individual attatchment page (i.e. body.attachmentid-763) */
 /* style mime type pages */
@@ -792,45 +942,46 @@ style a page via class
     background: url("../images/taglinebar_mob.png") no-repeat scroll 50% 3px;
     height: 236px;
     width: auto; }
-.page-template-page-front-php #main-text {
-  text-align: justify;
-  text-justify: newspaper;
-  width: 296px;
-  margin: 0 auto;
-  padding: 5em 0; }
-  .page-template-page-front-php #main-text h1 {
-    margin: 0.25em 0 1.5em 0;
-    text-align: center; }
-    .page-template-page-front-php #main-text h1 span {
-      border-bottom: 0.075em solid;
-      border-bottom-color: #636363;
-      padding-bottom: 1px;
-      -webkit-box-shadow: 0 1px 0 0 white;
-      -moz-box-shadow: 0 1px 0 0 white;
-      box-shadow: 0 1px 0 0 white; }
-  .page-template-page-front-php #main-text ul {
-    list-style: none; }
-    .page-template-page-front-php #main-text ul li {
-      position: relative;
-      padding-left: 1em;
-      padding-bottom: 1em; }
-      .page-template-page-front-php #main-text ul li::before {
-        content: "\25AA";
-        color: #1992b7;
-        position: absolute;
-        top: -.1em;
-        left: -1.5em;
-        width: 2em;
-        text-align: right;
-        font-size: 1.25em; }
-  .page-template-page-front-php #main-text #firstcol {
-    background: url("../images/design_mob_tab.png") no-repeat top center;
-    padding-top: 131px;
-    padding-bottom: 2em; }
-  .page-template-page-front-php #main-text #lastcol {
-    background: url("../images/development_mob_tab.png") no-repeat top center;
-    padding-top: 115px;
-    margin-top: 16px; }
+.page-template-page-front-php #content #inner-content {
+  margin-top: 4em; }
+  .page-template-page-front-php #content #inner-content #main-text {
+    text-align: justify;
+    text-justify: newspaper;
+    width: 296px;
+    margin: 0 auto; }
+    .page-template-page-front-php #content #inner-content #main-text h1 {
+      margin: 0.25em 0 1.5em 0;
+      text-align: center; }
+      .page-template-page-front-php #content #inner-content #main-text h1 span {
+        border-bottom: 0.075em solid;
+        border-bottom-color: #636363;
+        padding-bottom: 1px;
+        -webkit-box-shadow: 0 1px 0 0 white;
+        -moz-box-shadow: 0 1px 0 0 white;
+        box-shadow: 0 1px 0 0 white; }
+    .page-template-page-front-php #content #inner-content #main-text ul {
+      list-style: none; }
+      .page-template-page-front-php #content #inner-content #main-text ul li {
+        position: relative;
+        padding-left: 1em;
+        padding-bottom: 1em; }
+        .page-template-page-front-php #content #inner-content #main-text ul li::before {
+          content: "\25AA";
+          color: #1992b7;
+          position: absolute;
+          top: -.1em;
+          left: -1.5em;
+          width: 2em;
+          text-align: right;
+          font-size: 1.25em; }
+    .page-template-page-front-php #content #inner-content #main-text #firstcol {
+      background: url("../images/design_mob_tab.png") no-repeat top center;
+      padding-top: 131px;
+      padding-bottom: 2em; }
+    .page-template-page-front-php #content #inner-content #main-text #lastcol {
+      background: url("../images/development_mob_tab.png") no-repeat top center;
+      padding-top: 115px;
+      margin-top: 16px; }
 .page-template-page-front-php #sidebar-blog-block {
   background: url("../images/blog_block_gradient_mob_tab.png") repeat-x top;
   height: 307px;
@@ -866,6 +1017,7 @@ style a page via class
           margin-bottom: 0; }
         .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #text-2 .widget-header, .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 .widget-header {
           font-size: 28px;
+          font-family: MetrophobicRegular;
           padding-bottom: 9px; }
           .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #text-2 .widget-header a, .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block #wrapper-sidebar-blog-block #recent-posts-plus-2 .widget-header a {
             text-decoration: none;
@@ -877,16 +1029,16 @@ style a page via class
 
 .page-template-page-about-php #main #main-text {
   width: 296px;
-  margin: 6em auto; }
+  margin: 0 auto; }
   .page-template-page-about-php #main #main-text h1 {
     text-align: center;
-    margin-top: .25em; }
+    margin-top: .5em; }
   .page-template-page-about-php #main #main-text #img-portrait {
     height: 197px;
     background: url("../images/portrait_mob.jpg") no-repeat center top; }
 
 .page-template-page-contact-php #main #main-text {
-  margin: 6em auto;
+  margin: 0 auto;
   width: 296px;
   line-height: 1.5em; }
   .page-template-page-contact-php #main #main-text div.wpcf7 {
@@ -955,127 +1107,130 @@ style a page via class
   .page-template-page-contact-php #main #main-text .wpcf7-display-none {
     display: none; }
 
-.post-type-archive-portfolio_item #main, .single-portfolio_item #main, .tax-topics #main {
-  margin-top: 0em;
-  text-align: center; }
-  .post-type-archive-portfolio_item #main .type-portfolio_item, .single-portfolio_item #main .type-portfolio_item, .tax-topics #main .type-portfolio_item {
-    background: url("../images/clients_window_bg_mob.jpg") repeat-x top;
-    height: 475px;
-    width: 290px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 1px 2px 1px #959595;
-    -moz-box-shadow: 0 1px 2px 1px #959595;
-    box-shadow: 0 1px 2px 1px #959595;
-    border: 3px solid white;
-    margin: 0 auto 2em auto; }
-    .post-type-archive-portfolio_item #main .type-portfolio_item .article-container, .single-portfolio_item #main .type-portfolio_item .article-container, .tax-topics #main .type-portfolio_item .article-container {
-      position: relative;
-      height: 100%; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-header, .single-portfolio_item #main .type-portfolio_item .article-container .article-header, .tax-topics #main .type-portfolio_item .article-container .article-header {
-        padding: 1em 1em 0 1em;
+.post-type-archive-portfolio_item #sidebar-clients, .single-portfolio_item #sidebar-clients, .tax-topics #sidebar-clients {
+  width: 184px;
+  margin: 0 auto; }
+.post-type-archive-portfolio_item #content #inner-content, .single-portfolio_item #content #inner-content, .tax-topics #content #inner-content {
+  margin-top: 0; }
+  .post-type-archive-portfolio_item #content #inner-content .archive-title, .single-portfolio_item #content #inner-content .archive-title, .tax-topics #content #inner-content .archive-title {
+    margin-bottom: 1em; }
+  .post-type-archive-portfolio_item #content #inner-content #main, .single-portfolio_item #content #inner-content #main, .tax-topics #content #inner-content #main {
+    margin-top: 0em;
+    text-align: center; }
+    .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item, .single-portfolio_item #content #inner-content #main .type-portfolio_item, .tax-topics #content #inner-content #main .type-portfolio_item {
+      background: url("../images/clients_window_bg_mob.jpg") repeat-x top;
+      height: 475px;
+      width: 290px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      -webkit-box-shadow: 0 1px 2px 1px #959595;
+      -moz-box-shadow: 0 1px 2px 1px #959595;
+      box-shadow: 0 1px 2px 1px #959595;
+      border: 3px solid white;
+      margin: 0 auto 2em auto; }
+      .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container, .tax-topics #content #inner-content #main .type-portfolio_item .article-container {
         position: relative;
-        z-index: 99; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-header h2, .single-portfolio_item #main .type-portfolio_item .article-container .article-header h2, .tax-topics #main .type-portfolio_item .article-container .article-header h2 {
-          margin: 0;
-          max-height: 3em;
+        height: 100%; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-header {
+          padding: 1em 1em 0 1em;
+          position: relative;
+          z-index: 99; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header h2, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header h2, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-header h2 {
+            margin: 0;
+            max-height: 3.05em;
+            overflow: hidden; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window {
+          height: 280px;
+          overflow: hidden;
+          margin: 14px 0 14px; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content {
+            width: 236px;
+            margin: 0 auto;
+            line-height: 1.25em;
+            text-align: left; }
+            .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul {
+              position: relative;
+              padding: 0;
+              margin: 0; }
+              .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li {
+                height: 280px; }
+                .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn {
+                  height: 133px;
+                  margin: 0 10px;
+                  float: left; }
+                  .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type {
+                    margin-bottom: 10px; }
+                  .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn.textcol, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn.textcol, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn.textcol {
+                    overflow: hidden; }
+                    .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn.textcol p:first-child, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn.textcol p:first-child, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn.textcol p:first-child {
+                      margin-top: 0; }
+                  .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link {
+                    height: 133px; }
+                  .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn img, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn img, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn img {
+                    width: 216px;
+                    height: 133px; }
+                .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li:target .cssfade, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li:target .cssfade, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li:target .cssfade {
+                  animation: fadein 1s;
+                  -moz-animation: fadein 1s;
+                  -webkit-animation: fadein 1s;
+                  -o-animation: fadein 1s; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nodots, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nodots, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .nodots {
+          height: 23px; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots .selected, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots .selected, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .nav_dots .selected {
+          color: #f6724f; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots .nav_dot, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots .nav_dot, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .nav_dots .nav_dot {
+          border-bottom: none;
+          padding: 0 0.2em;
+          line-height: 1.3em;
+          font-size: .7em;
           overflow: hidden; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window, .single-portfolio_item #main .type-portfolio_item .article-container .views_window, .tax-topics #main .type-portfolio_item .article-container .views_window {
-        height: 280px;
-        overflow: hidden;
-        margin: 14px 0 14px; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content {
-          width: 236px;
-          margin: 0 auto;
-          line-height: 19px;
-          text-align: left; }
-          .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul {
-            position: relative;
-            padding: 0;
-            margin: 0; }
-            .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li {
-              height: 280px; }
-              .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn {
-                margin: 0 10px;
-                float: left;
-                width: 216px; }
-                .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type {
-                  margin-bottom: 10px; }
-                .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link {
-                  height: 133px; }
-                .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn img, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn img, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn img {
-                  width: 216px;
-                  height: 133px; }
-              .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li:target .cssfade, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li:target .cssfade, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li:target .cssfade {
-                animation: fadein 1s;
-                -moz-animation: fadein 1s;
-                -webkit-animation: fadein 1s;
-                -o-animation: fadein 1s; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .nodots, .single-portfolio_item #main .type-portfolio_item .article-container .nodots, .tax-topics #main .type-portfolio_item .article-container .nodots {
-        height: 23px; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .nav_dots .selected, .single-portfolio_item #main .type-portfolio_item .article-container .nav_dots .selected, .tax-topics #main .type-portfolio_item .article-container .nav_dots .selected {
-        color: #f6724f; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .nav_dots .nav_dot, .single-portfolio_item #main .type-portfolio_item .article-container .nav_dots .nav_dot, .tax-topics #main .type-portfolio_item .article-container .nav_dots .nav_dot {
-        border-bottom: none;
-        padding: 0 0.2em;
-        line-height: 1.3em;
-        font-size: .7em;
-        overflow: hidden; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .nav_dots .nav_dot::before, .single-portfolio_item #main .type-portfolio_item .article-container .nav_dots .nav_dot::before, .tax-topics #main .type-portfolio_item .article-container .nav_dots .nav_dot::before {
-          content: "\2B24"; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer, .tax-topics #main .type-portfolio_item .article-container .article-footer {
-        width: 100%; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer .divider, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer .divider, .tax-topics #main .type-portfolio_item .article-container .article-footer .divider {
-          width: 216px; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer ul, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer ul, .tax-topics #main .type-portfolio_item .article-container .article-footer ul {
-          width: 216px;
-          margin: 0 auto; }
-          .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span, .tax-topics #main .type-portfolio_item .article-container .article-footer ul span {
-            text-align: center;
-            display: inline-block;
-            max-height: 1.5em;
-            overflow: hidden;
-            font-size: .7em;
-            line-height: 1.5em;
-            margin: 0; }
-            .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span li, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span li, .tax-topics #main .type-portfolio_item .article-container .article-footer ul span li {
-              float: left; }
-              .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span li::after, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span li::after, .tax-topics #main .type-portfolio_item .article-container .article-footer ul span li::after {
-                content: "\25AA";
-                margin: 0 2px 0 2px; }
-              .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span li:last-child::after, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span li:last-child::after, .tax-topics #main .type-portfolio_item .article-container .article-footer ul span li:last-child::after {
-                /*  bug: use of "inline-block" causes 5px margin between elements that cannot be reset(!) */
-                content: none; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .link, .single-portfolio_item #main .type-portfolio_item .article-container .link, .tax-topics #main .type-portfolio_item .article-container .link {
-        position: absolute;
-        width: 100%;
-        bottom: 1.5em;
-        margin: 0;
-        padding: 0; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .hidelink, .single-portfolio_item #main .type-portfolio_item .article-container .hidelink, .tax-topics #main .type-portfolio_item .article-container .hidelink {
-        height: 23px;
-        margin: 0;
-        font-size: .7em; }
-  @media screen and (max-device-width: 640px) and (orientation: landscape) {
-    .post-type-archive-portfolio_item #main, .single-portfolio_item #main, .tax-topics #main {
-      min-width: 481px; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item, .single-portfolio_item #main .type-portfolio_item, .tax-topics #main .type-portfolio_item {
-        background: url("../images/clients_window_bg_mob_landscape.jpg") repeat-x top;
-        width: 475px;
-        height: 290px; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-header h2, .single-portfolio_item #main .type-portfolio_item .article-container .article-header h2, .tax-topics #main .type-portfolio_item .article-container .article-header h2 {
-          max-height: 1.5em; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window, .single-portfolio_item #main .type-portfolio_item .article-container .views_window, .tax-topics #main .type-portfolio_item .article-container .views_window {
-          height: 133px; }
-          .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content {
-            width: 472px; }
-            .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li {
-              height: 143px; }
-              .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type {
-                margin-bottom: 0px; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer .divider, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer .divider, .tax-topics #main .type-portfolio_item .article-container .article-footer .divider, .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer ul, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer ul, .tax-topics #main .type-portfolio_item .article-container .article-footer ul {
-          width: 451px; } }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots .nav_dot::before, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots .nav_dot::before, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .nav_dots .nav_dot::before {
+            content: "\2B24"; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer {
+          width: 100%; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider {
+            width: 216px;
+            margin: 0 auto; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer ul {
+            width: 216px;
+            margin: 0 auto; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .link {
+          position: absolute;
+          width: 100%;
+          bottom: 1.5em;
+          margin: 0;
+          padding: 0;
+          font-family: TitilliumBold; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .hidelink, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .hidelink, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .hidelink {
+          height: 23px;
+          bottom: 2.1em;
+          margin: 0;
+          font-size: .7em; }
+    @media screen and (max-device-width: 640px) and (orientation: landscape) {
+      .post-type-archive-portfolio_item #content #inner-content #main, .single-portfolio_item #content #inner-content #main, .tax-topics #content #inner-content #main {
+        min-width: 481px; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item, .single-portfolio_item #content #inner-content #main .type-portfolio_item, .tax-topics #content #inner-content #main .type-portfolio_item {
+          background: url("../images/clients_window_bg_mob_landscape.jpg") repeat-x top;
+          width: 475px;
+          height: 290px; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header h2, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header h2, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-header h2 {
+            max-height: 1.5em; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window {
+            height: 134px; }
+            .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content {
+              width: 472px; }
+              .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li {
+                height: 143px; }
+                .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type {
+                  margin-bottom: 0px; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer ul {
+            width: 451px; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .link {
+            bottom: .75em; } }
+    .post-type-archive-portfolio_item #content #inner-content #main > .divider, .single-portfolio_item #content #inner-content #main > .divider, .tax-topics #content #inner-content #main > .divider {
+      width: 184px;
+      margin: 0 auto; }
 
 /* individual page template (i.e. body.page-template-contact-php */
 /* replace the number to the corresponding page number */
@@ -1118,7 +1273,7 @@ a.img_link, a.img_link:visited {
   border-left: dotted 2px #ed3b0c;
   padding-left: 2px;
   margin-left: -4px;
-  display: block; }
+  display: inline-block; }
   a.img_link:hover, a.img_link:focus, a.img_link:visited:hover, a.img_link:visited:focus {
     border-left-color: rgba(0, 0, 0, 0);
     opacity: .75; }
@@ -1129,10 +1284,15 @@ a.img_link, a.img_link:visited {
 TEXT SELECTION STYLES
 ******************************************************************/
 /* Highlighted Text */
-::selection, mark {
+::selection, mark, .search-excerpt {
   background: #1992b7;
   color: white;
-  text-shadow: none; }
+  text-shadow: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border-left: 0.15em solid #1992b7;
+  border-right: 0.15em solid #1992b7; }
 
 /* Firefox */
 ::-moz-selection, mark {
@@ -1144,20 +1304,30 @@ TEXT SELECTION STYLES
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  font: 14px/23px TeXGyreHerosBold, "Lucida Sans", sans-serif;
+  font: 14px/23px MetrophobicRegular, "Lucida Sans", sans-serif;
   text-rendering: optimizelegibility;
+  letter-spacing: -.01em;
   /* removing text decoration from all headline links */ }
   h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
     text-decoration: none; }
+  h1 strong, h1 em, h1 i, h1 b, h1 .boldface, h1 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap h1 .search-excerpt, h1 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap h1 .search-excerpt, h1 .more_link, h1 i, h1 cite, h1 dfn, h1 var, h1 .italicize, .h1 strong, .h1 em, .h1 i, .h1 b, .h1 .boldface, .h1 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap .h1 .search-excerpt, .h1 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap .h1 .search-excerpt, .h1 .more_link, .h1 i, .h1 cite, .h1 dfn, .h1 var, .h1 .italicize, h2 strong, h2 em, h2 i, h2 b, h2 .boldface, h2 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap h2 .search-excerpt, h2 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap h2 .search-excerpt, h2 .more_link, h2 i, h2 cite, h2 dfn, h2 var, h2 .italicize, .h2 strong, .h2 em, .h2 i, .h2 b, .h2 .boldface, .h2 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap .h2 .search-excerpt, .h2 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap .h2 .search-excerpt, .h2 .more_link, .h2 i, .h2 cite, .h2 dfn, .h2 var, .h2 .italicize, h3 strong, h3 em, h3 i, h3 b, h3 .boldface, h3 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap h3 .search-excerpt, h3 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap h3 .search-excerpt, h3 .more_link, h3 i, h3 cite, h3 dfn, h3 var, h3 .italicize, .h3 strong, .h3 em, .h3 i, .h3 b, .h3 .boldface, .h3 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap .h3 .search-excerpt, .h3 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap .h3 .search-excerpt, .h3 .more_link, .h3 i, .h3 cite, .h3 dfn, .h3 var, .h3 .italicize, h4 strong, h4 em, h4 i, h4 b, h4 .boldface, h4 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap h4 .search-excerpt, h4 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap h4 .search-excerpt, h4 .more_link, h4 i, h4 cite, h4 dfn, h4 var, h4 .italicize, .h4 strong, .h4 em, .h4 i, .h4 b, .h4 .boldface, .h4 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap .h4 .search-excerpt, .h4 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap .h4 .search-excerpt, .h4 .more_link, .h4 i, .h4 cite, .h4 dfn, .h4 var, .h4 .italicize, h5 strong, h5 em, h5 i, h5 b, h5 .boldface, h5 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap h5 .search-excerpt, h5 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap h5 .search-excerpt, h5 .more_link, h5 i, h5 cite, h5 dfn, h5 var, h5 .italicize, .h5 strong, .h5 em, .h5 i, .h5 b, .h5 .boldface, .h5 .search #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .search #content #inner-content #main .post .post-content .txt_wrap .h5 .search-excerpt, .h5 .archive #content #inner-content #main .post .post-content .txt_wrap .search-excerpt, .archive #content #inner-content #main .post .post-content .txt_wrap .h5 .search-excerpt, .h5 .more_link, .h5 i, .h5 cite, .h5 dfn, .h5 var, .h5 .italicize {
+    font-family: MetrophobicRegular;
+    vertical-align: -7%;
+    line-height: 80%;
+    letter-spacing: .05em;
+    font-size: 120%; }
 
 h1, .h1 {
   font-size: 2.4em;
-  line-height: 1.5em;
+  line-height: 1.3em;
   margin: 1em 0; }
 
 h2, .h2 {
   font-size: 1.5em;
-  line-height: 1.55em; }
+  line-height: 1.4em; }
+
+h4, .h4 {
+  font-size: 1em; }
 
 /*********************
 HEADER SYTLES
@@ -1166,27 +1336,28 @@ HEADER SYTLES
   text-align: center; }
   #inner-header ul {
     margin: 0;
-    font-size: 13px; }
-    #inner-header ul .current-menu-item {
-      border-top: 5px solid #ed3b0c;
-      background-image: url("../images/pointer.svg");
-      background-position: top;
-      background-repeat: no-repeat;
-      background-size: 100% 6px;
-      animation: growin 0.25s linear;
-      -moz-animation: growin 0.25s linear;
-      -webkit-animation: growin 0.25s linear;
-      -o-animation: growin 0.25s linear; }
+    font-size: 13px;
+    font-family: MetrophobicRegular; }
     #inner-header ul li {
       border-top: 5px solid #0e4b5d;
       padding-top: .5em;
       margin: 0 1em; }
+      #inner-header ul li.current-menu-item, #inner-header ul li.current_page_parent {
+        border-top: 5px solid #ed3b0c;
+        background-image: url("../images/pointer.svg");
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: 100% 6px;
+        animation: growin 0.25s linear;
+        -moz-animation: growin 0.25s linear;
+        -webkit-animation: growin 0.25s linear;
+        -o-animation: growin 0.25s linear; }
       #inner-header ul li a {
         border-bottom: none;
         color: #0e4b5d;
         text-decoration: none; }
         #inner-header ul li a:hover {
-          opacity: 0.75; }
+          color: #18819f; }
   #inner-header nav {
     display: inline-block; }
 
@@ -1243,16 +1414,20 @@ and moe scalable.
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-#content #page-header .page-header-text {
-  text-align: center;
-  margin-bottom: 2em; }
-  #content #page-header .page-header-text h1 {
-    margin: 0.25em 0 0.5em 0; }
+#content #inner-content {
+  margin: 6em auto 4em auto; }
+  #content #inner-content #page-header {
+    text-align: center; }
+    #content #inner-content #page-header .page-header-text {
+      margin-bottom: 2em; }
+      #content #inner-content #page-header .page-header-text h1 {
+        margin: 0.25em 0 0.5em 0; }
 
 /* end .hentry */
 .page-title, .archive-title, .blog-title {
   text-align: center;
-  margin-top: 2em; }
+  margin-top: 2em;
+  margin-bottom: 0; }
 
 /* want to style individual post classes? Booya! */
 /* post by id (i.e. post-3) */
@@ -1308,26 +1483,44 @@ POSTS & CONTENT STYLES
 /* end .gallery */
 /* gallery caption styles */
 .divider {
-  height: 1px;
-  margin: 0 auto;
-  border-bottom: 0.075em solid;
-  border-bottom-color: #777777;
+  margin: 0;
+  border-bottom: 1px solid;
+  border-bottom-color: #bbbbbb;
   -webkit-box-shadow: 0 1px 0 0 white;
   -moz-box-shadow: 0 1px 0 0 white;
   box-shadow: 0 1px 0 0 white; }
+
+.taxonomy_terms {
+  text-align: center;
+  display: inline-block;
+  max-height: 1.5em;
+  overflow: hidden;
+  font-size: .7em;
+  line-height: 1.5em;
+  margin: 0; }
+  .taxonomy_terms li {
+    float: left; }
+    .taxonomy_terms li::after {
+      color: #959595;
+      content: "\25AA";
+      margin: 0 2px 0 2px; }
+    .taxonomy_terms li:last-child::after {
+      /*  bug: use of "inline-block" causes 5px margin between elements that cannot be reset(!) */
+      content: none; }
 
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
 .page-navigation {
   margin: 1.1em 0; }
+  .page-navigation [data-icon]::before {
+    line-height: inherit; }
   .page-navigation .page_navi_mobile .bpn-prev-link a span {
     border-bottom: dotted 1px;
     float: left;
     margin-right: 5px; }
   .page-navigation .page_navi_mobile .bpn-prev-nolink {
-    color: #959595;
-    margin-top: 2px; }
+    color: #959595; }
     .page-navigation .page_navi_mobile .bpn-prev-nolink span {
       float: left;
       margin-right: 5px; }
@@ -1336,8 +1529,7 @@ PAGE NAVI STYLES
     margin-left: 5px;
     float: right; }
   .page-navigation .page_navi_mobile .bpn-next-nolink {
-    color: #959595;
-    margin-top: 2px; }
+    color: #959595; }
     .page-navigation .page_navi_mobile .bpn-next-nolink span {
       margin-left: 5px;
       float: right; }
@@ -1358,18 +1550,15 @@ PAGE NAVI STYLES
     float: left;
     margin-right: 5px;
     font-size: 23px;
-    line-height: 25px;
     padding-bottom: 3px; }
     .bones_page_navi li a {
       display: block;
       position: relative; }
   .bones_page_navi li.bpn-current {
     position: relative;
-    margin-top: 2px;
     color: #959595; }
     .bones_page_navi li.bpn-current span {
       position: absolute;
-      top: -.1em;
       left: .28em;
       color: #cfdbe0;
       text-shadow: none; }
@@ -1381,23 +1570,10 @@ PAGE NAVI STYLES
   .bones_page_navi li.bpn-last-page-link a {
     border-bottom: none;
     padding-bottom: 3px; }
-  .bones_page_navi li.bpn-prev-link a:hover,
-  .bones_page_navi li.bpn-next-link a:hover,
-  .bones_page_navi li.bpn-first-page-link a:hover,
-  .bones_page_navi li.bpn-last-page-link a:hover {
-    opacity: 0.75; }
-  .bones_page_navi li.bpn-prev-link a {
-    margin-top: 2px; }
-  .bones_page_navi li.bpn-next-link a {
-    margin-top: 2px; }
   .bones_page_navi li.bpn-first-page-link {
     margin-right: 5px; }
-    .bones_page_navi li.bpn-first-page-link a {
-      margin-top: 2px; }
   .bones_page_navi li.bpn-last-page-link {
     margin-left: 5px; }
-    .bones_page_navi li.bpn-last-page-link a {
-      margin-top: 2px; }
 
 /* end .bones_page_navi */
 /******************************************************************
@@ -1557,8 +1733,7 @@ SIDEBARS & ASIDES
     .widget ul li {
       /* deep nesting */ }
 
-#sidebar-clients {
-  width: 184px;
+#sidebar1 {
   margin: 0 auto; }
 
 /*********************
@@ -1601,6 +1776,7 @@ html, body, #container {
     vertical-align: baseline;
     position: relative;
     font-size: 10px;
+    font-family: MetrophobicRegular;
     line-height: 16.4px;
     color: #959595; }
     #page-footer #inner-footer a, #page-footer #inner-footer a:visited {
@@ -1635,6 +1811,38 @@ html, body, #container {
         float: left; }
         #page-footer #inner-footer #attribution-links ul li a::before {
           display: none; }
+
+/* Hide visually but not from screen readers */
+.screen-reader-text, .screen-reader-text span {
+  position: absolute;
+  left: -1000em;
+  height: 1px;
+  width: 1px;
+  overflow: hidden; }
+
+#searchform span {
+  color: #959595;
+  position: relative;
+  margin-right: -20px;
+  top: .125em; }
+#searchform input {
+  color: #444444; }
+  #searchform input.search_window {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 157px;
+    padding: 3px 3px 3px 21px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px inset; }
+
+.more_link {
+  position: absolute;
+  line-height: 1.25em;
+  bottom: -1.5em; }
+
+.more_link_spacer {
+  margin-bottom: 1.5em; }
 
 /*
 LARGER MOBILE DEVICES
@@ -1719,14 +1927,41 @@ you can add resource intensive styles.
   style a page via class
   ********************/
   /* home page */
+  .blog #content #inner-content #main, .single #content #inner-content #main {
+    width: 48.90511%;
+    min-width: 320px; }
+    .blog #content #inner-content #main .post .post-content .img_header, .single #content #inner-content #main .post .post-content .img_header {
+      margin: 0 auto 1.25em auto;
+      display: block;
+      width: 320px;
+      height: 198px; }
+
   /* blog page */
   /* archive page */
   /* date archive page */
   /* replace the number to the corresponding page number */
+  .search #content #inner-content #main, .archive #content #inner-content #main {
+    width: 48.90511%;
+    min-width: 320px; }
+    .search #content #inner-content #main #page-header .page-header-image, .archive #content #inner-content #main #page-header .page-header-image {
+      width: 123px; }
+
   /* search page */
   /* search result page */
   /* no results search page */
   /* individual paged search (i.e. body.search-paged-3) */
+  .error503 #inner-header h1 {
+    margin-top: 60px; }
+  .error503 #content #inner-content #main {
+    width: 48.90511%;
+    min-width: 320px; }
+
+  .error404 #content #inner-content #main {
+    width: 48.90511%;
+    min-width: 320px; }
+    .error404 #content #inner-content #main #page-header .page-header-image {
+      width: 118px; }
+
   /* 404 page */
   /* single post page */
   /* individual post page by id (i.e. body.postid-73) */
@@ -1752,16 +1987,16 @@ you can add resource intensive styles.
       background: url("../images/taglinebar_tab_wide.jpg") no-repeat scroll 50% 3px;
       height: 352px;
       width: auto; }
-  .page-template-page-front-php #main-text {
+  .page-template-page-front-php #content #inner-content #main-text {
     width: inherit; }
-    .page-template-page-front-php #main-text .acolumn {
+    .page-template-page-front-php #content #inner-content #main-text .acolumn {
       width: 27.0073%;
       position: relative;
       float: left; }
-    .page-template-page-front-php #main-text #firstcol {
+    .page-template-page-front-php #content #inner-content #main-text #firstcol {
       margin-left: 14.59854%;
       padding-bottom: 0; }
-    .page-template-page-front-php #main-text #lastcol {
+    .page-template-page-front-php #content #inner-content #main-text #lastcol {
       margin-left: 16.78832%; }
   .page-template-page-front-php #sidebar-blog-block #inner-sidebar-blog-block {
     width: 616px;
@@ -1785,7 +2020,7 @@ you can add resource intensive styles.
         display: none; }
 
   .page-template-page-about-php #main #main-text {
-    width: 41.60584%;
+    width: 48.90511%;
     min-width: 320px; }
     .page-template-page-about-php #main #main-text #img-portrait {
       height: 213px;
@@ -1798,7 +2033,11 @@ you can add resource intensive styles.
       width: 65px;
       padding-right: 24px;
       border-right: 2px solid;
-      border-right-color: #777777; }
+      border-right-color: #bbbbbb; }
+    .page-template-page-contact-php #main #main-text .wpcf7-submit {
+      margin-left: -12px;
+      line-height: 1.5em;
+      max-height: 2em; }
     .page-template-page-contact-php #main #main-text .group-wrapper {
       width: 100%;
       display: table;
@@ -1831,8 +2070,6 @@ you can add resource intensive styles.
       -webkit-box-shadow: 0 1px 2px 1px #959595 inset;
       -moz-box-shadow: 0 1px 2px 1px #959595 inset;
       box-shadow: 0 1px 2px 1px #959595 inset; }
-    .page-template-page-contact-php #main #main-text .wpcf7-submit {
-      margin-left: -12px; }
     .page-template-page-contact-php #main #main-text label.fieldlabel {
       padding-left: 0; }
     .page-template-page-contact-php #main #main-text span.wpcf7-not-valid-tip {
@@ -1844,60 +2081,76 @@ you can add resource intensive styles.
   .post-type-archive-portfolio_item #sidebar-clients, .single-portfolio_item #sidebar-clients, .tax-topics #sidebar-clients {
     float: none;
     width: 416px; }
-    .post-type-archive-portfolio_item #sidebar-clients .divider, .single-portfolio_item #sidebar-clients .divider, .tax-topics #sidebar-clients .divider {
-      width: 344px; }
-    .post-type-archive-portfolio_item #sidebar-clients .button, .single-portfolio_item #sidebar-clients .button, .tax-topics #sidebar-clients .button, .post-type-archive-portfolio_item #sidebar-clients .page-template-page-contact-php #main #main-text .wpcf7-submit, .page-template-page-contact-php #main #main-text .post-type-archive-portfolio_item #sidebar-clients .wpcf7-submit, .single-portfolio_item #sidebar-clients .page-template-page-contact-php #main #main-text .wpcf7-submit, .page-template-page-contact-php #main #main-text .single-portfolio_item #sidebar-clients .wpcf7-submit, .tax-topics #sidebar-clients .page-template-page-contact-php #main #main-text .wpcf7-submit, .page-template-page-contact-php #main #main-text .tax-topics #sidebar-clients .wpcf7-submit, .post-type-archive-portfolio_item #sidebar-clients .button:visited, .single-portfolio_item #sidebar-clients .button:visited, .tax-topics #sidebar-clients .button:visited, .post-type-archive-portfolio_item #sidebar-clients .page-template-page-contact-php #main #main-text .wpcf7-submit:visited, .page-template-page-contact-php #main #main-text .post-type-archive-portfolio_item #sidebar-clients .wpcf7-submit:visited, .single-portfolio_item #sidebar-clients .page-template-page-contact-php #main #main-text .wpcf7-submit:visited, .page-template-page-contact-php #main #main-text .single-portfolio_item #sidebar-clients .wpcf7-submit:visited, .tax-topics #sidebar-clients .page-template-page-contact-php #main #main-text .wpcf7-submit:visited, .page-template-page-contact-php #main #main-text .tax-topics #sidebar-clients .wpcf7-submit:visited {
+    .post-type-archive-portfolio_item #sidebar-clients .button, .single-portfolio_item #sidebar-clients .button, .tax-topics #sidebar-clients .button, .post-type-archive-portfolio_item #sidebar-clients .page-template-page-contact-php #main #main-text .wpcf7-submit, .page-template-page-contact-php #main #main-text .post-type-archive-portfolio_item #sidebar-clients .wpcf7-submit, .single-portfolio_item #sidebar-clients .page-template-page-contact-php #main #main-text .wpcf7-submit, .page-template-page-contact-php #main #main-text .single-portfolio_item #sidebar-clients .wpcf7-submit, .tax-topics #sidebar-clients .page-template-page-contact-php #main #main-text .wpcf7-submit, .page-template-page-contact-php #main #main-text .tax-topics #sidebar-clients .wpcf7-submit {
       float: left;
       width: 178px;
       display: block;
-      margin: 0 12px 5px 12px;
-      padding: 0; }
-  .post-type-archive-portfolio_item #main, .single-portfolio_item #main, .tax-topics #main {
+      margin: 0 12px 0.5em 12px;
+      padding-left: 0;
+      padding-right: 0;
+      line-height: 1.5em;
+      max-height: 1.5em; }
+  .post-type-archive-portfolio_item #content #inner-content #main, .single-portfolio_item #content #inner-content #main, .tax-topics #content #inner-content #main {
     min-width: 505px;
     margin: 0 auto 0;
     float: none; }
-    .post-type-archive-portfolio_item #main .type-portfolio_item, .single-portfolio_item #main .type-portfolio_item, .tax-topics #main .type-portfolio_item {
+    .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item, .single-portfolio_item #content #inner-content #main .type-portfolio_item, .tax-topics #content #inner-content #main .type-portfolio_item {
       background: url("../images/clients_window_bg_tab.jpg") repeat-x top;
       width: 504px;
       height: 311px;
       border-radius: 5px 24px 24px 5px/5px 155px 155px 5px;
       -moz-border-radius: 5px 24px 24px 5px/5px 155px 155px 5px; }
-      .post-type-archive-portfolio_item #main .type-portfolio_item .article-container, .single-portfolio_item #main .type-portfolio_item .article-container, .tax-topics #main .type-portfolio_item .article-container {
+      .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container, .tax-topics #content #inner-content #main .type-portfolio_item .article-container {
         width: 504px; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-header h2, .single-portfolio_item #main .type-portfolio_item .article-container .article-header h2, .tax-topics #main .type-portfolio_item .article-container .article-header h2 {
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header h2, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header h2, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-header h2 {
           max-height: 1.55em; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window, .single-portfolio_item #main .type-portfolio_item .article-container .views_window, .tax-topics #main .type-portfolio_item .article-container .views_window {
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window {
           margin: 1.5em 0;
           height: 135px; }
-          .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content {
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content {
             width: 504px; }
-            .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li {
+            .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li {
               margin-left: 12px;
               height: 143px; }
-              .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn {
+              .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn {
+                height: 135px;
+                width: 216px;
                 margin: 0 12px; }
-                .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .single-portfolio_item #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .tax-topics #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type {
+                .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn:first-of-type {
                   margin-bottom: 0px; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .nav_dots_wrapper, .single-portfolio_item #main .type-portfolio_item .article-container .nav_dots_wrapper, .tax-topics #main .type-portfolio_item .article-container .nav_dots_wrapper {
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots_wrapper, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots_wrapper, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .nav_dots_wrapper {
           height: 100%;
           position: absolute;
           top: 0;
           right: 0;
           display: table; }
-          .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots, .single-portfolio_item #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots, .tax-topics #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots {
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots {
             display: table-cell;
             vertical-align: middle;
             width: 1em; }
-            .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots .nav_dot, .single-portfolio_item #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots .nav_dot, .tax-topics #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots .nav_dot {
+            .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots .nav_dot, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots .nav_dot, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .nav_dots_wrapper .nav_dots .nav_dot {
               display: block;
               padding: 0.2em 0; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer .divider, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer .divider, .tax-topics #main .type-portfolio_item .article-container .article-footer .divider, .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer ul, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer ul, .tax-topics #main .type-portfolio_item .article-container .article-footer ul {
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer ul {
           width: 456px; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span, .single-portfolio_item #main .type-portfolio_item .article-container .article-footer ul span, .tax-topics #main .type-portfolio_item .article-container .article-footer ul span {
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul .taxonomy_terms, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul .taxonomy_terms, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer ul .taxonomy_terms {
           max-height: 3em; }
-        .post-type-archive-portfolio_item #main .type-portfolio_item .article-container p.link, .single-portfolio_item #main .type-portfolio_item .article-container p.link, .tax-topics #main .type-portfolio_item .article-container p.link {
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .link {
           position: absolute;
-          left: 0; }
+          left: 0;
+          bottom: 1.25em; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link .button, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link .button, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .link .button, .post-type-archive-portfolio_item #content #inner-content .page-template-page-contact-php #main .type-portfolio_item .article-container .link #main-text .wpcf7-submit, .page-template-page-contact-php .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link #main-text .wpcf7-submit, .post-type-archive-portfolio_item #content #inner-content .page-template-page-contact-php #main #main-text .type-portfolio_item .article-container .link .wpcf7-submit, .page-template-page-contact-php .post-type-archive-portfolio_item #content #inner-content #main #main-text .type-portfolio_item .article-container .link .wpcf7-submit, .single-portfolio_item #content #inner-content .page-template-page-contact-php #main .type-portfolio_item .article-container .link #main-text .wpcf7-submit, .page-template-page-contact-php .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link #main-text .wpcf7-submit, .single-portfolio_item #content #inner-content .page-template-page-contact-php #main #main-text .type-portfolio_item .article-container .link .wpcf7-submit, .page-template-page-contact-php .single-portfolio_item #content #inner-content #main #main-text .type-portfolio_item .article-container .link .wpcf7-submit, .tax-topics #content #inner-content .page-template-page-contact-php #main .type-portfolio_item .article-container .link #main-text .wpcf7-submit, .page-template-page-contact-php .tax-topics #content #inner-content #main .type-portfolio_item .article-container .link #main-text .wpcf7-submit, .tax-topics #content #inner-content .page-template-page-contact-php #main #main-text .type-portfolio_item .article-container .link .wpcf7-submit, .page-template-page-contact-php .tax-topics #content #inner-content #main #main-text .type-portfolio_item .article-container .link .wpcf7-submit {
+            width: 178px;
+            display: block;
+            margin: 0 auto 0.5em auto;
+            padding-left: 0;
+            padding-right: 0;
+            line-height: 1.5em;
+            max-height: 1.5em; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container p.hidelink, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container p.hidelink, .tax-topics #content #inner-content #main .type-portfolio_item .article-container p.hidelink {
+          bottom: 3em; }
+    .post-type-archive-portfolio_item #content #inner-content #main > .divider, .single-portfolio_item #content #inner-content #main > .divider, .tax-topics #content #inner-content #main > .divider {
+      width: 344px; }
 
   /* individual page template (i.e. body.page-template-contact-php */
   /* replace the number to the corresponding page number */
@@ -2009,14 +2262,14 @@ you can add resource intensive styles.
   BUTTONS
   *********************/
   .button, .page-template-page-contact-php #main #main-text .wpcf7-submit, .button:visited, .page-template-page-contact-php #main #main-text .wpcf7-submit:visited {
-    font-family: TeXGyreHerosBold;
+    font-family: TitilliumBold;
     border: 3px solid white;
-    padding: 0 0.6em;
+    padding: 1px 0.6em 0;
     color: #ed3b0c;
     font-size: .8em;
     text-decoration: none;
     cursor: pointer;
-    line-height: 1.5em;
+    overflow: hidden;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -2044,34 +2297,6 @@ you can add resource intensive styles.
       -webkit-box-shadow: 0 0 2px 0 #959595;
       -moz-box-shadow: 0 0 2px 0 #959595;
       box-shadow: 0 0 2px 0 #959595; }
-
-  .blue-button, .blue-button:visited {
-    border-color: #136e8a;
-    text-shadow: 0 1px 1px #136e8a;
-    background-color: #1680a1;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#1992b7), to(#1680a1));
-    background-image: -webkit-linear-gradient(top, #1992b7, #1680a1);
-    background-image: -moz-linear-gradient(top, #1992b7, #1680a1);
-    background-image: -o-linear-gradient(top, #1992b7, #1680a1);
-    background-image: linear-gradient(to bottom, #1992b7, #1680a1);
-    -webkit-box-shadow: inset 0 0 3px #3dbde5;
-    -moz-box-shadow: inset 0 0 3px #3dbde5;
-    box-shadow: inset 0 0 3px #3dbde5; }
-    .blue-button:hover, .blue-button:focus, .blue-button:visited:hover, .blue-button:visited:focus {
-      border-color: #105c74;
-      background-color: #136e8a;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(#1784a5), to(#136e8a));
-      background-image: -webkit-linear-gradient(top, #1784a5, #136e8a);
-      background-image: -moz-linear-gradient(top, #1784a5, #136e8a);
-      background-image: -o-linear-gradient(top, #1784a5, #136e8a);
-      background-image: linear-gradient(to bottom, #1784a5, #136e8a); }
-    .blue-button:active, .blue-button:visited:active {
-      background-color: #1992b7;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(#1680a1), to(#1992b7));
-      background-image: -webkit-linear-gradient(top, #1680a1, #1992b7);
-      background-image: -moz-linear-gradient(top, #1680a1, #1992b7);
-      background-image: -o-linear-gradient(top, #1680a1, #1992b7);
-      background-image: linear-gradient(to bottom, #1680a1, #1992b7); }
 
   /*********************
   HEADER SYTLES
@@ -2109,7 +2334,6 @@ you can add resource intensive styles.
     display: table;
     margin: 0 auto 4em auto; }
     #content #page-header .page-header-image {
-      background-position: top right;
       width: 115px;
       display: table-cell; }
     #content #page-header .page-header-text {
@@ -2140,6 +2364,25 @@ you can add resource intensive styles.
   /* recent-comments widget */
   /* search widget */
   /* text widget */
+  #sidebar1 {
+    float: none;
+    width: 416px; }
+    #sidebar1 .button, #sidebar1 .page-template-page-contact-php #main #main-text .wpcf7-submit, .page-template-page-contact-php #main #main-text #sidebar1 .wpcf7-submit {
+      float: left;
+      width: 178px;
+      display: block;
+      margin: 0 12px 0.5em 12px;
+      padding-left: 0;
+      padding-right: 0;
+      line-height: 1.5em;
+      max-height: 1.5em; }
+
+  #searchform input.search_window {
+    border: none;
+    -webkit-box-shadow: 0 1px 2px 1px #959595 inset;
+    -moz-box-shadow: 0 1px 2px 1px #959595 inset;
+    box-shadow: 0 1px 2px 1px #959595 inset; }
+
   /*********************
   FOOTER STYLES
   *********************/
@@ -2214,17 +2457,60 @@ you can add resource intensive styles.
   *********************/
   body {
     font-size: 19px;
-    line-height: 26px; }
+    line-height: 31px;
+    font-family: TitilliumLtBold; }
 
   /********************
   WORDPRESS BODY CLASSES
   style a page via class
   ********************/
+  .blog #content #inner-content #main, .single #content #inner-content #main, .search #content #inner-content #content #inner-content #main, .archive #content #inner-content #content #inner-content #main {
+    width: 70.80292%; }
+    .blog #content #inner-content #main .post .article-header h2, .single #content #inner-content #main .post .article-header h2, .search #content #inner-content #content #inner-content #main .post .article-header h2, .archive #content #inner-content #content #inner-content #main .post .article-header h2 {
+      font-size: 2.4em; }
+    .blog #content #inner-content #main .post .post-content div:first-child, .single #content #inner-content #main .post .post-content div:first-child, .search #content #inner-content #content #inner-content #main .post .post-content div:first-child, .archive #content #inner-content #content #inner-content #main .post .post-content div:first-child {
+      padding-bottom: 0; }
+      .blog #content #inner-content #main .post .post-content div:first-child .img_header, .single #content #inner-content #main .post .post-content div:first-child .img_header, .search #content #inner-content #content #inner-content #main .post .post-content div:first-child .img_header, .archive #content #inner-content #content #inner-content #main .post .post-content div:first-child .img_header {
+        margin-top: 0;
+        margin-right: 4.37956%;
+        margin-bottom: 1.5em;
+        margin-left: -4.37956%;
+        display: inline;
+        float: left; }
+
+  .error503 #content #inner-content #main {
+    width: 70.80292%; }
+    .error503 #content #inner-content #main #page-header #img-maintenance {
+      height: 175px;
+      background: url("../images/maintenance_wide.png") no-repeat center top; }
+
+  .error404 #content #inner-content #main {
+    width: 70.80292%; }
+    .error404 #content #inner-content #main #page-header .page-header-image {
+      width: 179px; }
+    .error404 #content #inner-content #main #page-header #img-error {
+      height: 185px;
+      margin-right: -4px;
+      background: url("../images/error_wide.png") no-repeat center top; }
+
+  .search #content #inner-content #main, .archive #content #inner-content #main {
+    width: 70.80292%; }
+    .search #content #inner-content #main #page-header .page-header-image, .archive #content #inner-content #main #page-header .page-header-image {
+      width: 186px; }
+    .search #content #inner-content #main #page-header #img-search, .archive #content #inner-content #main #page-header #img-search {
+      height: 199px;
+      margin-top: -24px;
+      margin-right: -14px;
+      background: url("../images/search_wide.png") no-repeat center top; }
+    .search #content #inner-content #main .post .post-content div:first-child .img_header, .archive #content #inner-content #main .post .post-content div:first-child .img_header {
+      width: 216px;
+      height: 133px; }
+
   /* custom page template page */
-  .page-template-page-front-php #main-text #firstcol {
+  .page-template-page-front-php #content #inner-content #main-text #firstcol {
     background: url("../images/design_wide.png") no-repeat top center;
     padding-top: 200px; }
-  .page-template-page-front-php #main-text #lastcol {
+  .page-template-page-front-php #content #inner-content #main-text #lastcol {
     background: url("../images/development_wide.png") no-repeat top center;
     padding-top: 175px;
     margin-top: 25px; }
@@ -2314,49 +2600,52 @@ you can add resource intensive styles.
     .page-template-page-contact-php #main #main-text .group-wrapper .contact-icons {
       width: 138px; }
 
-  .post-type-archive-portfolio_item #inner-content, .single-portfolio_item #inner-content, .tax-topics #inner-content {
-    width: 1092px; }
-    .post-type-archive-portfolio_item #inner-content #sidebar-clients, .single-portfolio_item #inner-content #sidebar-clients, .tax-topics #inner-content #sidebar-clients {
-      margin-left: 56px;
-      float: left;
-      width: 208px; }
-      .post-type-archive-portfolio_item #inner-content #sidebar-clients .divider, .single-portfolio_item #inner-content #sidebar-clients .divider, .tax-topics #inner-content #sidebar-clients .divider {
-        display: none; }
-    .post-type-archive-portfolio_item #inner-content #main, .single-portfolio_item #inner-content #main, .tax-topics #inner-content #main {
-      min-width: 725px;
-      margin-right: 56px;
-      float: right; }
-      .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item, .single-portfolio_item #inner-content #main .type-portfolio_item, .tax-topics #inner-content #main .type-portfolio_item {
-        background: url("../images/clients_window_bg_wid.jpg") repeat-x top;
-        width: 724px;
-        height: 447px;
-        border-radius: 5px 24px 24px 5px/5px 224px 224px 5px;
-        -moz-border-radius: 5px 24px 24px 5px/5px 224px 224px 5px; }
-        .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container, .tax-topics #inner-content #main .type-portfolio_item .article-container {
-          width: 724px; }
-          .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container .article-header, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container .article-header, .tax-topics #inner-content #main .type-portfolio_item .article-container .article-header {
-            padding: 1.75em 1.75em 0 1.75em; }
-          .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window, .tax-topics #inner-content #main .type-portfolio_item .article-container .views_window {
-            margin: 1.75em 0;
-            height: 185px; }
-            .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .tax-topics #inner-content #main .type-portfolio_item .article-container .views_window .post-content {
-              line-height: inherit;
-              width: 736px; }
-              .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .tax-topics #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li {
-                margin-left: 36px;
-                height: 193px; }
-                .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .tax-topics #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn {
-                  margin: 0 12px;
-                  width: 296px; }
-                  .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link, .tax-topics #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link {
-                    height: 183px; }
-                .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li img, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li img, .tax-topics #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li img {
+  .post-type-archive-portfolio_item #content #inner-content #sidebar-clients, .single-portfolio_item #content #inner-content #sidebar-clients, .tax-topics #content #inner-content #sidebar-clients {
+    width: 476px; }
+    .post-type-archive-portfolio_item #content #inner-content #sidebar-clients .Custom_Cat_Widget, .single-portfolio_item #content #inner-content #sidebar-clients .Custom_Cat_Widget, .tax-topics #content #inner-content #sidebar-clients .Custom_Cat_Widget {
+      margin-top: 2em; }
+      .post-type-archive-portfolio_item #content #inner-content #sidebar-clients .Custom_Cat_Widget .button, .single-portfolio_item #content #inner-content #sidebar-clients .Custom_Cat_Widget .button, .tax-topics #content #inner-content #sidebar-clients .Custom_Cat_Widget .button {
+        width: 208px; }
+  .post-type-archive-portfolio_item #content #inner-content #main, .single-portfolio_item #content #inner-content #main, .tax-topics #content #inner-content #main {
+    min-width: 725px; }
+    .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item, .single-portfolio_item #content #inner-content #main .type-portfolio_item, .tax-topics #content #inner-content #main .type-portfolio_item {
+      background: url("../images/clients_window_bg_wid.jpg") repeat-x top;
+      width: 724px;
+      height: 447px;
+      border-radius: 5px 24px 24px 5px/5px 224px 224px 5px;
+      -moz-border-radius: 5px 24px 24px 5px/5px 224px 224px 5px; }
+      .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container, .tax-topics #content #inner-content #main .type-portfolio_item .article-container {
+        width: 724px; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-header, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-header {
+          padding: 1.75em 1.75em 0 1.75em; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window {
+          margin: 1.75em 0;
+          height: 185px; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content {
+            width: 736px; }
+            .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li {
+              margin-left: 36px;
+              height: 193px; }
+              .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn {
+                margin: 0 12px;
+                width: 296px;
+                height: 183px; }
+                .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn .img_link {
+                  height: 183px; }
+                .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn img, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn img, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .views_window .post-content ul li .acolumn img {
                   width: 296px;
                   height: 183px; }
-          .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .tax-topics #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container .article-footer ul, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container .article-footer ul, .tax-topics #inner-content #main .type-portfolio_item .article-container .article-footer ul {
-            width: 628px; }
-          .post-type-archive-portfolio_item #inner-content #main .type-portfolio_item .article-container p.link, .single-portfolio_item #inner-content #main .type-portfolio_item .article-container p.link, .tax-topics #inner-content #main .type-portfolio_item .article-container p.link {
-            bottom: 2em; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer .divider, .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .article-footer ul, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .article-footer ul {
+          width: 628px; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .link {
+          bottom: 1.5em; }
+          .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link .button, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container .link .button, .tax-topics #content #inner-content #main .type-portfolio_item .article-container .link .button {
+            width: 208px; }
+        .post-type-archive-portfolio_item #content #inner-content #main .type-portfolio_item .article-container p.hidelink, .single-portfolio_item #content #inner-content #main .type-portfolio_item .article-container p.hidelink, .tax-topics #content #inner-content #main .type-portfolio_item .article-container p.hidelink {
+          bottom: 3em;
+          font-family: TitilliumLtBold; }
+    .post-type-archive-portfolio_item #content #inner-content #main > .divider, .single-portfolio_item #content #inner-content #main > .divider, .tax-topics #content #inner-content #main > .divider {
+      width: 456px; }
 
   /*********************
   POSTS & CONTENT STYLES
@@ -2364,7 +2653,23 @@ you can add resource intensive styles.
   #content #page-header .page-header-image {
     width: 175px; }
   #content #page-header .page-header-text {
-    margin-left: 48px; } }
+    margin-left: 48px; }
+
+  .divider {
+    border-bottom: 2px solid;
+    border-bottom-color: #bbbbbb; }
+
+  #sidebar1 {
+    width: 476px; }
+    #sidebar1 .widget_categories {
+      margin-top: 2em; }
+      #sidebar1 .widget_categories .button {
+        width: 208px; }
+    #sidebar1 .widget_search span {
+      margin-right: -25px; }
+    #sidebar1 .widget_search .search_window {
+      width: 187px;
+      padding-left: 28px; } }
 /*
 LARGE VIEWING SIZE 
 This is for the larger monitors and possibly full screen viewers.

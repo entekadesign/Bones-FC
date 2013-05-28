@@ -28,8 +28,14 @@ library/translation/translation.php
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'fc-clients-thumb-wid', 296, 183, true );
-add_image_size( 'fc-clients-thumb-mob-tab', 216, 133, true );
+// add_image_size( 'fc-clients-thumb-wid', 296, 183, true );
+// add_image_size( 'fc-clients-thumb-mob-tab', 216, 133, true );
+add_image_size( 'fc-tiny', 136, 84, true );
+add_image_size( 'fc-small', 216, 133, true );
+// add_image_size( 'fc-posts-thumb-tab-wid', 320, 198, true );
+// add_image_size( 'fc-posts-thumb-mob', 296, 183, true );
+add_image_size( 'fc-medium', 296, 183, true );
+add_image_size( 'fc-large', 320, 198, true );
 /* 
 to add more sizes, simply copy a line from above 
 and change the dimensions & name. As long as you
@@ -62,8 +68,14 @@ function fc_image_sizes($sizes)
 
     // display custom sizes
     $myimgsizes = array(
-    "fc-clients-thumb-wid" => __( "Clients thumb (wide)" ),
-    "fc-clients-thumb-mob-tab" => __( "Clients thumb (mobile & tablet)" ),
+    // "fc-clients-thumb-wid" => __( "Clients thumb (wide)" ),
+    // "fc-clients-thumb-mob-tab" => __( "Clients thumb (mobile & tablet)" ),
+    // "fc-posts-thumb-tab-wid" => __( "Posts thumb (tablet & wide)" ),
+    // "fc-posts-thumb-mob" => __( "Posts thumb (mobile)" ),
+        "fc-tiny" => __( "Search mobile & tablet" ),
+        "fc-small" => __( "Clients mobile & tablet, Search wide" ),
+        "fc-medium" => __( "Clients wide, Posts mobile" ),
+        "fc-large" => __( "Posts tablet & wide" ),      
     );
 
     $newimgsizes = array_merge($sizes, $myimgsizes);
@@ -85,10 +97,18 @@ function fc_image_attachment_fields_to_edit($form_fields, $post)
 
             $attchID = $post->ID;
             $meta = wp_get_attachment_metadata($attchID);
+            $wid = isset($meta['width']) ? $meta['width'] : null;
+            $hei = isset($meta['height']) ? $meta['height'] : null;
 
-            if ( $meta['width'] < 216 || $meta['height'] < 133 ) 
+            $ext = getFileExt(wp_get_attachment_url($attchID, false));
+
+            if ( $ext == 'bmp' )
+            {
+              echo '<div class="error" style="margin: 1em;">Use of BMP files is not recommended.</div>';
+              //exit(1);  
+            } else if ( $wid < 320 || $hei < 198 )
             {   
-                echo '<div class="error" style="margin: 1em;">Image must be 216x133 or larger.</div>';
+                echo '<div class="error" style="margin: 1em;">Metadata is incomplete or image too small. Image must be 320x198 or larger.</div>';
                 wp_delete_attachment($attchID);
                 exit(1);
             }
@@ -119,12 +139,16 @@ function fc_image_attachment_fields_to_edit($form_fields, $post)
     }
     return $form_fields;
 }
+function getFileExt($file) {
+     return strtolower(substr(strrchr($file,'.'),1));
+}
+
 
 // add data attribute containing mobile image url to html sent by media uploader
 add_filter('image_send_to_editor', 'edit_image_html', 20, 8);
 function edit_image_html( $html, $id, $caption, $title, $align, $url, $size, $alt = '' )
 {
-    $thumb_attrs = wp_get_attachment_image_src( $id, 'fc-clients-thumb-mob-tab');
+    $thumb_attrs = wp_get_attachment_image_src( $id, 'fc-medium');
     $html = str_replace('class=', 'data-fc_thumb_url="'.$thumb_attrs[0].'" class=', $html);
     return $html;
 
@@ -180,7 +204,7 @@ function bones_comments($comment, $args, $depth) {
                     echo get_avatar($comment,$size='32',$default='<path_to_url>' );
                 */ ?>
                 <!-- custom gravatar call -->
-                <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>&s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
+                <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5(bone); ?>&s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
                 <!-- end custom gravatar call -->
                 <?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
                 <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
@@ -206,11 +230,148 @@ function bones_comments($comment, $args, $depth) {
 function bones_wpsearch($form) {
     $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
     <label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
-    <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','bonestheme').'" />
-    <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+    <span data-icon="&#xe007;"></span><input class="search_window" type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search','bonestheme').'" />
+    <input type="hidden" id="searchsubmit" value="'. esc_attr__('Search') .'" />
     </form>';
     return $form;
 } // don't remove this bracket!
+
+
+// Restrict search to retrieve "post" post_type only
+add_filter('pre_get_posts','fc_search_filter');
+
+function fc_search_filter($query) {
+  if ($query->is_search) {
+    // Insert the specific post types you want to search
+    $query->set('post_type', array('post'));
+  }
+  return $query;
+}
+
+// Customize length of excerpts; see $excerpt_length in fc_highlight_excerpt()
+// add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+// function custom_excerpt_length( $length )
+// {
+//     return 40;
+// }
+
+// Customize excerpt and search results (highlighting, contextual results)
+add_filter('the_title', 'fc_highlight_title');
+add_filter('the_excerpt', 'fc_highlight_excerpt');
+
+
+function fc_highlight_title($str)
+{
+    if ( is_search() && in_the_loop() )
+    {
+        global $post;
+        $title_position = 1;
+        if (!isset($post->last_post_id)) $post->last_post_id = '';
+        if ( $post->last_post_id != $post->ID )
+        {
+            $post->last_post_id    = $post->ID;
+            $post->last_post_count = 0;
+        }
+        $post->last_post_count++;
+        if ( $post->last_post_count - 1 == $title_position )
+        {
+            return fc_highlight_string($str);
+        }
+    }
+    return $str;
+}
+function fc_highlight_excerpt()
+{
+    global $post;
+    $excerpt_length = apply_filters('excerpt_length', 40);
+    $excerpt_more = apply_filters('excerpt_more', '…');
+    // Correct apostrophe to allow matching of search terms including them
+    $text = fc_convert_apostrophe(apply_filters('the_content', $post->post_content));
+    // RegEx to match operning paragraph tags to be replaced with paragraph symbol '¶'
+    /*$regex = '#<p.*?>#is';*/
+    /*$regex = '#<p.*?>[^(\s|&nbsp;?)*</p>]#is';*/
+    /*$regex = '#(?<=.)<p[^>]*>(?!(\s|\t|\n|\r|&nbsp;)*</p>)#is';*/
+    // RegEx pseudocode: do not match if anything before <p> tag; match all opening <p> tags; except those that enclose spaces or newlines; make case insensitive, single-line mode
+    $regex = '#(?<=.)<p[^>]*>(?!(?:[\t\r\n\s]|&nbsp;|\xa0)*</p>)#is';
+    $para = utf8_encode(chr(182));
+    $text = wp_strip_all_tags(preg_replace($regex, $para, $text));
+    //echo 'TESTING: '.$text.'END.';
+    // Create the default excerpt
+    $excerpted_text = wp_trim_words($text, $excerpt_length, $excerpt_more);
+    if (is_search())
+    {
+        $text_matched = preg_match(fc_search_query(), $text, $matches, PREG_OFFSET_CAPTURE); // save the matched terms with their offsets
+        if ($text_matched)
+        {
+            $wrapclass = '';
+            $offset = $matches[0][1]+strlen($matches[0][0]);
+            // the offset into the end of the text where the term was found
+            // hack: we want to add context for where the term was found, but we want it to use whole words. wp_trim_words will trim the end,
+            // but we want so many words (empirically, one third the excerpt length) in the beginning. So we reverse the text and use that.
+            $len = $excerpt_length/3;
+            // need to use a single character to indicate truncation since we are reversing the text
+            $reversetext = fc_utf8_strrev(wp_trim_words(fc_utf8_strrev(substr($text, 0, $offset)), $len, '…'));
+            $context = $reversetext.substr($text, $offset); // rebuild it
+            $hitext = fc_highlight_string(wp_trim_words($context, $excerpt_length, $excerpt_more));
+            // Add a class to allow smallcaps formatting to first line
+            if (substr($context, 0, 3) == '…')
+            {
+                $wrapclass = 'nosmallcaps';
+            }
+            return '<p class="'.$wrapclass.'">'.$hitext.'</p>';
+        }
+    }
+    // Just use the usual excerpt 
+    return '<p>'.$excerpted_text.'</p>';
+}
+/*
+// Replacement for wp_trim_words as the core function does not preserve newline
+function fc_trim_words( $text, $num_words = 55, $more = null ) {
+    if ( null === $more )
+        $more = __( '&hellip;' );
+    $original_text = $text;
+    $text = fc_strip_all_tags( $text );
+    $words_array = preg_split( "/[\n\r\t ]+/", $text, $num_words + 1, PREG_SPLIT_NO_EMPTY );
+    if ( count( $words_array ) > $num_words ) {
+        array_pop( $words_array );
+        $text = implode( ' ', $words_array );
+        $text = $text . $more;
+    } else {
+        $text = implode( ' ', $words_array );
+    }
+    return apply_filters( 'wp_trim_words', $text, $num_words, $more, $original_text );
+}
+// Replacement for wp_strip_all_tags as the core function does not preserve newline
+function fc_strip_all_tags($string, $remove_breaks = false) {
+    $string = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $string );
+    $string = strip_tags($string);
+
+    if ( $remove_breaks ) $string = preg_replace( '/[\r\n\t ]+/', ' ', $string );
+
+    return trim($string);
+}
+*/
+function fc_highlight_string($str)
+{
+    return preg_replace(fc_search_query(), '<span class="search-excerpt">\0</span>', $str);
+}
+function fc_search_query()
+{
+    global $wp_query;
+    $terms = $wp_query->query_vars['search_terms'];
+    foreach ($terms as &$term) $term = preg_quote($term, '/');
+    return '/'.implode('|', $terms).'/iu';
+}
+function fc_utf8_strrev($str)
+{
+    preg_match_all('/./us', $str, $ar);
+    return implode(array_reverse($ar[0]));
+}
+//Convert right single quote to apostrophe
+function fc_convert_apostrophe($str)
+{
+    return html_entity_decode(str_replace("&#8217;","'",$str));
+}
 
 //  ========================
 //  = Additional Functions =
@@ -264,6 +425,8 @@ add_action( 'wp_print_styles', 'deregister_ct7_styles', 100 );
 include_once 'library/metaboxes/setup.php';
 
 include_once 'library/metaboxes/portfolio_item-spec.php';
+
+include_once 'library/metaboxes/post-spec.php';
 
 /*********************
 PAGE NAVI
@@ -365,55 +528,121 @@ function fc_page_navi($before = '', $after = '') {
             echo '<li class="bpn-last-page-link"><a href="'.get_pagenum_link($max_page).'" title="'.$last_page_text.'" data-icon="&#xe003;"><span class="visuallyhidden">'.$last_page_text.'</span></a></li>';
         }
     }
-    echo '</ul></nav>'.$after."";
+    echo '</ul></nav><div class="divider"></div>'.$after."";
 } /* end page navi */
+
+
+// Modify pagination for search and category pages
+function my_post_queries( $query ) {
+  // do not alter the query on wp-admin pages and only alter it if it's the main query
+  if (!is_admin() && $query->is_main_query()){
+
+    // alter the query for the home and category pages 
+
+    if(is_search() | is_category()){
+      $query->set('posts_per_page', 4);
+    }
+
+  }
+}
+add_action( 'pre_get_posts', 'my_post_queries' );
 
 // current-menu-item with custom post types and custom menus bug workaround
 // http://www.rarescosma.com/2010/11/add-a-class-to-wp_nav_menu-items-with-urls-included-in-the-current-url/
-add_filter( 'nav_menu_css_class', 'add_parent_url_menu_class', 10, 2 );
+// add_filter( 'nav_menu_css_class', 'add_parent_url_menu_class', 10, 2 );
 
-function add_parent_url_menu_class( $classes = array(), $item = false ) {
-    // Get current URL
-    $current_url = current_url();
+// function add_parent_url_menu_class( $classes = array(), $item = false ) {
+//     // Get current URL
+//     $current_url = current_url();
 
-    // Get homepage URL
-    $homepage_url = trailingslashit( get_bloginfo( 'url' ) );
+//     // Get homepage URL
+//     $homepage_url = trailingslashit( get_bloginfo( 'url' ) );
 
-    // Exclude 404 and homepage
-    if( is_404() or $item->url == $homepage_url ) return $classes;
+//     // Exclude 404 and homepage
+//     if( is_404() or $item->url == $homepage_url ) return $classes;
 
-    //echo parse_url ( $current_url, PHP_URL_PATH );
+//     //echo 'CURRENT URL: ' . parse_url ( $current_url, PHP_URL_PATH ); echo 'ITEM URL: '; echo $item->url;
 
-    if ( strstr( $current_url, $item->url) && ! in_array( 'current-menu-item', $classes ) ) {
-        // Add the 'current-menu-item' class
-        $classes[] = 'current-menu-item';
-    }
+//     if ( strstr( $current_url, $item->url) && ! in_array( 'current-menu-item', $classes ) ) {
+//         // Add the 'current-menu-item' class
+//         $classes[] = 'current-menu-item';
+//     }
 
+//     return $classes;
+// }
+
+// function current_url() {
+//     // Protocol
+//     $url = ( 'on' == isset( $_SERVER['HTTPS'] ) ) ? 'https://' : 'http://';
+
+//     $url .= $_SERVER['SERVER_NAME'];
+
+//     // Port
+//     $url .= ( '80' == $_SERVER['SERVER_PORT'] ) ? '' : ':' . $_SERVER['SERVER_PORT'];
+
+//     $url .= $_SERVER['REQUEST_URI'];
+
+//     return trailingslashit( $url );
+// }
+
+// As of WP 3.1.1 addition of classes for css styling to parents of custom post types doesn't exist.
+// We want the correct classes added to the correct custom post type parent in the wp-nav-menu for css styling and highlighting, so we're modifying each individually...
+// The id of each link is required for each one you want to modify
+// Place this in your WordPress functions.php file
+
+function remove_parent_classes($class)
+{
+  // check for current page classes, return false if they exist.
+    return ($class == 'current_page_item' || $class == 'current_page_parent' || $class == 'current_page_ancestor'  || $class == 'current-menu-item') ? FALSE : TRUE;
+}
+
+function add_class_to_wp_nav_menu($classes)
+{
+     switch (get_post_type())
+     {
+        case 'portfolio_item':
+            // we're viewing a custom post type, so remove the 'current_page_xxx and current-menu-item' from all menu items.
+            $classes = array_filter($classes, "remove_parent_classes");
+
+            // add the current page class to a specific menu item.
+            if (in_array('menu-item-clients', $classes))
+            {
+               $classes[] = 'current_page_parent';
+         }
+            break;
+
+      // add more cases if necessary and/or a default
+     }
     return $classes;
 }
+add_filter('nav_menu_css_class', 'add_class_to_wp_nav_menu');
 
-function current_url() {
-    // Protocol
-    $url = ( 'on' == isset( $_SERVER['HTTPS'] ) ) ? 'https://' : 'http://';
-
-    $url .= $_SERVER['SERVER_NAME'];
-
-    // Port
-    $url .= ( '80' == $_SERVER['SERVER_PORT'] ) ? '' : ':' . $_SERVER['SERVER_PORT'];
-
-    $url .= $_SERVER['REQUEST_URI'];
-
-    return trailingslashit( $url );
-}
-
-function get_topics( $the_id ) {
-    $the_terms = wp_get_object_terms($the_id, 'topics');
-    if(!empty($the_terms)){
-      if(!is_wp_error( $the_terms )){
-        foreach($the_terms as $term){
-          echo '<li><a href="'.get_term_link($term->slug, 'topics').'" rel="tag" title="View all posts filed under '.$term->name.'">'.$term->name.'</a></li>'; 
+// retrieves taxonomy terms; called from template pages
+function get_tax( $the_id, $tax ) {
+    if (!taxonomy_exists($tax))
+    {
+        //echo 'Error: Taxonomy does not exist.';
+    } else
+    {
+        $the_terms = wp_get_object_terms($the_id, $tax);
+        if(!empty($the_terms)){
+          if(!is_wp_error( $the_terms )){
+            foreach($the_terms as $term)
+            {
+                echo '<li><a href="'.get_term_link($term->slug, $tax).'" rel="tag" title="View all posts filed under '.$term->name.'">'.$term->name.'</a></li>';
+            }
+          }
         }
-      }
     }
 }
+
+// add button class to stock categories widget output
+function add_id_from_slug($wp_list_categories) {
+    $pattern = '/<a href/';
+    $replacement = '<a class="button" href';
+
+    return preg_replace($pattern, $replacement, $wp_list_categories);
+}
+add_filter('wp_list_categories','add_id_from_slug');
+
 ?>

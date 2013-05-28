@@ -29,22 +29,111 @@ style a page via class
 .home {}                            /* home page */
 .blog
 {
-	.blog-feed
+	#content
 	{
-		span
+		#inner-content
 		{
-			//margin-bottom: -2px;
+			#main
+			{
+				//min-width: $sixcol;
+				width: $sevencol; //$sixcol; //456px
+				min-width: 320px;
+				.blog-feed
+				{
+					span
+					{
+						//margin-bottom: -2px;
+					}
+				}
+				.post
+				{
+					.post-content
+					{
+						.img_header
+						{
+							margin: 0 auto 1.25em auto;
+							display: block;
+							width: 320px;
+							height: 198px;
+						}
+					}
+				}
+				.divider
+				{
+					//width: 344px;
+				}
+			}
 		}
 	}
 }                            /* blog page */
 .archive {}                         /* archive page */
 .date {}                            /* date archive page */
 	.date-paged-1 {}                /* replace the number to the corresponding page number */
-.search {}                          /* search page */
+.search
+{
+	#content
+	{
+		#inner-content
+		{
+			#main
+			{
+				width: $sevencol; //$sixcol; //456px
+				min-width: 320px;
+				#page-header {
+					.page-header-image {
+						width: 123px;
+					}
+				}
+			}
+		}
+	}
+}                          /* search page */
 	.search-results {}              /* search result page */
 	.search-no-results {}           /* no results search page */
 	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
-.error404 {}                        /* 404 page */
+.error503 {
+	#inner-header
+	{
+		h1
+		{
+			margin-top: 60px;
+		}
+	}
+	#content
+	{
+		#inner-content
+		{
+			#main
+			{
+				width: $sevencol; //$sixcol; //456px
+				min-width: 320px;
+				#page-header {
+					.page-header-image {
+						//width: 118px;
+					}
+				}
+			}
+		}
+	}
+}
+.error404 {
+	#content
+	{
+		#inner-content
+		{
+			#main
+			{
+				width: $sevencol; //$sixcol; //456px
+				min-width: 320px;
+				#page-header {
+					.page-header-image {
+						width: 118px;
+					}
+				}
+			}
+		}
+	}
+}                        /* 404 page */
 .single {}                          /* single post page */
 	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
 	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
@@ -73,19 +162,26 @@ style a page via class
 				width: auto;
 			}
 		}
-		#main-text {
-			width: inherit;
-			.acolumn {
-				width: $fourcol;		
-				position: relative;
-				float: left;			
-			}
-			#firstcol {
-				margin-left: ($twocol + $margin);
-				padding-bottom: 0;
-			}
-			#lastcol {
-				margin-left: ($margin + $twocol + $margin);
+		#content
+		{
+			#inner-content
+			{
+				#main-text
+				{
+					width: inherit;
+					.acolumn {
+						width: $fourcol;		
+						position: relative;
+						float: left;			
+					}
+					#firstcol {
+						margin-left: ($twocol + $margin);
+						padding-bottom: 0;
+					}
+					#lastcol {
+						margin-left: ($margin + $twocol + $margin);
+					}
+				}
 			}
 		}
 		#sidebar-blog-block {
@@ -127,8 +223,8 @@ style a page via class
 	.page-template-page-about-php {
 		#main {
 			#main-text {
-				//width: $sevencol;
-				width: $sixcol;
+				width: $sevencol;
+				//width: $sixcol;
 				min-width: 320px;
 				#img-portrait {
 					height: 213px;
@@ -150,10 +246,14 @@ style a page via class
 					width: 65px;
 					padding-right: 24px;
 					border-right: 2px solid;
-					border-right-color: lighten($text-gray, 20%);
+					// border-right-color: lighten($text-gray, 20%);
+					border-right-color: lighten($soft-gray, 15%);
 				}						
 				.wpcf7-submit {
 					@extend .button;
+					margin-left: -12px;
+					line-height: 1.5em;
+					max-height: 2em;
 				}
 				.group-wrapper {
 					width: 100%;
@@ -216,9 +316,6 @@ style a page via class
 					@include box-shadow(0 1px 2px 1px $soft-gray inset);
 
 				}
-				.wpcf7-submit {
-					margin-left: -12px;
-				}
 				label.fieldlabel {
 					padding-left: 0;
 				}
@@ -239,125 +336,163 @@ style a page via class
 			width: 416px; //392px; //416px;
 			.divider
 			{
-				width: 344px;
+				//width: 344px;
 			}
-			.button, .button:visited
+			.button
 			{
 				float: left;
 				width: 178px; //166px;
 				display: block;
-				margin: 0 12px 5px 12px;
-				padding: 0;
+				margin: 0 12px .5em 12px;
+				padding-left: 0;
+				padding-right: 0;
+				line-height: 1.5em; //21px;
+				max-height: 1.5em;
 				//line-height: 17px;
 			}
 		}
-		#main
+		#content
 		{
-			min-width: 505px; //481px;
-			margin: 0 auto 0;
-			float: none;
-			.type-portfolio_item
+			#inner-content
 			{
-				background: url('../images/clients_window_bg_tab.jpg') repeat-x top;
-				width: 504px; //498px; //499px;
-				height: 311px; //308px; //290px;
-				border-radius: 5px 24px 24px 5px / 5px 155px 155px 5px;
-				-moz-border-radius: 5px 24px 24px 5px / 5px 155px 155px 5px;				
-				.article-container
+				#main
 				{
-					//display: table;
-					//table-layout: fixed;
-					width: 504px; //475px;
-					.article-header
+					min-width: 505px; //481px;
+					margin: 0 auto 0;
+					float: none;
+					.type-portfolio_item
 					{
-						h2
+						background: url('../images/clients_window_bg_tab.jpg') repeat-x top;
+						width: 504px; //498px; //499px;
+						height: 311px; //308px; //290px;
+						border-radius: 5px 24px 24px 5px / 5px 155px 155px 5px;
+						-moz-border-radius: 5px 24px 24px 5px / 5px 155px 155px 5px;				
+						.article-container
 						{
-							max-height: 1.55em;
-						}
-					}
-					.views_window
-					{
-						margin: 1.5em 0; //margin: 23px 0;
-						height: 135px;// + 66px;
-						//margin-top: -56px;
-						.post-content
-						{
-							width: 504px;//480px; //472px;
-							ul
+							//display: table;
+							//table-layout: fixed;
+							width: 504px; //475px;
+							.article-header
 							{
-								li
+								h2
 								{
-									margin-left: 12px;
-									height: 143px;
-									//padding-top: 66px;
-									.acolumn
+									max-height: 1.55em;
+								}
+							}
+							.views_window
+							{
+								margin: 1.5em 0; //margin: 23px 0;
+								height: 135px;// + 66px;
+								//margin-top: -56px;
+								.post-content
+								{
+									width: 504px;//480px; //472px;
+									ul
 									{
-										margin: 0 12px;
-										&:first-of-type
+										li
 										{
-											margin-bottom: 0px;
+											margin-left: 12px;
+											height: 143px;
+											//padding-top: 66px;
+											.acolumn
+											{
+												height: 135px;
+												width: 216px;
+												margin: 0 12px;
+												&:first-of-type
+												{
+													margin-bottom: 0px;
+												}
+												&.textcol
+												{
+													//height: 135px;
+												}
+											}
 										}
 									}
 								}
 							}
-						}
-					}
-					.nav_dots_wrapper
-					{
-						height: 100%;
-						position: absolute;
-						top: 0;
-						right: 0; //-18px;
-						display: table;
-						.nav_dots
-						{
-							//display: none;
-							//float: right;
-							//height: 100%;
-							//height: 308px;
+							.nav_dots_wrapper
+							{
+								height: 100%;
+								position: absolute;
+								top: 0;
+								right: 0; //-18px;
+								display: table;
+								.nav_dots
+								{
+									//display: none;
+									//float: right;
+									//height: 100%;
+									//height: 308px;
 
-							display: table-cell;
-							vertical-align: middle;
-							width: 1em;
-							//padding-left: 8px;
-							//margin: auto;
-							//position: absolute;
-							//top: 0;
-							//bottom: 0;
-							//right: 0;
-							.nav_dot
+									display: table-cell;
+									vertical-align: middle;
+									width: 1em;
+									//padding-left: 8px;
+									//margin: auto;
+									//position: absolute;
+									//top: 0;
+									//bottom: 0;
+									//right: 0;
+									.nav_dot
+									{
+										display: block;
+										padding: .2em 0;
+									}
+								}
+							}					
+							.article-footer
 							{
-								display: block;
-								padding: .2em 0;
+								//position: absolute;
+								//bottom: 1.5em; //3em;
+								//left: 0;
+								.divider, ul
+								{
+									width: 456px; //451px;
+								}
+								ul
+								{
+									.taxonomy_terms
+									{
+										max-height: 3em; //1.5em;
+									}
+								}
 							}
-						}
-					}					
-					.article-footer
-					{
-						//position: absolute;
-						//bottom: 1.5em; //3em;
-						//left: 0;
-						.divider, ul
-						{
-							width: 456px; //451px;
-						}
-						ul
-						{
-							span
+							.link
 							{
-								max-height: 3em; //1.5em;
+								position: absolute;
+								left: 0;
+								bottom: 1.25em;
+								.button
+								{
+									//float: left;
+									width: 178px; //166px;
+									display: block;
+									margin: 0 auto .5em auto;
+									padding-left: 0;
+									padding-right: 0;
+									line-height: 1.5em; //21px;
+									max-height: 1.5em;
+								}
+							}					
+							p
+							{
+									&.hidelink
+									{
+										bottom: 3em;
+									}
 							}
 						}
 					}
-					p.link
+					&>.divider
 					{
-						position: absolute;
-						left: 0;
-						//bottom: 0;
-					}
+						width: 344px;
+					}	
 				}
-			}		
+			}
 		}
+
 	}
 	.page-template-page-php {}     /* individual page template (i.e. body.page-template-contact-php */
 	.page-paged-1 {}                /* replace the number to the corresponding page number */
@@ -421,7 +556,7 @@ LINK STYLES
 *********************/
 
 a, a:visited {
-	@include css-transition(all, 0.25s, ease);		
+	@include css-transition(all, 0.25s, ease);
 }
 a.img_link, a.img_link:visited {
 	img
@@ -436,12 +571,12 @@ BUTTONS
 
 .button, .button:visited {
 	//font-family: $sans-serif;
-	font-family: TeXGyreHerosBold;
+	font-family: TitilliumBold;
 	//border: 1px solid darken($link-red, 13%);
 	border: 3px solid white;
 	//border-top-color: darken($link-red, 7%);
 	//border-left-color: darken($link-red, 7%);
-	padding: 0 .6em; //6px;
+	padding: 1px .6em 0; //6px;
 	color: $link-red;
 	//display: inline-block;
 	font-size: .8em; //11px;
@@ -450,7 +585,9 @@ BUTTONS
 	//text-shadow: 0 1px rgba(0,0,0, .75);
 	cursor: pointer;
 	//margin-bottom: 20px;
-	line-height: 1.5em; //21px;
+	// line-height: 1.5em; //21px;
+	// max-height: 1.5em;
+	overflow: hidden;
 	@include rounded(5px);
 	@include css-gradient(white, lighten($soft-gray, 35%));
 	@include box-shadow(0 1px 2px 1px $soft-gray);
@@ -475,21 +612,21 @@ BUTTONS
 	}	
 }
 
-.blue-button, .blue-button:visited {
-	border-color: darken($logo-blue, 10%);
-	text-shadow: 0 1px 1px darken($logo-blue, 10%);
-	@include css-gradient( $logo-blue, darken($logo-blue, 5%) );
-	-webkit-box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
-       -moz-box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
-   	        box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
-	&:hover, &:focus {
-		border-color: darken($logo-blue, 15%);
-		@include css-gradient( darken($logo-blue, 4%), darken($logo-blue, 10%) );
-	}
-	&:active {
-		@include css-gradient( darken($logo-blue, 5%), $logo-blue );
-	}
-}
+// .blue-button, .blue-button:visited {
+// 	border-color: darken($logo-blue, 10%);
+// 	text-shadow: 0 1px 1px darken($logo-blue, 10%);
+// 	@include css-gradient( $logo-blue, darken($logo-blue, 5%) );
+// 	-webkit-box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
+//        -moz-box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
+//    	        box-shadow: inset 0 0 3px lighten($logo-blue, 16%);
+// 	&:hover, &:focus {
+// 		border-color: darken($logo-blue, 15%);
+// 		@include css-gradient( darken($logo-blue, 4%), darken($logo-blue, 10%) );
+// 	}
+// 	&:active {
+// 		@include css-gradient( darken($logo-blue, 5%), $logo-blue );
+// 	}
+// }
 
 
 /*********************
@@ -637,7 +774,7 @@ POSTS & CONTENT STYLES
 		display: table;
 		margin: 0 auto 4em auto;
 		.page-header-image {
-			background-position: top right;
+			//background-position: top right;
 			width: 115px;
 			display: table-cell;
 		}
@@ -779,6 +916,35 @@ SIDEBARS & ASIDES
 //  = My sidebar styles =
 //  =====================
 
+#sidebar1
+{
+	float: none;
+	width: 416px;
+	.button
+	{
+		float: left;
+		width: 178px; //166px;
+		display: block;
+		margin: 0 12px .5em 12px;
+		padding-left: 0;
+		padding-right: 0;
+		line-height: 1.5em; //21px;
+		max-height: 1.5em;
+	}
+}
+
+// Search forms
+#searchform
+{
+	input
+	{
+		&.search_window
+		{
+			border: none;
+			@include box-shadow(0 1px 2px 1px $soft-gray inset);
+		}
+	}
+}
 
 
 /*********************

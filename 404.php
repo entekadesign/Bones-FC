@@ -4,35 +4,35 @@
 
 				<div id="inner-content" class="wrap clearfix">
 			
-					<div id="main" class="eightcol first clearfix" role="main">
+					<div id="main" class="first clearfix" role="main">
 
-						<article id="post-not-found" class="hentry clearfix">
-						
-							<header class="article-header">
-							
-								<h1><?php _e("Epic 404 - Article Not Found", "bonestheme"); ?></h1>
-						
-							</header> <!-- end article header -->
-					
-							<section class="post-content">
-							
-								<p><?php _e("The article you were looking for was not found, but maybe try looking again!", "bonestheme"); ?></p>
-					
-							</section> <!-- end article section -->
+						<div id="page-header" class="clearfix">
 
-							<section class="search">
-				
-							    <p><?php get_search_form(); ?></p>
-				
-							</section> <!-- end search section -->
-						
-							<footer class="article-header">
-							
-							    <p><?php _e("This is the 404.php template.", "bonestheme"); ?></p>
-							
-							</footer> <!-- end article footer -->
-					
-						</article> <!-- end article -->
+							<div id="img-error" class="page-header-image clearfix"></div>
+
+							<div class="page-header-text clearfix">
+
+								<h1><span><?php _e("404 ERROR", "bonestheme"); ?></span></h1>
+
+								<article id="post-not-found" class="hentry clearfix">
+
+									<section>
+
+										<p><?php _e("The article you wanted was not found. All roads lead to Rome, so think of this page as a rest stop.", "bonestheme"); ?></p>
+
+									</section>
+
+									<section>
+								
+									    <?php get_search_form(); ?>
+								
+									</section> <!-- end search section -->
+								
+								</article> <!-- end article -->
+
+							</div>
+
+						</div>
 			
 					</div> <!-- end #main -->
 

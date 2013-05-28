@@ -362,7 +362,7 @@ function bones_filter_ptags_on_images($content){
 function bones_excerpt_more($more) {
 	global $post;
 	// edit here if you like
-	return '...  <a href="'. get_permalink($post->ID) . '" title="Read '.get_the_title($post->ID).'">Read more &raquo;</a>';
+	return '…<div></div><a href="'. get_permalink($post->ID) . '" title="Read '.get_the_title($post->ID).'" class="more_link">Read more</a>';
 }
 
                   	
