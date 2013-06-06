@@ -598,21 +598,27 @@ function remove_parent_classes($class)
 
 function add_class_to_wp_nav_menu($classes)
 {
-     switch (get_post_type())
-     {
+    switch (get_post_type())
+    {
         case 'portfolio_item':
-            // we're viewing a custom post type, so remove the 'current_page_xxx and current-menu-item' from all menu items.
-            $classes = array_filter($classes, "remove_parent_classes");
+        // we're viewing a custom post type, so remove the 'current_page_xxx and current-menu-item' from all menu items.
+        $classes = array_filter($classes, "remove_parent_classes");
 
-            // add the current page class to a specific menu item.
-            if (in_array('menu-item-clients', $classes))
-            {
-               $classes[] = 'current_page_parent';
-         }
-            break;
+        // add the current page class to a specific menu item.
+        if (in_array('menu-item-clients', $classes))
+        {
+            $classes[] = 'current_page_parent';
+        }
+        break;
 
-      // add more cases if necessary and/or a default
-     }
+        // add more cases if necessary and/or a default
+        
+        // error page, etc
+        case null:
+        $classes = array_filter($classes, "remove_parent_classes");
+        break;
+
+    }
     return $classes;
 }
 add_filter('nav_menu_css_class', 'add_class_to_wp_nav_menu');

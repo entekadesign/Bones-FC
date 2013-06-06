@@ -375,6 +375,11 @@ style a page via class
 			h1
 			{
 				margin-bottom: 0;
+				div
+				{
+					display: inline;
+					padding-bottom: .1em;
+				}
 			}
 			p
 			{
@@ -383,57 +388,13 @@ style a page via class
 		}
 	}         /* no results search page */
 	.search-paged-1 {}            /* individual paged search (i.e. body.search-paged-3) */
-.error503
-{
-	#inner-header
-	{
-		h1
-		{
-			margin-top: 50px;
-		}
-	}
-	#content
-	{
-		#inner-content
-		{
-			#main
-			{
-				width: 296px;
-				margin: 0 auto;
-				#page-header
-				{
-					margin-bottom: 0;
-					#img-maintenance
-					{
-						height: 115px;
-						background: url('../images/maintenance_mob_tab.png') no-repeat center top;                  
-					}
-					.page-header-text
-					{
-						margin-bottom: 0;
-						h1
-						{
-							margin-bottom: .5em;
-						}
-						section
-						{
-							p
-							{
-								margin-bottom: 1.5em;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-.error404
+.error404, .error503, .errorDB
 {
 	#content
 	{
 		#inner-content
 		{
+			margin-bottom: 0;
 			#main
 			{
 				width: 296px;
@@ -460,6 +421,7 @@ style a page via class
 							p
 							{
 								margin-bottom: 1.5em;
+								text-align: left;
 							}
 						}
 					}
@@ -467,7 +429,41 @@ style a page via class
 			}
 		}
 	}
-}                      /* 404 page */
+}
+.error503
+{
+	#content
+	{
+		#inner-content
+		{
+			#main
+			{
+				#page-header
+				{
+					#img-maintenance
+					{
+						height: 115px;
+						background: url('../images/maintenance_mob_tab.png') no-repeat center top;                  
+					}
+				}
+			}
+		}
+	}
+}
+.error503, .errorDB {
+	#inner-header
+	{
+		h1
+		{
+			margin-top: 50px;
+		}
+	}
+	#page-footer
+	{
+		padding-top: 0;
+	}
+}
+
 .attachment {}                    /* attatchment page */
 	.attachmentid-1 {}            /* individual attatchment page (i.e. body.attachmentid-763) */
 	.attachment-mime-type {}      /* style mime type pages */
@@ -2117,7 +2113,7 @@ html, body, #container { height: 100%; } //position footer at bottom of page
 		color: $soft-gray;
 		a, a:visited {
 			color: $soft-gray;
-			padding: 2.5px;
+			//padding: 2px 2px 0 2px;
 			/* on hover */
 			&:hover, &:focus {
 				color: lighten($soft-gray, 15%);
@@ -2149,15 +2145,18 @@ html, body, #container { height: 100%; } //position footer at bottom of page
 			background: url('../images/footer_splash.png') no-repeat top;
 			height: 37px;
 			width: auto;
+			min-width: 172px;
 			padding-top: .8em;
 			position: absolute;
 			margin-top: 25px;
-			margin-left: -87px; /* 1/2 width of element to be centered in px */
+			margin-left: - (172px / 2); /* 1/2 width of element to be centered in px */
 			left: 50%;          
 			ul {
+				padding-left: (172px - (127px + 32px)) / 2;
 				li {
 					float: left;
-					&:last-child {
+					&:last-child
+					{
 						&::after {
 							//content: none;
 						}

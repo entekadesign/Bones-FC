@@ -67,7 +67,7 @@ style a page via class
 		}
 	}
 }
-.error503
+.error404, .error503, .errorDB
 {
 	#content
 	{
@@ -76,23 +76,11 @@ style a page via class
 			#main
 			{
 				width: $tencol;
-				#page-header
-				{
-					.page-header-image
-					{
-						//width: 179px;
-					}
-					#img-maintenance
-					{
-						height: 175px;
-						background: url('../images/maintenance_wide.png') no-repeat center top;
-					}
-				}
 			}
 		}
 	}
 }
-.error404
+.error404, .errorDB
 {
 	#content
 	{
@@ -100,7 +88,6 @@ style a page via class
 		{
 			#main
 			{
-				width: $tencol;
 				#page-header
 				{
 					.page-header-image
@@ -113,6 +100,30 @@ style a page via class
 						//margin-top: -10px;
 						margin-right: -4px;
 						background: url('../images/error_wide.png') no-repeat center top;
+					}
+				}
+			}
+		}
+	}
+}
+.error503
+{
+	#content
+	{
+		#inner-content
+		{
+			#main
+			{
+				#page-header
+				{
+					.page-header-image
+					{
+						//width: 179px;
+					}
+					#img-maintenance
+					{
+						height: 175px;
+						background: url('../images/maintenance_wide.png') no-repeat center top;
 					}
 				}
 			}
@@ -493,6 +504,13 @@ style a page via class
 		}
 	}
 
+/* header **************************************************/
+#logo
+{
+	margin-top: 20px;
+}
+
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -539,13 +557,29 @@ POSTS & CONTENT STYLES
 			width: 208px;
 		}
 	}
-	.widget_search
+	// .widget_search
+	// {
+	// 	span
+	// 	{
+	// 		margin-right: -25px;
+	// 	}
+	// 	.search_window
+	// 	{
+	// 		width: 208px - 21px;
+	// 		padding-left: 28px;
+	// 	}
+	// }
+}
+// Search forms
+#searchform
+{
+	span
 	{
-		span
-		{
-			margin-right: -25px;
-		}
-		.search_window
+		margin-right: -25px;
+	}
+	input
+	{
+		&.search_window
 		{
 			width: 208px - 21px;
 			padding-left: 28px;

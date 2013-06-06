@@ -305,17 +305,18 @@ style a page via class
 /* search result page */
 /* no results search page */
 /* individual paged search (i.e. body.search-paged-3) */
-.error503 #inner-header h1 {
-  margin-top: 60px; }
-.error503 #content #inner-content #main {
+.error404 #content #inner-content #main, .error503 #content #inner-content #main, .errorDB #content #inner-content #main {
   width: 48.90511%;
   min-width: 320px; }
 
-.error404 #content #inner-content #main {
-  width: 48.90511%;
-  min-width: 320px; }
-  .error404 #content #inner-content #main #page-header .page-header-image {
-    width: 118px; }
+.error503 #inner-header h1, .errorDB #inner-header h1 {
+  margin-top: 60px; }
+.error503 #page-footer #inner-footer #attribution-links ul li:first-child::before, .errorDB #page-footer #inner-footer #attribution-links ul li:first-child::before {
+  margin: 0;
+  content: none; }
+
+.error404 #content #inner-content #main #page-header .page-header-image {
+  width: 118px; }
 
 /* 404 page */
 /* single post page */
@@ -759,37 +760,40 @@ mobile. Make sure to double check these!
   height: auto;
   position: static;
   margin: 0;
-  padding: 0; }
-  #page-footer #inner-footer #attribution-links ul li:first-child::before {
-    content: "\25AA";
-    margin: 0 4px 0 0; }
-  #page-footer #inner-footer #attribution-links ul #fatcatch-credit::after {
-    content: none; }
-  #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper {
-    position: absolute;
-    margin-top: 25px;
-    margin-left: -86px;
-    /* 1/2 width of element to be centered in px */
-    left: 50%;
-    background: url("../images/footer_splash.png") no-repeat top;
-    height: 37px;
-    width: 172px; }
-    #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a {
-      font-size: 30px;
-      border-bottom: none; }
-      #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a span {
-        border: 0;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px; }
-      #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a:hover {
-        opacity: 0.75; }
-      #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a::before {
-        display: inline; }
+  padding: 0;
+  min-width: inherit; }
+  #page-footer #inner-footer #attribution-links ul {
+    padding-left: 0; }
+    #page-footer #inner-footer #attribution-links ul li:first-child::before {
+      content: "\25AA";
+      margin: 0 2px 0 0; }
+    #page-footer #inner-footer #attribution-links ul #fatcatch-credit::after {
+      content: none; }
+    #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper {
+      position: absolute;
+      margin-top: 25px;
+      margin-left: -86px;
+      /* 1/2 width of element to be centered in px */
+      left: 50%;
+      background: url("../images/footer_splash.png") no-repeat top;
+      height: 37px;
+      width: 172px; }
+      #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a {
+        font-size: 30px;
+        border-bottom: none; }
+        #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a span {
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px; }
+        #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a:hover {
+          opacity: 0.75; }
+        #page-footer #inner-footer #attribution-links ul #html5-logo-wrapper a::before {
+          display: inline; }
 
 /******************************************************************
 Site Name: 
@@ -827,20 +831,19 @@ style a page via class
       display: inline;
       float: left; }
 
-.error503 #content #inner-content #main {
+.error404 #content #inner-content #main, .error503 #content #inner-content #main, .errorDB #content #inner-content #main {
   width: 70.80292%; }
-  .error503 #content #inner-content #main #page-header #img-maintenance {
-    height: 175px;
-    background: url("../images/maintenance_wide.png") no-repeat center top; }
 
-.error404 #content #inner-content #main {
-  width: 70.80292%; }
-  .error404 #content #inner-content #main #page-header .page-header-image {
-    width: 179px; }
-  .error404 #content #inner-content #main #page-header #img-error {
-    height: 185px;
-    margin-right: -4px;
-    background: url("../images/error_wide.png") no-repeat center top; }
+.error404 #content #inner-content #main #page-header .page-header-image, .errorDB #content #inner-content #main #page-header .page-header-image {
+  width: 179px; }
+.error404 #content #inner-content #main #page-header #img-error, .errorDB #content #inner-content #main #page-header #img-error {
+  height: 185px;
+  margin-right: -4px;
+  background: url("../images/error_wide.png") no-repeat center top; }
+
+.error503 #content #inner-content #main #page-header #img-maintenance {
+  height: 175px;
+  background: url("../images/maintenance_wide.png") no-repeat center top; }
 
 .search #content #inner-content #main {
   width: 70.80292%; }
@@ -996,6 +999,10 @@ style a page via class
   .post-type-archive-portfolio_item #content #inner-content #main > .divider {
     width: 456px; }
 
+/* header **************************************************/
+#logo {
+  margin-top: 20px; }
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -1014,11 +1021,12 @@ POSTS & CONTENT STYLES
     margin-top: 2em; }
     #sidebar1 .widget_categories .button, #sidebar1 .widget_categories .page-template-page-contact-php #main #main-text .wpcf7-submit, .page-template-page-contact-php #main #main-text #sidebar1 .widget_categories .wpcf7-submit {
       width: 208px; }
-  #sidebar1 .widget_search span {
-    margin-right: -25px; }
-  #sidebar1 .widget_search .search_window {
-    width: 187px;
-    padding-left: 28px; }
+
+#searchform span {
+  margin-right: -25px; }
+#searchform input.search_window {
+  width: 187px;
+  padding-left: 28px; }
 
 /* 
 you can call the larger styles if you want, but there's really no need 

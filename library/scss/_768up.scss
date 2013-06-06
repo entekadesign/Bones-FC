@@ -91,14 +91,8 @@ style a page via class
 	.search-results {}              /* search result page */
 	.search-no-results {}           /* no results search page */
 	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
-.error503 {
-	#inner-header
-	{
-		h1
-		{
-			margin-top: 60px;
-		}
-	}
+
+.error404, .error503, .errorDB {
 	#content
 	{
 		#inner-content
@@ -107,9 +101,30 @@ style a page via class
 			{
 				width: $sevencol; //$sixcol; //456px
 				min-width: 320px;
-				#page-header {
-					.page-header-image {
-						//width: 118px;
+			}
+		}
+	}
+} 
+.error503, .errorDB {
+	#inner-header
+	{
+		h1
+		{
+			margin-top: 60px;
+		}
+	}
+	#page-footer
+	{
+		#inner-footer
+		{
+			#attribution-links
+			{
+				ul 
+				{
+					li:first-child::before
+					{
+						margin: 0;
+						content: none;
 					}
 				}
 			}
@@ -123,8 +138,6 @@ style a page via class
 		{
 			#main
 			{
-				width: $sevencol; //$sixcol; //456px
-				min-width: 320px;
 				#page-header {
 					.page-header-image {
 						width: 118px;
@@ -979,13 +992,15 @@ mobile. Make sure to double check these!
 			height: auto;
 			position: static;
 			margin: 0;
-			padding: 0;		
+			padding: 0;	
+			min-width: inherit;
 			ul {
+				padding-left: 0;
 				li {
 					&:first-child {
 						&::before {
 							content: "\25AA";
-							margin: 0 4px 0 0;
+							margin: 0 2px 0 0;
 						}
 					}	
 				}
