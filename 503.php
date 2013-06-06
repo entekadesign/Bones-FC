@@ -26,7 +26,6 @@ header( 'Retry-After: 600' ); // 10 minutes
 	<meta name="MobileOptimized" content="320" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<!-- icons & favicons (for more: http://themble.com/support/adding-icons-favicons/) -->
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />
 			
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
